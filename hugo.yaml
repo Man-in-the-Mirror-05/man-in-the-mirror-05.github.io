@@ -7,7 +7,7 @@ enableInlineShortcodes: true # shortcode，类似于模板变量，可以在写 
 hasCJKLanguage: true # 是否有 CJK 的字符
 enableRobotsTXT: true # 允许生成 robots.txt
 buildDrafts: false # 构建时是否包括草稿
-buildFuture: false # 构建未来发布的内容
+buildFuture: true # 构建未来发布的内容
 buildExpired: false # 构建过期的内容
 enableEmoji: true # 允许 emoji
 pygmentsUseClasses: true
@@ -20,7 +20,6 @@ languages:
     languageName: "English" # 展示的语言名
     weight: 1 # 权重
     taxonomies: # 分类系统
-      category: categories
       tag: tags
     # https://gohugo.io/content-management/menus/#define-in-site-configuration
     menus:
@@ -43,14 +42,14 @@ languages:
           weight: 40
         - identifier: faq
           name: FAQ
-          url: /faq/
+          url: /about/
           weight: 50
 
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-  author: Sonny Calcr
+  author: Man in the Mirror
   defaultTheme: light # 默认是暗色背景
   ShowShareButtons: false # 关闭分享的按钮
   ShowReadingTime: true # 展示预估的阅读时长
@@ -102,24 +101,39 @@ params:
     # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
     includeMatches: true
+
+  # 设置网站的标签页的图标，即 favicon
+  assets:
+      favicon: "favicon_wine.ico"
+      favicon16x16: "favicon_wine.ico"
+      favicon32x32: "favicon_wine.ico"
+      apple_touch_icon: "favicon_wine.ico"
+      safari_pinned_tab: "favicon_wine.ico"
+      disableHLJS: true
   
 
-  
-  # 文章元数据显示
-  displayPostDescription: true
-  displayPostReadingTime: true
-  displayPostAuthor: true
-  
+
   # 版权信息
   copyright: "[©2025 Man in the Mirror's Site](https://man-in-the-mirror-05.github.io/)"
-  
-  # 导航菜单
 
 
-# 构建设置
-build:
-  writeStats: true
-  useResourceCacheWhen: fallback
+outputs:
+  home:
+    - HTML # 生成的静态页面
+    - RSS # 这个其实无所谓
+    - JSON # necessary for search, 这里的配置修改好之后，一定要重新生成一下
 
 
-
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # 可以 unsafe，有些 html 标签和样式可能需要
+  highlight:
+    anchorLineNos: false # 不要给行号设置锚标
+    codeFences: true # 代码围栏
+    noClasses: false # TODO: 不知道干啥的，暂时没必要了解，不影响展示
+    lineNos: true # 代码行
+    lineNumbersInTable: false # 不要设置成 true，否则如果文章开头是代码的话，摘要会由一大堆数字(即代码行号)开头文章
+    # 这里设置 style 没用，得自己加 css
+    # style: "github-dark"
+    # style: monokai
