@@ -3,63 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Man in the Mirror</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 10px auto;
-        }
-        section {
-            margin-bottom: 25px;
-        }
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Lil'Log</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Man in the Mirror</h1>
-        <p>SJTU Sophomore</p>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <h1 class="logo">Lil'Log</h1>
+        <ul class="nav-links">
+            <li><a href="#posts">Posts</a></li>
+            <li><a href="#">Archive</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <!-- 欢迎区域 -->
+    <header class="welcome-section">
+        <h2>Welcome to Lil'Log</h2>
+        <p>Hi, this is Lilian. I'm documenting my learning notes in this blog since 2017.</p>
+        <div class="social-icons">
+            <a href="#"><img src="assets/social-icons/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="assets/social-icons/github.svg" alt="GitHub"></a>
+            <a href="#"><img src="assets/social-icons/linkedin.svg" alt="LinkedIn"></a>
+        </div>
     </header>
 
-    <section>
-        <h2>关于我</h2>
-        <p>I'm starting with the man in the mirror.</p>
-    </section>
+    <!-- 博客文章容器 -->
+    <main class="posts-container" id="posts">
+        <!-- 文章卡片通过JavaScript动态生成 -->
+    </main>
 
-    <section>
-        <h2>联系方式</h2>
-        <ul>
-            <li>邮箱: <a href="mailto:2421404291@qq.com">2421404291@qq.com</a></li>
-            <li>GitHub: <a href="https://github.com/Man-in-the-Mirror-05" target="_blank">github.com/Man-in-the-Mirror-05</a></li>
-        </ul>
-    </section>
-
-    <footer>
-
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>

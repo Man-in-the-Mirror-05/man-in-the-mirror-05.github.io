@@ -1,0 +1,140 @@
+/* 基础样式 */
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --light-gray: #f5f7fa;
+    --text-dark: #2d3748;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #ecf0f1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 导航栏样式 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* 欢迎区域 */
+.welcome-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.welcome-section h2 {
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-icons img {
+    width: 28px;
+    height: 28px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.social-icons img:hover {
+    opacity: 1;
+}
+
+/* 文章卡片 */
+.posts-container {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.post-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.post-content {
+    padding: 1.8rem;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary);
+}
+
+.post-excerpt {
+    color: #4a5568;
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #718096;
+    font-size: 0.9rem;
+    border-top: 1px solid #edf2f7;
+    padding-top: 1rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
