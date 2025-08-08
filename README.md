@@ -1,3 +1,5 @@
+# README
+
 hugo new content content/posts/xxx.md
 hugo
 hugo server
