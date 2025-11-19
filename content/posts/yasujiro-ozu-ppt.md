@@ -5,4 +5,4 @@ draft: false
 description: "直达小津安二郎主题的 Vue PPT 演示页"
 ---
 
-[点击这里直接打开演示](/presentations/yasujiro-ozu/)
+[点击这里直接打开演示](/presentation/)
