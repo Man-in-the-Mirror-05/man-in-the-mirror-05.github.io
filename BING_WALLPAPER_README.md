@@ -1,18 +1,18 @@
-# 必应每日一图功能说明
+# 必应每日壁纸功能说明
 
-本项目已集成必应每日一图功能，会自动下载必应壁纸并设置为网站全局背景。
+本项目已集成必应每日壁纸功能，会自动下载必应壁纸并设置为网站全局背景。
 
 ## 功能特性
 
 1. **自动下载壁纸**
-   - 每天自动下载zh-cn地区的必应每日一图
+   - 每天自动下载zh-cn地区的必应每日壁纸
    - 保存原英文名称（如：`ThailandNewYears.jpg`）
    - 同时保存为 `latest.jpg` 供网站使用
 
 2. **全局背景**
    - 所有页面使用 `latest.jpg` 作为背景图片
-   - 浅色模式：白色半透明遮罩（透明度85%）
-   - 深色模式：黑色半透明遮罩（透明度75%）
+   - 浅色模式：白色半透明遮罩
+   - 深色模式：黑色半透明遮罩
    - 背景图片固定，不随页面滚动
 
 3. **图片名称显示**
@@ -30,7 +30,6 @@
 .
 ├── fetch_bing_wallpaper.py          # Python下载脚本
 ├── run_fetch_bing_wallpaper.bat      # Windows批处理包装
-├── requirements.txt                  # Python依赖
 ├── bing_wallpaper_metadata.json     # 元数据文件（根目录）
 ├── static/
 │   ├── img/                         # 图片存储目录
@@ -48,13 +47,8 @@
 
 ## 使用方法
 
-### 1. 安装依赖
 
-```bash
-pip install -r requirements.txt
-```
-
-### 2. 手动运行测试
+### 1. 手动运行测试
 
 ```bash
 python fetch_bing_wallpaper.py
@@ -65,7 +59,7 @@ python fetch_bing_wallpaper.py
 run_fetch_bing_wallpaper.bat
 ```
 
-### 3. 设置Windows定时任务
+### 2. 设置Windows定时任务
 
 详细步骤请参考 `WINDOWS_TASK_SETUP.md` 文件。
 
@@ -77,7 +71,7 @@ $trigger = New-ScheduledTaskTrigger -Daily -At "00:00"
 $principal = New-ScheduledTaskPrincipal -UserId "$env:USERNAME" -LogonType S4U -RunLevel Highest
 $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
 
-Register-ScheduledTask -TaskName "Fetch Bing Wallpaper" -Action $action -Trigger $trigger -Principal $principal -Settings $settings -Description "每天自动下载必应每日一图"
+Register-ScheduledTask -TaskName "Fetch Bing Wallpaper" -Action $action -Trigger $trigger -Principal $principal -Settings $settings -Description "每天自动下载必应每日壁纸"
 ```
 
 **注意**：请将路径替换为你的实际项目路径。
@@ -88,8 +82,8 @@ Register-ScheduledTask -TaskName "Fetch Bing Wallpaper" -Action $action -Trigger
 
 编辑 `static/css/custom-background.css`：
 
-- 浅色模式透明度：修改 `rgba(255, 255, 255, 0.85)` 中的 `0.85`（0-1之间）
-- 深色模式透明度：修改 `rgba(0, 0, 0, 0.75)` 中的 `0.75`（0-1之间）
+- 浅色模式透明度：修改 `rgba(255, 255, 255, 0.65)` 中的 `0.65`（0-1之间）
+- 深色模式透明度：修改 `rgba(0, 0, 0, 0.65)` 中的 `0.65`（0-1之间）
 
 ### 修改下载地区
 

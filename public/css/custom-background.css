@@ -46,12 +46,12 @@ body::after {
 
 /* 浅色模式遮罩 - 提高透明度确保深色文字清晰可见 */
 body:not(.dark)::after {
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* 深色模式遮罩 - 提高透明度确保浅色文字清晰可见 */
 body.dark::after {
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* 确保内容在遮罩之上 */

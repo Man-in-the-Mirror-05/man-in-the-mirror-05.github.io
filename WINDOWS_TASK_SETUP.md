@@ -10,7 +10,7 @@
 2. 创建基本任务
    - 在右侧操作面板点击"创建基本任务"
    - 名称：`Fetch Bing Wallpaper`
-   - 描述：`每天自动下载必应每日一图`
+   - 描述：`每天自动下载必应每日壁纸`
 
 3. 设置触发器
    - 选择"每天"
@@ -39,7 +39,7 @@ $trigger = New-ScheduledTaskTrigger -Daily -At "00:00"
 $principal = New-ScheduledTaskPrincipal -UserId "$env:USERNAME" -LogonType S4U -RunLevel Highest
 $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
 
-Register-ScheduledTask -TaskName "Fetch Bing Wallpaper" -Action $action -Trigger $trigger -Principal $principal -Settings $settings -Description "每天自动下载必应每日一图"
+Register-ScheduledTask -TaskName "Fetch Bing Wallpaper" -Action $action -Trigger $trigger -Principal $principal -Settings $settings -Description "每天自动下载必应每日壁纸"
 ```
 
 **注意**：请将路径 `E:\man-in-the-mirror-05.github.io` 替换为你的实际项目路径。

@@ -291,15 +291,7 @@
         .then(data => {
             if (data && data.length > 0) {
                 
-                let latest = data[data.length - 1];
-                for (let i = data.length - 1; i >= 0; i--) {
-                    const item = data[i];
-                    
-                    if (item.headline && !/[\u4e00-\u9fa5]/.test(item.headline)) {
-                        latest = item;
-                        break;
-                    }
-                }
+                const latest = data[data.length - 1];
                 
                 const nameElement = document.getElementById('bing-image-name');
                 if (nameElement) {
