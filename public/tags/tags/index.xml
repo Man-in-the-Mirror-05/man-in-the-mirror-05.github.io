@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Man in the Mirror&#39;s Site</title>
+    <link>http://localhost:1313/tags/tags/</link>
+    <description>Recent content in Tags on Man in the Mirror&#39;s Site</description>
+    <image>
+      <title>Man in the Mirror&#39;s Site</title>
+      <url>https://i.postimg.cc/7hwBy7VS/calcr.png</url>
+      <link>https://i.postimg.cc/7hwBy7VS/calcr.png</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 21 Jul 2025 17:18:54 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New</title>
+      <link>http://localhost:1313/posts/new/</link>
+      <pubDate>Mon, 21 Jul 2025 17:18:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/new/</guid>
+      <description>&lt;p&gt;This is new.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>通识课和红课的经验分享</title>
+      <link>http://localhost:1313/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Mon, 21 Jul 2025 17:05:32 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</guid>
+      <description>&lt;p&gt;本人通识课3门90+，其中一门97；红课五门全部85+，其中一门90一门95。给一些经验&lt;/p&gt;
+&lt;h3 id=&#34;选课&#34;&gt;选课&lt;/h3&gt;
+&lt;p&gt;看选课社区，选择大于努力&lt;/p&gt;
+&lt;h3 id=&#34;论文&#34;&gt;论文&lt;/h3&gt;
+&lt;p&gt;切入点要小&lt;/p&gt;
+&lt;blockquote style=&#34;border-left: 4px solid #ddd; padding-left: 1em; color: #777;&#34;&gt;
+❎新时代要增强文化自信&lt;br&gt;
+✅从《哪吒2》票房登顶谈文化自信
+&lt;/blockquote&gt;
+&lt;p&gt;形式要美观，比如封面、参考文献、排版、字体
+切忌自己/AI从0创作。知网校内免费下载相关论文，AI缝合，人工微调。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

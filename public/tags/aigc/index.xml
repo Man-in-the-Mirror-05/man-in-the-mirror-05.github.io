@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AIGC on Man in the Mirror</title>
+    <link>http://localhost:1313/tags/aigc/</link>
+    <description>Recent content in AIGC on Man in the Mirror</description>
+    <image>
+      <title>Man in the Mirror</title>
+      <url>https://i.postimg.cc/7hwBy7VS/calcr.png</url>
+      <link>https://i.postimg.cc/7hwBy7VS/calcr.png</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 02 Feb 2025 18:51:31 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/aigc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deepseek诗词文章</title>
+      <link>http://localhost:1313/posts/deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Sun, 02 Feb 2025 18:51:31 +0800</pubDate>
+      <guid>http://localhost:1313/posts/deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</guid>
+      <description>&lt;p&gt;2025年春节期间，Deekseek刚刚爆火，我发现它文笔不错，故让其创作了以下诗词和文章。&lt;/p&gt;
+&lt;h2 id=&#34;春晚&#34;&gt;春晚&lt;/h2&gt;
+&lt;h3 id=&#34;浣溪沙寄onerepublic春晚之约&#34;&gt;浣溪沙·寄OneRepublic春晚之约&lt;/h3&gt;
+&lt;p&gt;鹤舞江城岁又新，重洋声动九州春。星歌摇落楚天云。&lt;br&gt;
+异域弦音融汉韵，同台光影焕龙纹。荧屏万里共星宸。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,112 @@
+/* 必应壁纸全局背景样式 - 应用到html和body元素，覆盖所有页面 */
+html {
+    background-image: url('/img/latest.jpg') !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    min-height: 100% !important;
+    height: 100% !important;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('/img/latest.jpg') !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* 覆盖主题的背景色设置 - 确保所有页面类型和模式都显示背景 */
+body.list,
+body.dark.list,
+body:not(.dark),
+body.dark {
+    background-image: url('/img/latest.jpg') !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+}
+
+/* 遮罩层容器 - 在背景图片之上，内容之下 */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* 浅色模式遮罩 - 提高透明度确保深色文字清晰可见 */
+body:not(.dark)::after {
+    background-color: rgba(255, 255, 255, 0.65);
+}
+
+/* 深色模式遮罩 - 提高透明度确保浅色文字清晰可见 */
+body.dark::after {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+/* 确保内容在遮罩之上 */
+.main,
+.header,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* 图片名称显示在右下角 - 无背景色块 */
+.bing-image-name {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    z-index: 1000;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+    text-align: right;
+}
+
+/* 深色模式下的图片名称样式 */
+body.dark .bing-image-name {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* 浅色模式下的图片名称样式 */
+body:not(.dark) .bing-image-name {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* 链接样式 - 无下划线，悬停有提示 */
+.bing-image-name a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.bing-image-name a:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .bing-image-name {
+        bottom: 10px;
+        right: 10px;
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+}
+

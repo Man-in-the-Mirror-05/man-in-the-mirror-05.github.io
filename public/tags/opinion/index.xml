@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Opinion on Man in the Mirror</title>
+    <link>http://localhost:1313/tags/opinion/</link>
+    <description>Recent content in Opinion on Man in the Mirror</description>
+    <image>
+      <title>Man in the Mirror</title>
+      <url>https://i.postimg.cc/7hwBy7VS/calcr.png</url>
+      <link>https://i.postimg.cc/7hwBy7VS/calcr.png</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 01 Feb 2025 16:01:13 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/opinion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>评2023年度E军群面题目脱下长衫</title>
+      <link>http://localhost:1313/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</link>
+      <pubDate>Sat, 01 Feb 2025 16:01:13 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</guid>
+      <description>&lt;p&gt;题目是谈谈对于“脱下长衫”的看法。E军是电院团委下面的学生组织，决定了面试不能批判性思维、不能畅所欲言。正确的立意是：要脱下长衫、要奋斗。当某个组员说“够努力，就不需要思考要不要脱下长衫”，我直接放弃面试，光看戏。很有意思，一帮没找过工作的大谈特谈解决就业问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>一句话不吐不快</title>
+      <link>http://localhost:1313/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</link>
+      <pubDate>Fri, 31 Jan 2025 22:08:09 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</guid>
+      <description>&lt;p&gt;过年回家，亲戚会让我“教教孩子”。我不知道说什么，我也是这个体制的帮凶。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

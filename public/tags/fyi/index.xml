@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>FYI on Man in the Mirror</title>
+    <link>http://localhost:1313/tags/fyi/</link>
+    <description>Recent content in FYI on Man in the Mirror</description>
+    <image>
+      <title>Man in the Mirror</title>
+      <url>https://i.postimg.cc/7hwBy7VS/calcr.png</url>
+      <link>https://i.postimg.cc/7hwBy7VS/calcr.png</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 08 Aug 2025 17:17:36 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fyi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>搜索技巧</title>
+      <link>http://localhost:1313/posts/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Fri, 08 Aug 2025 17:17:36 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid>
+      <description>&lt;h2 id=&#34;直接看表格&#34;&gt;直接看表格&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;搜索技巧&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+          &lt;th&gt;效果&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;双句号 数字范围&lt;/td&gt;
+          &lt;td&gt;数字..数字&lt;/td&gt;
+          &lt;td&gt;流行音乐榜 2000..2002&lt;/td&gt;
+          &lt;td&gt;相当于同时搜了“流行音乐榜 2000”、“流行音乐榜 2001”、“流行音乐榜 2002”&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;双引号 完全匹配&lt;/td&gt;
+          &lt;td&gt;&amp;ldquo;搜索词&amp;rdquo;&lt;/td&gt;
+          &lt;td&gt;&amp;ldquo;蓝莓果酱&amp;rdquo;&lt;/td&gt;
+          &lt;td&gt;搜出一字不落带有“蓝莓果酱”这个短语的内容&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;减号 排除&lt;/td&gt;
+          &lt;td&gt;-搜索词&lt;/td&gt;
+          &lt;td&gt;果酱-百香果&lt;/td&gt;
+          &lt;td&gt;搜出带有“果酱”但不包含“百香果”的内容&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;星号 模糊搜索&lt;/td&gt;
+          &lt;td&gt;搜索词*搜索词&lt;/td&gt;
+          &lt;td&gt;制作*果酱&lt;/td&gt;
+          &lt;td&gt;星号代表任意字符，可能搜出“制作蓝莓果酱”、“制作苹果酱”、“制作开心果酱”等&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;intitle 页面标题包含&lt;/td&gt;
+          &lt;td&gt;intitle:限定词&lt;/td&gt;
+          &lt;td&gt;品牌设计 intitle:客户案例&lt;/td&gt;
+          &lt;td&gt;只在页面标题带有“客户案例”的页面里搜索包含“品牌设计”的内容，当你想对比设计公司时，可以绕过首页直达案例页&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;site 所属站点&lt;/td&gt;
+          &lt;td&gt;site:网站域名&lt;/td&gt;
+          &lt;td&gt;AI prompt site:github.com&lt;/td&gt;
+          &lt;td&gt;只在域名为“github.com”的页面里搜索包含“AI”和“prompt”的内容，精准找到GitHub开发者们收集整理的AI提示词&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;inurl 页面链接包含&lt;/td&gt;
+          &lt;td&gt;inurl:限定词&lt;/td&gt;
+          &lt;td&gt;国庆放假 inurl:gov&lt;/td&gt;
+          &lt;td&gt;只在域名带有“gov”的页面里搜索包含“国庆放假”的内容，比较容易搜到政府官方公告&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;allinurl 页面链接包含（多个词）&lt;/td&gt;
+          &lt;td&gt;allinurl:限定词 限定词&lt;/td&gt;
+          &lt;td&gt;国庆放假 allinurl:gov 2024&lt;/td&gt;
+          &lt;td&gt;只在域名同时带有“gov”和“2024”的页面里搜索包含“国庆放假”的内容，作用同inurl，但支持多个限定词&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;related 相关网站&lt;/td&gt;
+          &lt;td&gt;related:网站域名&lt;/td&gt;
+          &lt;td&gt;related:snipaste.com -snipaste.com&lt;/td&gt;
+          &lt;td&gt;只搜索与域名“snipaste.com”相关的页面，但排除它本身，这样就搜出了很多这款截图软件的替代品&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;allintitle 页面标题包含（多个词）&lt;/td&gt;
+          &lt;td&gt;allintitle:限定词 限定词&lt;/td&gt;
+          &lt;td&gt;品牌设计 intitle:客户案例 杭州&lt;/td&gt;
+          &lt;td&gt;只在页面标题同时带有“客户案例”和“杭州”的页面里搜索包含“品牌设计”的内容，作用同intitle，但支持多个限定词&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;inanchor 指向该页面的链接文字包含&lt;/td&gt;
+          &lt;td&gt;inanchor:限定词&lt;/td&gt;
+          &lt;td&gt;inanchor:上篇文章&lt;/td&gt;
+          &lt;td&gt;搜索结果可能整页都不包含“上篇文章”4个字，但别处有某个指向它的链接，链接文字里带有“上篇文章”，比较容易搜出系列文章的第一篇&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;filetype 文件格式&lt;/td&gt;
+          &lt;td&gt;filetype:格式&lt;/td&gt;
+          &lt;td&gt;光伏 2024 filetype:pdf&lt;/td&gt;
+          &lt;td&gt;找出包含“光伏”和“2024”的PDF文件，直达行业报告正文&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+  </channel>
+</rss>

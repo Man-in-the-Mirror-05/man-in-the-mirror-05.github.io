@@ -1,0 +1,74 @@
+{{- /* Footer custom content area start */ -}}
+{{- /* 显示必应图片名称 */ -}}
+<div class="bing-image-name" id="bing-image-name">Loading...</div>
+<script>
+(function() {
+    // 读取元数据JSON文件并显示最新的图片信息
+    fetch('/bing_wallpaper_metadata.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Metadata file not found');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data && data.length > 0) {
+                // 优先使用英语版本：查找headline不包含中文字符的条目
+                let latest = data[data.length - 1];
+                for (let i = data.length - 1; i >= 0; i--) {
+                    const item = data[i];
+                    // 检查headline是否包含中文字符
+                    if (item.headline && !/[\u4e00-\u9fa5]/.test(item.headline)) {
+                        latest = item;
+                        break;
+                    }
+                }
+                
+                const nameElement = document.getElementById('bing-image-name');
+                if (nameElement) {
+                    // 构建必应图片链接
+                    const bingUrl = 'https://www.bing.com' + latest.urlBase + '_1920x1080.jpg';
+                    
+                    // 构建显示内容：headline、·、斜体filename、换行、copyright
+                    let content = '';
+                    if (latest.headline) {
+                        content += latest.headline;
+                    }
+                    if (latest.filename) {
+                        if (content) content += ' · ';
+                        content += '<em>' + latest.filename + '</em>';
+                    }
+                    if (latest.copyright) {
+                        if (content) content += '<br>';
+                        content += latest.copyright;
+                    }
+                    
+                    // 如果没有内容，使用默认文本
+                    if (!content) {
+                        content = 'Bing Wallpaper';
+                    }
+                    
+                    // 创建链接
+                    nameElement.innerHTML = '<a href="' + bingUrl + '" target="_blank" rel="noopener noreferrer" title="View on Bing">' + content + '</a>';
+                }
+            }
+        })
+        .catch(error => {
+            // 如果读取失败，尝试从URL推断（如果latest.jpg存在）
+            const nameElement = document.getElementById('bing-image-name');
+            if (nameElement) {
+                // 检查是否有latest.jpg，如果有则显示默认文本
+                const img = new Image();
+                img.onload = function() {
+                    nameElement.innerHTML = '<a href="https://www.bing.com" target="_blank" rel="noopener noreferrer" title="View on Bing">Bing Wallpaper</a>';
+                };
+                img.onerror = function() {
+                    nameElement.style.display = 'none';
+                };
+                img.src = '/img/latest.jpg';
+            }
+        });
+})();
+</script>
+{{- /* Footer custom content area end */ -}}
+

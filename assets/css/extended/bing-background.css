@@ -1,0 +1,67 @@
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: transparent;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+}
+
+body::before {
+    background-image: var(--bing-background, none);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: saturate(1.05);
+    opacity: 0.1;
+}
+
+body::after {
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(5, 8, 15, 0.35), rgba(5, 8, 15, 0.65));
+}
+
+body.dark::after {
+    background: linear-gradient(180deg, rgba(5, 8, 15, 0.65), rgba(5, 8, 15, 0.85));
+}
+
+.bing-credit {
+    position: fixed;
+    right: clamp(12px, 3vw, 24px);
+    bottom: clamp(12px, 3vw, 24px);
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-align: right;
+    z-index: 20;
+    line-height: 1.3;
+    max-width: min(320px, 60vw);
+}
+
+.bing-credit__divider {
+    display: inline-block;
+    margin: 0 0.25rem;
+    opacity: 0.7;
+}
+
+.bing-credit__title {
+    font-weight: 500;
+}
+
+.bing-credit__copyright {
+    font-style: italic;
+}
+
+@media print {
+    .bing-credit {
+        display: none;
+    }
+}
