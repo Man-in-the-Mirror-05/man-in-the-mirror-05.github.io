@@ -39,6 +39,7 @@
 
 .archive-count,
 .archive-meta {
-    color: var(--secondary);
+    color: var(--primary);
     font-size: 14px;
+    
 }

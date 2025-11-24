@@ -73,7 +73,7 @@ params:
     Title: "Hi!👋 I'm Man in the Mirror."
     # 首页的 profile 内容
     Content: >
-      Hi, this is Man in the Mirror. I’m documenting my learning notes in this blog since 2024.
+      Hi, this is Man in the Mirror. I’ve been writing since 2024.
   # 社交帐号的按钮
   socialIcons:
     - name: github
