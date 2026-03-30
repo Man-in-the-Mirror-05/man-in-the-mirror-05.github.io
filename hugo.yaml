@@ -125,6 +125,14 @@ markup:
   goldmark:
     renderer:
       unsafe: true # 可以 unsafe，有些 html 标签和样式可能需要
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - ['$$', '$$']
+          inline:
+            - ['$', '$']
   highlight:
     anchorLineNos: false # 不要给行号设置锚标
     codeFences: true # 代码围栏

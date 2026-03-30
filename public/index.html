@@ -30,7 +30,20 @@
         }
 
     </style>
-</noscript><link rel="stylesheet" href="/css/custom-background.css"><meta property="og:url" content="http://localhost:1313/">
+</noscript><link rel="stylesheet" href="/css/custom-background.css"><script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script><meta property="og:url" content="http://localhost:1313/">
   <meta property="og:site_name" content="Man in the Mirror">
   <meta property="og:title" content="Man in the Mirror">
   <meta property="og:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod">
@@ -182,6 +195,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">生成模型都在拟合分布？MLE≈KL散度，以及VAE、Diffusion、GAN的数学本质
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>最大化MLE等价于最小化KL散度 假设我们有一个图像训练集，包含 $M$ 张图片 $\{x_1, x_2, \dots, x_M\}$。这些图片来自于一个未知的真实数据分布 $P_{\text{data}}(x)$。我们的目标是训练一个参数化模型 $P_{\theta}(x)$，使其能够生成与训练集相似的新图像。通常，我们通过输入一个随机噪声向量（例如，从正态分布中采样）来生成图像。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-09-25 12:34:13 +0800 CST'>2025-09-25</span>&nbsp;·&nbsp;预计阅读时间 20 分钟&nbsp;·&nbsp;Man in the Mirror</footer>
+  <a class="entry-link" aria-label="post link to 生成模型都在拟合分布？MLE≈KL散度，以及VAE、Diffusion、GAN的数学本质" href="http://localhost:1313/posts/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E9%83%BD%E5%9C%A8%E6%8B%9F%E5%90%88%E5%88%86%E5%B8%83mlekl%E6%95%A3%E5%BA%A6%E4%BB%A5%E5%8F%8Avaediffusiongan%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">搜索技巧
     </h2>
   </header>
@@ -190,6 +216,19 @@
   </div>
   <footer class="entry-footer"><span title='2025-08-08 17:17:36 +0800 CST'>2025-08-08</span>&nbsp;·&nbsp;预计阅读时间 2 分钟&nbsp;·&nbsp;Man in the Mirror</footer>
   <a class="entry-link" aria-label="post link to 搜索技巧" href="http://localhost:1313/posts/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">当银幕与屏幕间的堑壕崩塌时
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> They went to sea in a Sieve, they did, In a Sieve they went to sea: In spite of all their friends could say, On a winter’s morn, on a stormy day, In a Sieve they went to sea! Far and few, far and few, Are the lands where the Jumblies live; Their heads are green, and their hands are blue, And they went to sea in a Sieve.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-05-05 11:26:53 +0800 CST'>2025-05-05</span>&nbsp;·&nbsp;预计阅读时间 3 分钟&nbsp;·&nbsp;Man in the Mirror</footer>
+  <a class="entry-link" aria-label="post link to 当银幕与屏幕间的堑壕崩塌时" href="http://localhost:1313/posts/%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -265,7 +304,7 @@
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Man in the Mirror</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">Man in the Mirror</a></span> · 
 
     <span>
         Powered by
