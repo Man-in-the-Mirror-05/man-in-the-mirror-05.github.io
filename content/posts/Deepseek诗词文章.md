@@ -2,7 +2,7 @@
 date = '2025-02-02T18:51:31+08:00'
 draft = false
 title = 'Deepseek诗词文章'
-tags = ["AIGC", "Art"]
+tags = ["rambling"]
 +++
 
 2025年春节期间，Deekseek刚刚爆火，我发现它文笔不错，故让其创作了以下诗词和文章。
