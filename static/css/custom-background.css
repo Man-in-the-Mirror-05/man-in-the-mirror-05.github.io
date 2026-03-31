@@ -1,6 +1,6 @@
 /* 必应壁纸全局背景样式 - 应用到html和body元素，覆盖所有页面 */
 html {
-    background-image: url('/img/latest.jpg') !important;
+    background-image: url('/img/latest.jpg?v=20260401') !important;
     background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center !important;
@@ -12,7 +12,7 @@ html {
 body {
     position: relative;
     min-height: 100vh;
-    background-image: url('/img/latest.jpg') !important;
+    background-image: url('/img/latest.jpg?v=20260401') !important;
     background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center !important;
@@ -24,7 +24,7 @@ body.list,
 body.dark.list,
 body:not(.dark),
 body.dark {
-    background-image: url('/img/latest.jpg') !important;
+    background-image: url('/img/latest.jpg?v=20260401') !important;
     background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center !important;

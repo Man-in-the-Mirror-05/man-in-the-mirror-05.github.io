@@ -136,6 +136,31 @@ def save_metadata(metadata):
     with open(static_metadata_path, "w", encoding="utf-8") as f:
         json.dump(all_metadata, f, ensure_ascii=False, indent=2)
 
+def update_css_version(enddate):
+    """更新CSS中的背景图版本号，确保与metadata同步"""
+    css_path = Path("static/css/custom-background.css")
+    if not css_path.exists():
+        print(f"CSS文件不存在: {css_path}")
+        return
+    
+    try:
+        with open(css_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        # 替换所有背景图URL的版本号
+        import re
+        # 匹配 /img/latest.jpg?v=YYYYMMDD 或 /img/latest.jpg
+        pattern = r"(/img/latest\.jpg)(\?v=\d+)?"
+        replacement = rf"\1?v={enddate}"
+        new_content = re.sub(pattern, replacement, content)
+        
+        with open(css_path, "w", encoding="utf-8") as f:
+            f.write(new_content)
+        
+        print(f"CSS版本号已更新为: {enddate}")
+    except Exception as e:
+        print(f"更新CSS版本号失败: {e}")
+
 def get_latest_metadata():
     """获取最新的元数据"""
     metadata_path = Path(METADATA_FILE)
@@ -281,6 +306,8 @@ def main():
         latest_path = IMG_DIR / "latest.jpg"
         shutil.copy2(original_path, latest_path)
         print(f"已更新: {latest_path}")
+        # 即使已存在，也保存元数据（可能文本信息有更新）
+        save_metadata(metadata)
     else:
         # 下载图片（使用中文版本的urlBase）
         print("正在下载图片...")
@@ -290,6 +317,9 @@ def main():
             print("元数据已保存")
         else:
             sys.exit(1)
+    
+    # 更新CSS版本号确保背景图和metadata同步
+    update_css_version(metadata['enddate'])
     
     # 同步到GitHub
     print("正在同步到GitHub...")

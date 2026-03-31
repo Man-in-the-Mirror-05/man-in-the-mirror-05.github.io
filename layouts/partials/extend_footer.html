@@ -5,8 +5,8 @@
 {{- /* 打字机效果脚本 */ -}}
 <script>
 (function() {
-    // ========== 必应壁纸信息加载 ==========
-    fetch('/bing_wallpaper_metadata.json')
+    // ========== 必应壁纸信息加载（带时间戳防缓存）==========
+    fetch('/bing_wallpaper_metadata.json?t=' + Date.now())
         .then(response => {
             if (!response.ok) {
                 throw new Error('Metadata file not found');
@@ -15,7 +15,9 @@
         })
         .then(data => {
             if (data && data.length > 0) {
-                const latest = data[data.length - 1];
+                // 按 enddate 排序取最新的一条
+                const sorted = data.sort((a, b) => b.enddate.localeCompare(a.enddate));
+                const latest = sorted[0];
                 const nameElement = document.getElementById('bing-image-name');
                 if (nameElement) {
                     const bingUrl = 'https://www.bing.com' + latest.urlBase + '_1920x1080.jpg';

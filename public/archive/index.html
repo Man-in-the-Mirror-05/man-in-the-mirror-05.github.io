@@ -321,7 +321,7 @@ MathJax = {
 </a><div class="bing-image-name" id="bing-image-name">Loading...</div><script>
 (function() {
     
-    fetch('/bing_wallpaper_metadata.json')
+    fetch('/bing_wallpaper_metadata.json?t=' + Date.now())
         .then(response => {
             if (!response.ok) {
                 throw new Error('Metadata file not found');
@@ -330,7 +330,9 @@ MathJax = {
         })
         .then(data => {
             if (data && data.length > 0) {
-                const latest = data[data.length - 1];
+                
+                const sorted = data.sort((a, b) => b.enddate.localeCompare(a.enddate));
+                const latest = sorted[0];
                 const nameElement = document.getElementById('bing-image-name');
                 if (nameElement) {
                     const bingUrl = 'https://www.bing.com' + latest.urlBase + '_1920x1080.jpg';
