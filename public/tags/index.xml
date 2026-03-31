@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Man in the Mirror</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://man-in-the-mirror-05.github.io/tags/</link>
     <description>Recent content in Tags on Man in the Mirror</description>
     <image>
       <title>Man in the Mirror</title>
@@ -12,47 +12,47 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 19 Nov 2025 17:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://man-in-the-mirror-05.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Presentation</title>
-      <link>http://localhost:1313/tags/presentation/</link>
+      <link>https://man-in-the-mirror-05.github.io/tags/presentation/</link>
       <pubDate>Wed, 19 Nov 2025 17:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/presentation/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/tags/presentation/</guid>
       <description></description>
     </item>
     <item>
       <title>Generative-Model</title>
-      <link>http://localhost:1313/tags/generative-model/</link>
+      <link>https://man-in-the-mirror-05.github.io/tags/generative-model/</link>
       <pubDate>Thu, 25 Sep 2025 12:34:13 +0800</pubDate>
-      <guid>http://localhost:1313/tags/generative-model/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/tags/generative-model/</guid>
       <description></description>
     </item>
     <item>
       <title>Reference</title>
-      <link>http://localhost:1313/tags/reference/</link>
+      <link>https://man-in-the-mirror-05.github.io/tags/reference/</link>
       <pubDate>Fri, 08 Aug 2025 17:17:36 +0800</pubDate>
-      <guid>http://localhost:1313/tags/reference/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/tags/reference/</guid>
       <description></description>
     </item>
     <item>
       <title>Film</title>
-      <link>http://localhost:1313/tags/film/</link>
+      <link>https://man-in-the-mirror-05.github.io/tags/film/</link>
       <pubDate>Mon, 05 May 2025 11:26:53 +0800</pubDate>
-      <guid>http://localhost:1313/tags/film/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/tags/film/</guid>
       <description></description>
     </item>
     <item>
       <title>Rambling</title>
-      <link>http://localhost:1313/tags/rambling/</link>
+      <link>https://man-in-the-mirror-05.github.io/tags/rambling/</link>
       <pubDate>Sun, 02 Feb 2025 18:51:31 +0800</pubDate>
-      <guid>http://localhost:1313/tags/rambling/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/tags/rambling/</guid>
       <description></description>
     </item>
     <item>
       <title>Sjtu</title>
-      <link>http://localhost:1313/tags/sjtu/</link>
+      <link>https://man-in-the-mirror-05.github.io/tags/sjtu/</link>
       <pubDate>Fri, 24 Jan 2025 14:55:32 +0800</pubDate>
-      <guid>http://localhost:1313/tags/sjtu/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/tags/sjtu/</guid>
       <description></description>
     </item>
   </channel>

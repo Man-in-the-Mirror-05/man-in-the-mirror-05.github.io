@@ -294,8 +294,8 @@ $$
 
 1.  采样初始噪声 $x_T \sim \mathcal{N}(0, I)$。
 2.  **for** $t = T$ **to** $1$ **do**:
-3.      采样一个随机噪声 $z \sim \mathcal{N}(0, I)$ (当 $t>1$ 时，$t=1$ 时可取0)。
-4.      计算 $x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left( x_t - \frac{\beta_t}{\sqrt{1-\bar{\alpha}_t}} \epsilon_\theta(x_t, t) \right) + \sigma_t z$，其中 $\sigma_t^2 = \tilde{\beta}_t$。
+3.  采样一个随机噪声 $z \sim \mathcal{N}(0, I)$ (当 $t>1$ 时，$t=1$ 时可取0)。
+4.  计算 $x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left( x_t - \frac{\beta_t}{\sqrt{1-\bar{\alpha}_t}} \epsilon_\theta(x_t, t) \right) + \sigma_t z$，其中 $\sigma_t^2 = \tilde{\beta}_t$。
 5.  **end for**
 6.  返回 $x_0$。
 

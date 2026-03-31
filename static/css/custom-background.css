@@ -32,7 +32,7 @@ body.dark {
     background-color: transparent !important;
 }
 
-/* 遮罩层容器 - 在背景图片之上，内容之下 */
+/* ========== 遮罩层 ========== */
 body::after {
     content: '';
     position: fixed;
@@ -44,12 +44,12 @@ body::after {
     pointer-events: none;
 }
 
-/* 浅色模式遮罩 - 提高透明度确保深色文字清晰可见 */
+/* 浅色模式遮罩 */
 body:not(.dark)::after {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* 深色模式遮罩 - 提高透明度确保浅色文字清晰可见 */
+/* 深色模式遮罩 */
 body.dark::after {
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -62,7 +62,269 @@ body.dark::after {
     z-index: 1;
 }
 
-/* 图片名称显示在右下角 - 无背景色块 */
+/* ========== 首页介绍区域 - 无背景块 ========== */
+.home-info {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 24px;
+}
+
+body:not(.dark) .home-info,
+body.dark .home-info {
+    background: transparent !important;
+}
+
+/* ========== 文章列表背景块 - 高模糊毛玻璃效果 ========== */
+.post-entry {
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(40px) saturate(150%);
+    -webkit-backdrop-filter: blur(40px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 浅色模式 - 毛玻璃背景，高模糊度以区分背景 */
+body:not(.dark) .post-entry {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 深色模式 - 毛玻璃背景 */
+body.dark .post-entry {
+    background: rgba(40, 42, 48, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 文章卡片悬浮效果 */
+body:not(.dark) .post-entry:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .post-entry:hover {
+    transform: translateY(-4px);
+    background: rgba(50, 52, 58, 0.85);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ========== 导航栏 - 透明毛玻璃，颜色随背景变化 ========== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* 浅色模式 - 低透明度白色，让背景色透过来 */
+body:not(.dark) .header {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 深色模式 - 低透明度深色，让背景色透过来 */
+body.dark .header {
+    background: rgba(30, 30, 35, 0.35) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 为固定导航栏腾出空间 */
+.main {
+    padding-top: 60px;
+}
+
+/* ========== 社交图标悬浮动画 ========== */
+.social-icons a {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s ease,
+                opacity 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    transform: translateY(-4px) scale(1.2);
+    opacity: 0.8;
+}
+
+body:not(.dark) .social-icons a:hover {
+    color: #2c3e50;
+}
+
+body.dark .social-icons a:hover {
+    color: #64b5f6;
+}
+
+/* ========== 代码块美化 - macOS风格 ========== */
+.highlight {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1em 0;
+}
+
+/* macOS风格标题栏 */
+.highlight::before {
+    content: "● ● ●";
+    display: block;
+    padding: 10px 16px;
+    font-size: 10px;
+    letter-spacing: 6px;
+    line-height: 1;
+    border-radius: 8px 8px 0 0;
+}
+
+body:not(.dark) .highlight::before {
+    background: linear-gradient(to bottom, #f1f1f1, #e5e5e5);
+    color: #ff5f56;
+    text-shadow: 8px 0 0 #ffbd2e, 16px 0 0 #27c93f;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+body.dark .highlight::before {
+    background: linear-gradient(to bottom, #2d2d2d, #252525);
+    color: #ff5f56;
+    text-shadow: 8px 0 0 #ffbd2e, 16px 0 0 #27c93f;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.highlight pre {
+    margin: 0;
+    border-radius: 0 0 8px 8px;
+    padding: 16px;
+    overflow-x: auto;
+}
+
+/* ========== 行内代码样式优化 - 无背景，保持正文样式 ========== */
+.post-content code {
+    background: transparent !important;
+    padding: 0 2px;
+    font-size: 0.9em;
+}
+
+body:not(.dark) .post-content code {
+    color: inherit;
+}
+
+body.dark .post-content code {
+    color: inherit;
+}
+
+/* ========== 深色模式代码高亮 - Dracula主题 ========== */
+body.dark .highlight pre {
+    background: #282a36 !important;
+    color: #f8f8f2;
+}
+
+body.dark .highlight .c,
+body.dark .highlight .cm,
+body.dark .highlight .c1,
+body.dark .highlight .cs { color: #6272a4; } /* 注释 */
+
+body.dark .highlight .k,
+body.dark .highlight .kc,
+body.dark .highlight .kd,
+body.dark .highlight .kn,
+body.dark .highlight .kp,
+body.dark .highlight .kr,
+body.dark .highlight .kt { color: #ff79c6; } /* 关键字 */
+
+body.dark .highlight .s,
+body.dark .highlight .sb,
+body.dark .highlight .sc,
+body.dark .highlight .sd,
+body.dark .highlight .s2,
+body.dark .highlight .se,
+body.dark .highlight .sh,
+body.dark .highlight .si,
+body.dark .highlight .sx,
+body.dark .highlight .s1 { color: #f1fa8c; } /* 字符串 */
+
+body.dark .highlight .m,
+body.dark .highlight .mf,
+body.dark .highlight .mh,
+body.dark .highlight .mi,
+body.dark .highlight .mo { color: #bd93f9; } /* 数字 */
+
+body.dark .highlight .nf,
+body.dark .highlight .na { color: #50fa7b; } /* 函数 */
+
+body.dark .highlight .nc,
+body.dark .highlight .nn { color: #8be9fd; } /* 类名 */
+
+body.dark .highlight .o,
+body.dark .highlight .ow { color: #ff79c6; } /* 操作符 */
+
+body.dark .highlight .nb { color: #8be9fd; } /* 内置名称 */
+
+/* 复制按钮美化 */
+.copy-code {
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+body:not(.dark) .copy-code {
+    background: rgba(0, 0, 0, 0.05);
+    color: #555;
+}
+
+body.dark .copy-code {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+}
+
+.copy-code:hover {
+    transform: scale(1.05);
+}
+
+body:not(.dark) .copy-code:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+body.dark .copy-code:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ========== 打字机效果样式 ========== */
+.typewriter-text {
+    display: inline;
+    border-right: 2px solid currentColor;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+/* 标题行保持不换行 */
+.home-info .entry-header h1 .typewriter-text {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* 内容行可以换行 */
+.home-info .entry-content .typewriter-text {
+    display: inline;
+    white-space: normal;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: currentColor; }
+}
+
+/* 完成打字后移除光标 */
+.typewriter-text.done {
+    border-right: none;
+    animation: none;
+}
+
+/* ========== 图片名称显示在右下角 ========== */
 .bing-image-name {
     position: fixed;
     bottom: 20px;
@@ -74,21 +336,19 @@ body.dark::after {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     line-height: 1.5;
     text-align: right;
+    transition: opacity 0.3s ease;
 }
 
-/* 深色模式下的图片名称样式 */
 body.dark .bing-image-name {
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* 浅色模式下的图片名称样式 */
 body:not(.dark) .bing-image-name {
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* 链接样式 - 无下划线，悬停有提示 */
 .bing-image-name a {
     text-decoration: none;
     color: inherit;
@@ -100,13 +360,97 @@ body:not(.dark) .bing-image-name {
     cursor: pointer;
 }
 
-/* 移动端适配 */
+/* ========== 导航菜单交互动效 - 仅颜色变化 ========== */
+#menu a {
+    transition: color 0.3s ease;
+}
+
+body:not(.dark) #menu a:hover {
+    color: #667eea;
+}
+
+body.dark #menu a:hover {
+    color: #64b5f6;
+}
+
+/* 当前页面高亮 */
+#menu a.active {
+    font-weight: 500;
+}
+
+body:not(.dark) #menu a.active {
+    color: #667eea;
+}
+
+body.dark #menu a.active {
+    color: #64b5f6;
+}
+
+/* ========== 移动端优化 ========== */
 @media (max-width: 768px) {
+    /* 必应图片名称位置调整 */
     .bing-image-name {
         bottom: 10px;
         right: 10px;
         font-size: 11px;
-        padding: 6px 10px;
+        max-width: 200px;
+    }
+    
+    /* 增大触摸区域 */
+    #menu a,
+    .social-icons a,
+    .post-entry a {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* 汉堡菜单动画优化 */
+    #menu-toggle {
+        transition: transform 0.3s ease;
+    }
+    
+    #menu-toggle:active {
+        transform: scale(0.95);
+    }
+    
+    /* 移动端背景固定改为滚动，避免性能问题 */
+    html,
+    body {
+        background-attachment: scroll !important;
+    }
+    
+    /* 文章卡片在移动端悬浮效果减弱 */
+    .post-entry:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* 打字机效果在移动端适配 */
+    .typewriter-text {
+        white-space: normal;
+        border-right: none;
+        animation: none;
+    }
+    
+    /* 移动端导航栏空间调整 */
+    .main {
+        padding-top: 50px;
     }
 }
 
+/* ========== 打印样式优化 ========== */
+@media print {
+    .bing-image-name,
+    .typewriter-text {
+        display: none;
+    }
+    
+    .header {
+        position: relative;
+    }
+    
+    .main {
+        padding-top: 0;
+    }
+}

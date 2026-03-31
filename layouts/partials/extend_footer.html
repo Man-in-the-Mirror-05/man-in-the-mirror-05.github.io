@@ -1,9 +1,11 @@
 {{- /* Footer custom content area start */ -}}
 {{- /* 显示必应图片名称 */ -}}
 <div class="bing-image-name" id="bing-image-name">Loading...</div>
+
+{{- /* 打字机效果脚本 */ -}}
 <script>
 (function() {
-    // 读取元数据JSON文件并显示最新的图片信息
+    // ========== 必应壁纸信息加载 ==========
     fetch('/bing_wallpaper_metadata.json')
         .then(response => {
             if (!response.ok) {
@@ -13,15 +15,10 @@
         })
         .then(data => {
             if (data && data.length > 0) {
-                // 直接使用最新条目（最后一条），脚本已确保优先保存英语版本
                 const latest = data[data.length - 1];
-                
                 const nameElement = document.getElementById('bing-image-name');
                 if (nameElement) {
-                    // 构建必应图片链接
                     const bingUrl = 'https://www.bing.com' + latest.urlBase + '_1920x1080.jpg';
-                    
-                    // 构建显示内容：headline、·、斜体filename、换行、copyright
                     let content = '';
                     if (latest.headline) {
                         content += latest.headline;
@@ -34,22 +31,16 @@
                         if (content) content += '<br>';
                         content += latest.copyright;
                     }
-                    
-                    // 如果没有内容，使用默认文本
                     if (!content) {
                         content = 'Bing Wallpaper';
                     }
-                    
-                    // 创建链接
                     nameElement.innerHTML = '<a href="' + bingUrl + '" target="_blank" rel="noopener noreferrer" title="View on Bing">' + content + '</a>';
                 }
             }
         })
         .catch(error => {
-            // 如果读取失败，尝试从URL推断（如果latest.jpg存在）
             const nameElement = document.getElementById('bing-image-name');
             if (nameElement) {
-                // 检查是否有latest.jpg，如果有则显示默认文本
                 const img = new Image();
                 img.onload = function() {
                     nameElement.innerHTML = '<a href="https://www.bing.com" target="_blank" rel="noopener noreferrer" title="View on Bing">Bing Wallpaper</a>';
@@ -60,7 +51,115 @@
                 img.src = '/img/latest.jpg';
             }
         });
+
+    // ========== 打字机效果 - 两行同时开始 ==========
+    function initTypewriter() {
+        // 查找首页的标题和内容元素
+        const homeHeader = document.querySelector('.home-info .entry-header h1');
+        const homeContent = document.querySelector('.home-info .entry-content');
+        
+        if (!homeHeader || !homeContent) return;
+
+        // 获取原始文本
+        const headerText = homeHeader.textContent.trim();
+        const contentText = homeContent.textContent.trim();
+        
+        if (!headerText && !contentText) return;
+
+        // 清空并添加打字机类
+        homeHeader.innerHTML = '<span class="typewriter-text" data-text="header"></span>';
+        homeContent.innerHTML = '<span class="typewriter-text" data-text="content"></span>';
+        
+        const headerElement = homeHeader.querySelector('.typewriter-text');
+        const contentElement = homeContent.querySelector('.typewriter-text');
+
+        // 打字效果配置
+        const typingSpeed = 60; // 每个字符的打字速度（毫秒）
+        const startDelay = 300; // 开始打字的延迟
+
+        let headerIndex = 0;
+        let contentIndex = 0;
+        let headerDone = false;
+        let contentDone = false;
+
+        function typeHeader() {
+            if (headerIndex < headerText.length) {
+                headerElement.textContent += headerText.charAt(headerIndex);
+                headerIndex++;
+                setTimeout(typeHeader, typingSpeed);
+            } else {
+                headerDone = true;
+                headerElement.classList.add('done');
+            }
+        }
+
+        function typeContent() {
+            if (contentIndex < contentText.length) {
+                contentElement.textContent += contentText.charAt(contentIndex);
+                contentIndex++;
+                setTimeout(typeContent, typingSpeed);
+            } else {
+                contentDone = true;
+                contentElement.classList.add('done');
+            }
+        }
+
+        // 同时开始两行打字
+        setTimeout(() => {
+            typeHeader();
+            typeContent();
+        }, startDelay);
+    }
+
+    // 页面加载完成后启动打字机
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTypewriter);
+    } else {
+        initTypewriter();
+    }
+
+    // ========== 移动端菜单动画优化 ==========
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', function() {
+            const isOpen = menu.classList.contains('active');
+            
+            if (isOpen) {
+                // 关闭菜单动画
+                menu.style.opacity = '0';
+                menu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                }, 300);
+            } else {
+                // 打开菜单动画
+                menu.style.display = 'block';
+                // 强制重排以触发动画
+                menu.offsetHeight;
+                menu.classList.add('active');
+                menu.style.opacity = '1';
+                menu.style.transform = 'translateY(0)';
+            }
+        });
+
+        // 初始化菜单样式
+        menu.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        
+        // 点击菜单外部关闭
+        document.addEventListener('click', function(e) {
+            if (!menu.contains(e.target) && !menuToggle.contains(e.target) && menu.classList.contains('active')) {
+                menu.style.opacity = '0';
+                menu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
 })();
 </script>
 {{- /* Footer custom content area end */ -}}
-
