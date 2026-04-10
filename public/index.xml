@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Man in the Mirror</title>
-    <link>https://man-in-the-mirror-05.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Man in the Mirror</description>
     <image>
       <title>Man in the Mirror</title>
@@ -12,27 +12,27 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 19 Nov 2025 17:00:00 +0800</lastBuildDate>
-    <atom:link href="https://man-in-the-mirror-05.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PPT 演示入口</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/ppt%E5%85%A5%E5%8F%A3/</link>
+      <link>http://localhost:1313/posts/ppt%E5%85%A5%E5%8F%A3/</link>
       <pubDate>Wed, 19 Nov 2025 17:00:00 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/ppt%E5%85%A5%E5%8F%A3/</guid>
+      <guid>http://localhost:1313/posts/ppt%E5%85%A5%E5%8F%A3/</guid>
       <description>直达 Vue PPT 演示页</description>
     </item>
     <item>
       <title>生成模型都在拟合分布？MLE≈KL散度，以及VAE、Diffusion、GAN的数学本质</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E9%83%BD%E5%9C%A8%E6%8B%9F%E5%90%88%E5%88%86%E5%B8%83mlekl%E6%95%A3%E5%BA%A6%E4%BB%A5%E5%8F%8Avaediffusiongan%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8/</link>
+      <link>http://localhost:1313/posts/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E9%83%BD%E5%9C%A8%E6%8B%9F%E5%90%88%E5%88%86%E5%B8%83mlekl%E6%95%A3%E5%BA%A6%E4%BB%A5%E5%8F%8Avaediffusiongan%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8/</link>
       <pubDate>Thu, 25 Sep 2025 12:34:13 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E9%83%BD%E5%9C%A8%E6%8B%9F%E5%90%88%E5%88%86%E5%B8%83mlekl%E6%95%A3%E5%BA%A6%E4%BB%A5%E5%8F%8Avaediffusiongan%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8/</guid>
+      <guid>http://localhost:1313/posts/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E9%83%BD%E5%9C%A8%E6%8B%9F%E5%90%88%E5%88%86%E5%B8%83mlekl%E6%95%A3%E5%BA%A6%E4%BB%A5%E5%8F%8Avaediffusiongan%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8/</guid>
       <description>&lt;h2 id=&#34;最大化mle等价于最小化kl散度&#34;&gt;最大化MLE等价于最小化KL散度&lt;/h2&gt;
 &lt;p&gt;假设我们有一个图像训练集，包含 $M$ 张图片 $\{x_1, x_2, \dots, x_M\}$。这些图片来自于一个未知的真实数据分布 $P_{\text{data}}(x)$。我们的目标是训练一个参数化模型 $P_{\theta}(x)$，使其能够生成与训练集相似的新图像。通常，我们通过输入一个随机噪声向量（例如，从正态分布中采样）来生成图像。&lt;/p&gt;</description>
     </item>
     <item>
       <title>搜索技巧</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link>
+      <link>http://localhost:1313/posts/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link>
       <pubDate>Fri, 08 Aug 2025 17:17:36 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid>
+      <guid>http://localhost:1313/posts/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid>
       <description>&lt;h2 id=&#34;直接看表格&#34;&gt;直接看表格&lt;/h2&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -121,9 +121,9 @@
     </item>
     <item>
       <title>当银幕与屏幕间的堑壕崩塌时</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/</link>
+      <link>http://localhost:1313/posts/%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/</link>
       <pubDate>Mon, 05 May 2025 11:26:53 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/</guid>
+      <guid>http://localhost:1313/posts/%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;They went to sea in a Sieve, they did,
 In a Sieve they went to sea:
@@ -136,10 +136,20 @@ Their heads are green, and their hands are blue,
 And they went to sea in a Sieve.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Deepseek诗词文章</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</link>
+      <title>【鲸鱼随笔】梯度消失的年三十</title>
+      <link>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/</link>
+      <pubDate>Tue, 04 Feb 2025 09:00:18 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/</guid>
+      <description>&lt;p&gt;过年了，不要再讨论什么transformer&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;、SOTA&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;、pretrain&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;之类的了。你背着贴满各大厂logo的破双肩包&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;连上实验室的3090集群&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;继续调prompt&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;。亲戚围炉时问起你的学术成就，你掏手机展示arxiv&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;最新预印本，说在cifar-10&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;上把准确率卷到了99.114514%&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;的滑动窗口解法。&lt;/p&gt;
+&lt;p&gt;你暗笑他们不懂attention机制&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;的精妙，不明白你凌晨三点调learning rate schedule&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;的禅意，更看不懂你GitHub仓库里那串寒碜的几个star&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;。当大姑炫耀儿子在滨江&lt;sup id=&#34;fnref:15&#34;&gt;&lt;a href=&#34;#fn:15&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;15&lt;/a&gt;&lt;/sup&gt;买了89平学区房，小叔吹嘘女儿特斯拉又蹭了保险时，你父母低头扒饭，嘟囔着&amp;quot;我崽的MacBook键盘包了浆，空调房还戴毛线帽，说是什么对抗梯度消失&lt;sup id=&#34;fnref:16&#34;&gt;&lt;a href=&#34;#fn:16&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;16&lt;/a&gt;&lt;/sup&gt;&amp;quot;。&lt;/p&gt;
+&lt;p&gt;你凌晨三点蹲在老家路由器旁边抢算力配额&lt;sup id=&#34;fnref:17&#34;&gt;&lt;a href=&#34;#fn:17&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;17&lt;/a&gt;&lt;/sup&gt;，发现HuggingFace&lt;sup id=&#34;fnref:18&#34;&gt;&lt;a href=&#34;#fn:18&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;18&lt;/a&gt;&lt;/sup&gt;的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop&lt;sup id=&#34;fnref:19&#34;&gt;&lt;a href=&#34;#fn:19&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;19&lt;/a&gt;&lt;/sup&gt;链接，配文&amp;quot;大模型幻觉问题&lt;sup id=&#34;fnref:20&#34;&gt;&lt;a href=&#34;#fn:20&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;20&lt;/a&gt;&lt;/sup&gt;新SOTA&amp;quot;。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式&lt;sup id=&#34;fnref:21&#34;&gt;&lt;a href=&#34;#fn:21&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;21&lt;/a&gt;&lt;/sup&gt;分析海滩游客密度与Transformer位置编码的相似性，最后补了句&amp;quot;求NeurIPS&lt;sup id=&#34;fnref:22&#34;&gt;&lt;a href=&#34;#fn:22&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;22&lt;/a&gt;&lt;/sup&gt;在投论文互审&amp;quot;。&lt;/p&gt;
+&lt;p&gt;年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线&lt;sup id=&#34;fnref:23&#34;&gt;&lt;a href=&#34;#fn:23&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;23&lt;/a&gt;&lt;/sup&gt;最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差&lt;sup id=&#34;fnref:24&#34;&gt;&lt;a href=&#34;#fn:24&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;24&lt;/a&gt;&lt;/sup&gt;在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：&amp;ldquo;这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着&amp;hellip;&amp;quot;。尾音混着远处炸响的二踢脚，在过拟合&lt;sup id=&#34;fnref:25&#34;&gt;&lt;a href=&#34;#fn:25&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;25&lt;/a&gt;&lt;/sup&gt;的耳鸣中碎成梯度消失&lt;sup id=&#34;fnref:26&#34;&gt;&lt;a href=&#34;#fn:26&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;26&lt;/a&gt;&lt;/sup&gt;的残响。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【鲸鱼随笔】Deepseek诗词文章</title>
+      <link>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</link>
       <pubDate>Sun, 02 Feb 2025 18:51:31 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</guid>
+      <guid>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</guid>
       <description>&lt;p&gt;2025年春节期间，Deekseek刚刚爆火，我发现它文笔不错，故让其创作了以下诗词和文章。&lt;/p&gt;
 &lt;h2 id=&#34;春晚&#34;&gt;春晚&lt;/h2&gt;
 &lt;h3 id=&#34;浣溪沙寄onerepublic春晚之约&#34;&gt;浣溪沙·寄OneRepublic春晚之约&lt;/h3&gt;
@@ -148,23 +158,23 @@ And they went to sea in a Sieve.&lt;/p&gt;</description>
     </item>
     <item>
       <title>评2023年度E军群面题目脱下长衫</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</link>
+      <link>http://localhost:1313/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</link>
       <pubDate>Sat, 01 Feb 2025 16:01:13 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</guid>
+      <guid>http://localhost:1313/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</guid>
       <description>&lt;p&gt;题目是谈谈对于“脱下长衫”的看法。E军是电院团委下面的学生组织，决定了面试不能批判性思维、不能畅所欲言。正确的立意是：要脱下长衫、要奋斗。当某个组员说“够努力，就不需要思考要不要脱下长衫”，我直接放弃面试，光看戏。很有意思，一帮没找过工作的大谈特谈解决就业问题。&lt;/p&gt;</description>
     </item>
     <item>
       <title>一句话不吐不快</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</link>
+      <link>http://localhost:1313/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</link>
       <pubDate>Fri, 31 Jan 2025 22:08:09 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</guid>
+      <guid>http://localhost:1313/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</guid>
       <description>&lt;p&gt;过年回家，亲戚会让我“教教孩子”。我不知道说什么，我也是这个体制的帮凶。&lt;/p&gt;</description>
     </item>
     <item>
       <title>通识课和红课的经验分享</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</link>
+      <link>http://localhost:1313/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</link>
       <pubDate>Fri, 24 Jan 2025 14:55:32 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</guid>
+      <guid>http://localhost:1313/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</guid>
       <description>&lt;p&gt;本人通识课3门90+，其中一门97；红课五门全部85+，其中一门90一门95。给一些经验&lt;/p&gt;
 &lt;h3 id=&#34;选课&#34;&gt;选课&lt;/h3&gt;
 &lt;p&gt;看选课社区，选择大于努力&lt;/p&gt;
@@ -179,23 +189,23 @@ And they went to sea in a Sieve.&lt;/p&gt;</description>
     </item>
     <item>
       <title>从戏剧讲到审美</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</link>
+      <link>http://localhost:1313/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</link>
       <pubDate>Sat, 27 Apr 2024 09:33:20 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</guid>
+      <guid>http://localhost:1313/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</guid>
       <description>&lt;p&gt;这个月交大邀请上戏的教授讲戏剧。关于戏剧的魅力​​，可以从多重维度理解。对观众而言，其吸引力在于跌宕的情节、生动的表演、深刻的思想表达与震撼的舞台呈现；而编导演则通过戏剧体验他人精神世界、创造全新舞台形象，在演出成功的诱惑与未知成败的忐忑中收获独特价值。从​​戏剧的呈现方式​​看，它是一种可自由观看的表演——观众自主选择焦点，与演员实时互动，每场演出因观众反应、演员状态等变量产生不可复制的感染力。若探究​​戏剧的本质目的​​，优秀作品始终聚焦人物如何解决问题：哈姆雷特的悲怆复仇与《雷雨》中破碎的家庭宿命，无不揭示世界的复杂性与内心困境。戏剧并非生活教科书，而是通过展现民族文化基因与人性光谱，让观众在精神洗礼中获得期待与共鸣。我看过的《扬名立万》和《十二怒汉》，场景集中、台词密集，恰是戏剧张力在银幕的延伸。&lt;/p&gt;</description>
     </item>
     <item>
       <title>FAQ</title>
-      <link>https://man-in-the-mirror-05.github.io/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>about</description>
     </item>
     <item>
       <title>FAQ</title>
-      <link>https://man-in-the-mirror-05.github.io/faq/</link>
+      <link>http://localhost:1313/faq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/faq/</guid>
+      <guid>http://localhost:1313/faq/</guid>
       <description>faq</description>
     </item>
   </channel>

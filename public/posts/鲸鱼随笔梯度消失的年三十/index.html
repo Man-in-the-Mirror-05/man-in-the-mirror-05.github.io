@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【鲸鱼随笔】梯度消失的年三十 | Man in the Mirror</title>
+<meta name="keywords" content="rambling">
+<meta name="description" content="过年了，不要再讨论什么transformer1、SOTA2、pretrain3之类的了。你背着贴满各大厂logo的破双肩包4回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH5连上实验室的3090集群6继续调prompt7。亲戚围炉时问起你的学术成就，你掏手机展示arxiv8最新预印本，说在cifar-109上把准确率卷到了99.114514%10，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard11的滑动窗口解法。
+你暗笑他们不懂attention机制12的精妙，不明白你凌晨三点调learning rate schedule13的禅意，更看不懂你GitHub仓库里那串寒碜的几个star14。当大姑炫耀儿子在滨江15买了89平学区房，小叔吹嘘女儿特斯拉又蹭了保险时，你父母低头扒饭，嘟囔着&quot;我崽的MacBook键盘包了浆，空调房还戴毛线帽，说是什么对抗梯度消失16&quot;。
+你凌晨三点蹲在老家路由器旁边抢算力配额17，发现HuggingFace18的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop19链接，配文&quot;大模型幻觉问题20新SOTA&quot;。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式21分析海滩游客密度与Transformer位置编码的相似性，最后补了句&quot;求NeurIPS22在投论文互审&quot;。
+年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线23最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差24在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：&ldquo;这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着&hellip;&quot;。尾音混着远处炸响的二踢脚，在过拟合25的耳鸣中碎成梯度消失26的残响。">
+<meta name="author" content="Man in the Mirror">
+<link rel="canonical" href="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.ac3ef3ebdd349dafec77dee79fe6e19bed03f85bcd347bbf01aca16ffdeba7c6.css" integrity="sha256-rD7z6900na/sd97nn&#43;bhm&#43;0D&#43;FvNNHu/Aayhb/3rp8Y=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon_wine.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon_wine.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon_wine.ico">
+<link rel="apple-touch-icon" href="http://localhost:1313/favicon_wine.ico">
+<link rel="mask-icon" href="http://localhost:1313/favicon_wine.ico">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="/css/custom-background.css"><script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script><meta property="og:url" content="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
+  <meta property="og:site_name" content="Man in the Mirror">
+  <meta property="og:title" content="【鲸鱼随笔】梯度消失的年三十">
+  <meta property="og:description" content="过年了，不要再讨论什么transformer1、SOTA2、pretrain3之类的了。你背着贴满各大厂logo的破双肩包4回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH5连上实验室的3090集群6继续调prompt7。亲戚围炉时问起你的学术成就，你掏手机展示arxiv8最新预印本，说在cifar-109上把准确率卷到了99.114514%10，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard11的滑动窗口解法。
+你暗笑他们不懂attention机制12的精妙，不明白你凌晨三点调learning rate schedule13的禅意，更看不懂你GitHub仓库里那串寒碜的几个star14。当大姑炫耀儿子在滨江15买了89平学区房，小叔吹嘘女儿特斯拉又蹭了保险时，你父母低头扒饭，嘟囔着&#34;我崽的MacBook键盘包了浆，空调房还戴毛线帽，说是什么对抗梯度消失16&#34;。
+你凌晨三点蹲在老家路由器旁边抢算力配额17，发现HuggingFace18的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop19链接，配文&#34;大模型幻觉问题20新SOTA&#34;。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式21分析海滩游客密度与Transformer位置编码的相似性，最后补了句&#34;求NeurIPS22在投论文互审&#34;。
+年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线23最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差24在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：“这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着…&#34;。尾音混着远处炸响的二踢脚，在过拟合25的耳鸣中碎成梯度消失26的残响。">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-04T09:00:18+08:00">
+    <meta property="article:modified_time" content="2025-02-04T09:00:18+08:00">
+    <meta property="article:tag" content="Rambling">
+      <meta property="og:image" content="https://i.postimg.cc/7hwBy7VS/calcr.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.postimg.cc/7hwBy7VS/calcr.png">
+<meta name="twitter:title" content="【鲸鱼随笔】梯度消失的年三十">
+<meta name="twitter:description" content="过年了，不要再讨论什么transformer1、SOTA2、pretrain3之类的了。你背着贴满各大厂logo的破双肩包4回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH5连上实验室的3090集群6继续调prompt7。亲戚围炉时问起你的学术成就，你掏手机展示arxiv8最新预印本，说在cifar-109上把准确率卷到了99.114514%10，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard11的滑动窗口解法。
+你暗笑他们不懂attention机制12的精妙，不明白你凌晨三点调learning rate schedule13的禅意，更看不懂你GitHub仓库里那串寒碜的几个star14。当大姑炫耀儿子在滨江15买了89平学区房，小叔吹嘘女儿特斯拉又蹭了保险时，你父母低头扒饭，嘟囔着&quot;我崽的MacBook键盘包了浆，空调房还戴毛线帽，说是什么对抗梯度消失16&quot;。
+你凌晨三点蹲在老家路由器旁边抢算力配额17，发现HuggingFace18的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop19链接，配文&quot;大模型幻觉问题20新SOTA&quot;。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式21分析海滩游客密度与Transformer位置编码的相似性，最后补了句&quot;求NeurIPS22在投论文互审&quot;。
+年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线23最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差24在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：&ldquo;这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着&hellip;&quot;。尾音混着远处炸响的二踢脚，在过拟合25的耳鸣中碎成梯度消失26的残响。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "【鲸鱼随笔】梯度消失的年三十",
+      "item": "http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【鲸鱼随笔】梯度消失的年三十",
+  "name": "【鲸鱼随笔】梯度消失的年三十",
+  "description": "过年了，不要再讨论什么transformer1、SOTA2、pretrain3之类的了。你背着贴满各大厂logo的破双肩包4回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH5连上实验室的3090集群6继续调prompt7。亲戚围炉时问起你的学术成就，你掏手机展示arxiv8最新预印本，说在cifar-109上把准确率卷到了99.114514%10，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard11的滑动窗口解法。\n你暗笑他们不懂attention机制12的精妙，不明白你凌晨三点调learning rate schedule13的禅意，更看不懂你GitHub仓库里那串寒碜的几个star14。当大姑炫耀儿子在滨江15买了89平学区房，小叔吹嘘女儿特斯拉又蹭了保险时，你父母低头扒饭，嘟囔着\u0026quot;我崽的MacBook键盘包了浆，空调房还戴毛线帽，说是什么对抗梯度消失16\u0026quot;。\n你凌晨三点蹲在老家路由器旁边抢算力配额17，发现HuggingFace18的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop19链接，配文\u0026quot;大模型幻觉问题20新SOTA\u0026quot;。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式21分析海滩游客密度与Transformer位置编码的相似性，最后补了句\u0026quot;求NeurIPS22在投论文互审\u0026quot;。\n年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线23最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差24在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：\u0026ldquo;这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着\u0026hellip;\u0026quot;。尾音混着远处炸响的二踢脚，在过拟合25的耳鸣中碎成梯度消失26的残响。\n",
+  "keywords": [
+    "rambling"
+  ],
+  "articleBody": "过年了，不要再讨论什么transformer1、SOTA2、pretrain3之类的了。你背着贴满各大厂logo的破双肩包4回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH5连上实验室的3090集群6继续调prompt7。亲戚围炉时问起你的学术成就，你掏手机展示arxiv8最新预印本，说在cifar-109上把准确率卷到了99.114514%10，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard11的滑动窗口解法。\n你暗笑他们不懂attention机制12的精妙，不明白你凌晨三点调learning rate schedule13的禅意，更看不懂你GitHub仓库里那串寒碜的几个star14。当大姑炫耀儿子在滨江15买了89平学区房，小叔吹嘘女儿特斯拉又蹭了保险时，你父母低头扒饭，嘟囔着\"我崽的MacBook键盘包了浆，空调房还戴毛线帽，说是什么对抗梯度消失16\"。\n你凌晨三点蹲在老家路由器旁边抢算力配额17，发现HuggingFace18的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop19链接，配文\"大模型幻觉问题20新SOTA\"。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式21分析海滩游客密度与Transformer位置编码的相似性，最后补了句\"求NeurIPS22在投论文互审\"。\n年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线23最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差24在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：“这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着…\"。尾音混着远处炸响的二踢脚，在过拟合25的耳鸣中碎成梯度消失26的残响。\n注释详解（点击上标数字跳转）\nTransformer：一种目前统治AI领域的深度学习模型架构，论文《Attention Is All You Need》提出。笑点：过年期间讨论工作术语本身就很煞风景，更何况是外人听起来像\"变形金刚\"的陌生词汇。 ↩︎\nSOTA：State Of The Art（最先进水平）的缩写。学术黑话，指某项任务目前的最佳性能记录。笑点：用四个字母假装高端，实则只是\"当前效果最好\"的意思。 ↩︎\nPretrain：预训练，指在大规模数据上先训练模型再微调的过程。笑点：听起来像\"预科培训”，亲戚可能以为你在搞高考复读。 ↩︎\n贴满大厂logo的破双肩包：学术参会文化——研究者参加Google、Meta、Microsoft等公司的展台活动会收集贴纸贴在包上，既是身份图腾，又显得清贫（包是破的）。笑点：学术界的\"勋章\"在世俗评价体系里一文不值。 ↩︎\nSSH：Secure Shell，远程登录服务器的命令行工具。笑点：躲在厨房用手机连接实验室服务器，暗示无假期可言，且需要物理躲避亲戚社交。 ↩︎\n3090集群：NVIDIA RTX 3090显卡，曾是深度学习标配，一张上万元。笑点：把昂贵的计算资源当作故乡般的存在来\"连线\"，暗示实验室才是真实归宿。 ↩︎\nPrompt：提示词，大模型时代的调参新形式。笑点：用英文术语显得高深，实就是在输入框里试各种\"请扮演专家…“的话术。 ↩︎\nArxiv：学术论文预印本平台，研究者先发布未经同行评审的草稿。笑点：在亲戚面前展示PDF论文如同展示天书，且预印本意味着\"还没被正式认可”。 ↩︎\nCIFAR-10：计算机视觉入门级数据集，含6万张32×32像素小图，常用于 baseline 测试。笑点：用这么基础的数据集吹牛，如同炫耀\"小学数学考了满分\"。 ↩︎\n99.114514%：前半截是极高准确率过拟合，后半截\"114514\"是日语空耳网络梗（恶臭数字）。笑点：一本正经的学术数据里塞入亚文化密码，只有懂梗的人会心一笑。 ↩︎\nLeetCode hard：编程面试题平台，hard难度需复杂算法（如滑动窗口、动态规划）。笑点：家庭聚会时脑子里想的不是亲戚，而是算法题，典型的社交逃避型人格。 ↩︎\nAttention机制：Transformer的核心组件，模拟人类注意力分配。笑点：论文里写着\"Attention Is All You Need\"，但现实中attention（关注）并不能换来亲戚的理解。 ↩︎\nLearning rate schedule：学习率衰减策略，深度学习调参玄学之一。笑点：把枯燥的调参工作称为\"禅意\"，是研究者对自我感动的黑色幽默。 ↩︎\nGitHub star：开源代码托管平台的点赞数，通常代表项目受欢迎程度。笑点：学术成果的量化指标（引用数）和开源世界的社交货币（star）都很寒碜，双重失败。 ↩︎\n滨江：杭州滨江区，阿里、网易等互联网大厂总部所在地，房价极高。笑点：学术路线 vs 大厂打工仔的现实财富对比，89平学区房秒杀博士学历。 ↩︎\n对抗梯度消失：深度学习术语（防止网络层数过多导致信号衰减），此处双关\"防止头部热量散失\"（戴毛线帽）。笑点：专业术语被父母望文生义地误读，既心疼又荒诞。 ↩︎\n抢算力配额：云计算资源紧张时需要凌晨争抢空闲显卡。笑点：回老家还要在路由器旁蹲点抢资源，如同除夕守岁，但守的是机器而非家人。 ↩︎\nHuggingFace：主流AI模型托管平台，API调用按token收费。笑点：把算力成本和传统婚姻成本（彩礼）做对比，暗示研究者的经济困境。 ↩︎\nACL workshop：计算语言学 Association for Computational Linguistics 的研讨会，比主会低一级。笑点：在家族群发学术链接如同发垃圾广告，且workshop（小型研讨会）听起来像\"车间\"。 ↩︎\n大模型幻觉：Hallucination，指AI自信地胡说八道。笑点：用\"幻觉\"形容学术成果的新突破，暗示整个领域都在自欺欺人。 ↩︎\nMarkdown格式：程序员常用的轻量级标记语言，用* _等符号排版。笑点：在度假照下用代码语法写评论，典型的不合时宜的nerd行为。 ↩︎\nNeurIPS：神经信息处理系统大会，机器学习顶会之一。笑点：在亲戚评论区找论文审稿互助，如同在婚礼现场找牌友。 ↩︎\nLoss曲线：训练过程中模型误差变化的折线图，理想情况应逐步下降。笑点：将烟花爆炸的视觉暂留想象成loss震荡，学术中毒症状。 ↩︎\n未收敛的残差：模型尚未训练到稳定状态（未收敛），残差指误差信号。笑点：把视觉残留解释为深度学习概念，现实与学术幻觉彻底混淆。 ↩︎\n过拟合：Overfitting，模型在训练集表现好但泛化差，此处指耳鸣幻听。笑点：学术术语身体化，长期熬夜导致的耳鸣被诊断为\"过拟合\"。 ↩︎\n梯度消失：再次出现，既是深度学习术语（梯度反向传播时衰减至零），也暗示叹息声逐渐微弱。笑点：全篇术语体系最终坍缩成一声听不见的叹息，形成悲剧闭环。 ↩︎\n",
+  "wordCount" : "3480",
+  "inLanguage": "zh",
+  "image": "https://i.postimg.cc/7hwBy7VS/calcr.png","datePublished": "2025-02-04T09:00:18+08:00",
+  "dateModified": "2025-02-04T09:00:18+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Man in the Mirror"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Man in the Mirror",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon_wine.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Man in the Mirror (Alt + H)">Man in the Mirror</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      【鲸鱼随笔】梯度消失的年三十
+    </h1>
+    <div class="post-meta"><span title='2025-02-04 09:00:18 +0800 CST'>2025-02-04</span>&nbsp;·&nbsp;预计阅读时间 7 分钟&nbsp;·&nbsp;Man in the Mirror
+
+</div>
+  </header> 
+
+  <div class="post-content"><p>过年了，不要再讨论什么transformer<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>、SOTA<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>、pretrain<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>之类的了。你背着贴满各大厂logo的破双肩包<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>连上实验室的3090集群<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>继续调prompt<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>。亲戚围炉时问起你的学术成就，你掏手机展示arxiv<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>最新预印本，说在cifar-10<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>上把准确率卷到了99.114514%<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup>的滑动窗口解法。</p>
+<p>你暗笑他们不懂attention机制<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>的精妙，不明白你凌晨三点调learning rate schedule<sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup>的禅意，更看不懂你GitHub仓库里那串寒碜的几个star<sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup>。当大姑炫耀儿子在滨江<sup id="fnref:15"><a href="#fn:15" class="footnote-ref" role="doc-noteref">15</a></sup>买了89平学区房，小叔吹嘘女儿特斯拉又蹭了保险时，你父母低头扒饭，嘟囔着&quot;我崽的MacBook键盘包了浆，空调房还戴毛线帽，说是什么对抗梯度消失<sup id="fnref:16"><a href="#fn:16" class="footnote-ref" role="doc-noteref">16</a></sup>&quot;。</p>
+<p>你凌晨三点蹲在老家路由器旁边抢算力配额<sup id="fnref:17"><a href="#fn:17" class="footnote-ref" role="doc-noteref">17</a></sup>，发现HuggingFace<sup id="fnref:18"><a href="#fn:18" class="footnote-ref" role="doc-noteref">18</a></sup>的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop<sup id="fnref:19"><a href="#fn:19" class="footnote-ref" role="doc-noteref">19</a></sup>链接，配文&quot;大模型幻觉问题<sup id="fnref:20"><a href="#fn:20" class="footnote-ref" role="doc-noteref">20</a></sup>新SOTA&quot;。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式<sup id="fnref:21"><a href="#fn:21" class="footnote-ref" role="doc-noteref">21</a></sup>分析海滩游客密度与Transformer位置编码的相似性，最后补了句&quot;求NeurIPS<sup id="fnref:22"><a href="#fn:22" class="footnote-ref" role="doc-noteref">22</a></sup>在投论文互审&quot;。</p>
+<p>年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线<sup id="fnref:23"><a href="#fn:23" class="footnote-ref" role="doc-noteref">23</a></sup>最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差<sup id="fnref:24"><a href="#fn:24" class="footnote-ref" role="doc-noteref">24</a></sup>在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：&ldquo;这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着&hellip;&quot;。尾音混着远处炸响的二踢脚，在过拟合<sup id="fnref:25"><a href="#fn:25" class="footnote-ref" role="doc-noteref">25</a></sup>的耳鸣中碎成梯度消失<sup id="fnref:26"><a href="#fn:26" class="footnote-ref" role="doc-noteref">26</a></sup>的残响。</p>
+<hr>
+<p><strong>注释详解（点击上标数字跳转）</strong></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><strong>Transformer</strong>：一种目前统治AI领域的深度学习模型架构，论文《Attention Is All You Need》提出。笑点：过年期间讨论工作术语本身就很煞风景，更何况是外人听起来像&quot;变形金刚&quot;的陌生词汇。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><strong>SOTA</strong>：State Of The Art（最先进水平）的缩写。学术黑话，指某项任务目前的最佳性能记录。笑点：用四个字母假装高端，实则只是&quot;当前效果最好&quot;的意思。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><strong>Pretrain</strong>：预训练，指在大规模数据上先训练模型再微调的过程。笑点：听起来像&quot;预科培训&rdquo;，亲戚可能以为你在搞高考复读。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><strong>贴满大厂logo的破双肩包</strong>：学术参会文化——研究者参加Google、Meta、Microsoft等公司的展台活动会收集贴纸贴在包上，既是身份图腾，又显得清贫（包是破的）。笑点：学术界的&quot;勋章&quot;在世俗评价体系里一文不值。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><strong>SSH</strong>：Secure Shell，远程登录服务器的命令行工具。笑点：躲在厨房用手机连接实验室服务器，暗示无假期可言，且需要物理躲避亲戚社交。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p><strong>3090集群</strong>：NVIDIA RTX 3090显卡，曾是深度学习标配，一张上万元。笑点：把昂贵的计算资源当作故乡般的存在来&quot;连线&quot;，暗示实验室才是真实归宿。&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p><strong>Prompt</strong>：提示词，大模型时代的调参新形式。笑点：用英文术语显得高深，实就是在输入框里试各种&quot;请扮演专家&hellip;&ldquo;的话术。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p><strong>Arxiv</strong>：学术论文预印本平台，研究者先发布未经同行评审的草稿。笑点：在亲戚面前展示PDF论文如同展示天书，且预印本意味着&quot;还没被正式认可&rdquo;。&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p><strong>CIFAR-10</strong>：计算机视觉入门级数据集，含6万张32×32像素小图，常用于 baseline 测试。笑点：用这么基础的数据集吹牛，如同炫耀&quot;小学数学考了满分&quot;。&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p><strong>99.114514%</strong>：前半截是极高准确率过拟合，后半截&quot;114514&quot;是日语空耳网络梗（恶臭数字）。笑点：一本正经的学术数据里塞入亚文化密码，只有懂梗的人会心一笑。&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p><strong>LeetCode hard</strong>：编程面试题平台，hard难度需复杂算法（如滑动窗口、动态规划）。笑点：家庭聚会时脑子里想的不是亲戚，而是算法题，典型的社交逃避型人格。&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p><strong>Attention机制</strong>：Transformer的核心组件，模拟人类注意力分配。笑点：论文里写着&quot;Attention Is All You Need&quot;，但现实中attention（关注）并不能换来亲戚的理解。&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13">
+<p><strong>Learning rate schedule</strong>：学习率衰减策略，深度学习调参玄学之一。笑点：把枯燥的调参工作称为&quot;禅意&quot;，是研究者对自我感动的黑色幽默。&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:14">
+<p><strong>GitHub star</strong>：开源代码托管平台的点赞数，通常代表项目受欢迎程度。笑点：学术成果的量化指标（引用数）和开源世界的社交货币（star）都很寒碜，双重失败。&#160;<a href="#fnref:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:15">
+<p><strong>滨江</strong>：杭州滨江区，阿里、网易等互联网大厂总部所在地，房价极高。笑点：学术路线 vs 大厂打工仔的现实财富对比，89平学区房秒杀博士学历。&#160;<a href="#fnref:15" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:16">
+<p><strong>对抗梯度消失</strong>：深度学习术语（防止网络层数过多导致信号衰减），此处双关&quot;防止头部热量散失&quot;（戴毛线帽）。笑点：专业术语被父母望文生义地误读，既心疼又荒诞。&#160;<a href="#fnref:16" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:17">
+<p><strong>抢算力配额</strong>：云计算资源紧张时需要凌晨争抢空闲显卡。笑点：回老家还要在路由器旁蹲点抢资源，如同除夕守岁，但守的是机器而非家人。&#160;<a href="#fnref:17" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:18">
+<p><strong>HuggingFace</strong>：主流AI模型托管平台，API调用按token收费。笑点：把算力成本和传统婚姻成本（彩礼）做对比，暗示研究者的经济困境。&#160;<a href="#fnref:18" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:19">
+<p><strong>ACL workshop</strong>：计算语言学 Association for Computational Linguistics 的研讨会，比主会低一级。笑点：在家族群发学术链接如同发垃圾广告，且workshop（小型研讨会）听起来像&quot;车间&quot;。&#160;<a href="#fnref:19" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:20">
+<p><strong>大模型幻觉</strong>：Hallucination，指AI自信地胡说八道。笑点：用&quot;幻觉&quot;形容学术成果的新突破，暗示整个领域都在自欺欺人。&#160;<a href="#fnref:20" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:21">
+<p><strong>Markdown格式</strong>：程序员常用的轻量级标记语言，用<code>*</code> <code>_</code>等符号排版。笑点：在度假照下用代码语法写评论，典型的不合时宜的nerd行为。&#160;<a href="#fnref:21" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:22">
+<p><strong>NeurIPS</strong>：神经信息处理系统大会，机器学习顶会之一。笑点：在亲戚评论区找论文审稿互助，如同在婚礼现场找牌友。&#160;<a href="#fnref:22" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:23">
+<p><strong>Loss曲线</strong>：训练过程中模型误差变化的折线图，理想情况应逐步下降。笑点：将烟花爆炸的视觉暂留想象成loss震荡，学术中毒症状。&#160;<a href="#fnref:23" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:24">
+<p><strong>未收敛的残差</strong>：模型尚未训练到稳定状态（未收敛），残差指误差信号。笑点：把视觉残留解释为深度学习概念，现实与学术幻觉彻底混淆。&#160;<a href="#fnref:24" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:25">
+<p><strong>过拟合</strong>：Overfitting，模型在训练集表现好但泛化差，此处指耳鸣幻听。笑点：学术术语身体化，长期熬夜导致的耳鸣被诊断为&quot;过拟合&quot;。&#160;<a href="#fnref:25" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:26">
+<p><strong>梯度消失</strong>：再次出现，既是深度学习术语（梯度反向传播时衰减至零），也暗示叹息声逐渐微弱。笑点：全篇术语体系最终坍缩成一声听不见的叹息，形成悲剧闭环。&#160;<a href="#fnref:26" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/rambling/">Rambling</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>当银幕与屏幕间的堑壕崩塌时</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>【鲸鱼随笔】Deepseek诗词文章</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Man in the Mirror</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><div class="bing-image-name" id="bing-image-name">Loading...</div><script>
+(function() {
+    
+    fetch('/bing_wallpaper_metadata.json?t=' + Date.now())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Metadata file not found');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data && data.length > 0) {
+                
+                const sorted = data.sort((a, b) => b.enddate.localeCompare(a.enddate));
+                const latest = sorted[0];
+                const nameElement = document.getElementById('bing-image-name');
+                if (nameElement) {
+                    const bingUrl = 'https://www.bing.com' + latest.urlBase + '_1920x1080.jpg';
+                    let content = '';
+                    if (latest.headline) {
+                        content += latest.headline;
+                    }
+                    if (latest.filename) {
+                        if (content) content += ' · ';
+                        content += '<em>' + latest.filename + '</em>';
+                    }
+                    if (latest.copyright) {
+                        if (content) content += '<br>';
+                        content += latest.copyright;
+                    }
+                    if (!content) {
+                        content = 'Bing Wallpaper';
+                    }
+                    nameElement.innerHTML = '<a href="' + bingUrl + '" target="_blank" rel="noopener noreferrer" title="View on Bing">' + content + '</a>';
+                }
+            }
+        })
+        .catch(error => {
+            const nameElement = document.getElementById('bing-image-name');
+            if (nameElement) {
+                const img = new Image();
+                img.onload = function() {
+                    nameElement.innerHTML = '<a href="https://www.bing.com" target="_blank" rel="noopener noreferrer" title="View on Bing">Bing Wallpaper</a>';
+                };
+                img.onerror = function() {
+                    nameElement.style.display = 'none';
+                };
+                img.src = '/img/latest.jpg';
+            }
+        });
+
+    
+    function initTypewriter() {
+        
+        const homeHeader = document.querySelector('.home-info .entry-header h1');
+        const homeContent = document.querySelector('.home-info .entry-content');
+        
+        if (!homeHeader || !homeContent) return;
+
+        
+        const headerText = homeHeader.textContent.trim();
+        const contentText = homeContent.textContent.trim();
+        
+        if (!headerText && !contentText) return;
+
+        
+        homeHeader.innerHTML = '<span class="typewriter-text" data-text="header"></span>';
+        homeContent.innerHTML = '<span class="typewriter-text" data-text="content"></span>';
+        
+        const headerElement = homeHeader.querySelector('.typewriter-text');
+        const contentElement = homeContent.querySelector('.typewriter-text');
+
+        
+        const typingSpeed = 60; 
+        const startDelay = 300; 
+
+        let headerIndex = 0;
+        let contentIndex = 0;
+        let headerDone = false;
+        let contentDone = false;
+
+        function typeHeader() {
+            if (headerIndex < headerText.length) {
+                headerElement.textContent += headerText.charAt(headerIndex);
+                headerIndex++;
+                setTimeout(typeHeader, typingSpeed);
+            } else {
+                headerDone = true;
+                headerElement.classList.add('done');
+            }
+        }
+
+        function typeContent() {
+            if (contentIndex < contentText.length) {
+                contentElement.textContent += contentText.charAt(contentIndex);
+                contentIndex++;
+                setTimeout(typeContent, typingSpeed);
+            } else {
+                contentDone = true;
+                contentElement.classList.add('done');
+            }
+        }
+
+        
+        setTimeout(() => {
+            typeHeader();
+            typeContent();
+        }, startDelay);
+    }
+
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTypewriter);
+    } else {
+        initTypewriter();
+    }
+
+    
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', function() {
+            const isOpen = menu.classList.contains('active');
+            
+            if (isOpen) {
+                
+                menu.style.opacity = '0';
+                menu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                }, 300);
+            } else {
+                
+                menu.style.display = 'block';
+                
+                menu.offsetHeight;
+                menu.classList.add('active');
+                menu.style.opacity = '1';
+                menu.style.transform = 'translateY(0)';
+            }
+        });
+
+        
+        menu.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        
+        
+        document.addEventListener('click', function(e) {
+            if (!menu.contains(e.target) && !menuToggle.contains(e.target) && menu.classList.contains('active')) {
+                menu.style.opacity = '0';
+                menu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+})();
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

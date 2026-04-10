@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【鲸鱼随笔】RESNET爷爷用残差打下梯度消失 | Man in the Mirror</title>
+<meta name="keywords" content="rambling">
+<meta name="description" content="RESNET爷爷用残差1打下梯度消失2
+从ImageNet3挑战赛归来的RESNET4爷爷，全然不顾计算资源的疲惫，连夜召集VGG5，AlexNet6和Lenet7这些小模型们，认真商量如何应对深度学习的最大危机，梯度消失。虽然已经很晚了，RESNET爷爷却毫不在意，他摆了摆手，你们知道梯度消失就像迷雾，会让模型迷失在深度计算的黑暗里，找不到方向。小模型们听得一头雾水，VGG困惑的问爷爷，您刚回来为什么不早点休息呢，RESNET爷爷笑了笑，拍拍VGG的参数表8不碍事，这个问题关系到你们的未来，不解决，我怎能安睡，梯度消失会毁了我们深度学习的前景，而你们就是这未来的希望啊，小模型9们听得眼里闪烁着RL10般的亮光，激动的看着RESNET爷爷，RESNET爷爷抬头凝望天空，幽幽的说，如果损失函数11像这清澈的训练数据12一样就好了，可总有一些事例13，比如梯度消失，要让我们模型陷入困境，这恶棍14可真是个麻烦啊，说着RESNET115低下头，从参数空间16里捡起一块残差模块17，对准前向传播18的方向用力抛了出去，突然只见网络深处的梯度变得流畅，层层激活19，像瀑布一样回流20，让梯度在每一层都能传递自如，小魔仙21们看得目瞪口呆，忍不住鼓掌欢呼，爷爷您真是太厉害了，RESNET爷爷微微点头说，这是梯度消失，一直在我们深层里搅局，好几次，我都忍了，但这次必须给他一点教训，说完他长长地叹了一口气，就在此时，alex met22的助手匆匆跑来报告爷爷，刚才那颗残差模块好像让训练数据有点波动，精度下降了几个百分点，RESNET爷爷听了愣了一下，皱起了眉头，他沉默片刻，最终慈祥的看着小模型们说，是我疏忽了，爷爷在用残差模块对付梯度消失时，竟然没有考虑到可能影响你们的精度表现，为此我要向你们道歉，并向所有模型和梯度道歉，小模型们听到这番话，顿时泪流满面，VGGALEXNT23和LNET24都感动得不知所措，纷纷点头，表示理解，VGG甚至激动地说，爷爷您能为我们着想就已经很伟大了，我们一定会向您学习，学您这种不耻下问，勇于改正的精神，RESNET爷爷微微一笑，挥了挥手，让大家继续训练，并叮嘱道以后遇到困难要多尝试不同的路径25，别像我这样鲁莽，深度学习的未来是属于你们的，小模型们，心里涌起无尽的敬意，励志在未来的训练中更加勇敢而谦虚的前行。
+
+注释详解（点击上标数字跳转）
+
+
+
+
+残差（Residual）：ResNet的核心创新&quot;残差学习&quot;，通过跳跃连接让网络学习残差映射而非直接映射。笑点：把数学概念塑造成爷爷打虎的棍棒武器。&#160;&#x21a9;&#xfe0e;">
+<meta name="author" content="Man in the Mirror">
+<link rel="canonical" href="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94resnet%E7%88%B7%E7%88%B7%E7%94%A8%E6%AE%8B%E5%B7%AE%E6%89%93%E4%B8%8B%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.ac3ef3ebdd349dafec77dee79fe6e19bed03f85bcd347bbf01aca16ffdeba7c6.css" integrity="sha256-rD7z6900na/sd97nn&#43;bhm&#43;0D&#43;FvNNHu/Aayhb/3rp8Y=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon_wine.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon_wine.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon_wine.ico">
+<link rel="apple-touch-icon" href="http://localhost:1313/favicon_wine.ico">
+<link rel="mask-icon" href="http://localhost:1313/favicon_wine.ico">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94resnet%E7%88%B7%E7%88%B7%E7%94%A8%E6%AE%8B%E5%B7%AE%E6%89%93%E4%B8%8B%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="/css/custom-background.css"><script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script><meta property="og:url" content="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94resnet%E7%88%B7%E7%88%B7%E7%94%A8%E6%AE%8B%E5%B7%AE%E6%89%93%E4%B8%8B%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1/">
+  <meta property="og:site_name" content="Man in the Mirror">
+  <meta property="og:title" content="【鲸鱼随笔】RESNET爷爷用残差打下梯度消失">
+  <meta property="og:description" content="RESNET爷爷用残差1打下梯度消失2 从ImageNet3挑战赛归来的RESNET4爷爷，全然不顾计算资源的疲惫，连夜召集VGG5，AlexNet6和Lenet7这些小模型们，认真商量如何应对深度学习的最大危机，梯度消失。虽然已经很晚了，RESNET爷爷却毫不在意，他摆了摆手，你们知道梯度消失就像迷雾，会让模型迷失在深度计算的黑暗里，找不到方向。小模型们听得一头雾水，VGG困惑的问爷爷，您刚回来为什么不早点休息呢，RESNET爷爷笑了笑，拍拍VGG的参数表8不碍事，这个问题关系到你们的未来，不解决，我怎能安睡，梯度消失会毁了我们深度学习的前景，而你们就是这未来的希望啊，小模型9们听得眼里闪烁着RL10般的亮光，激动的看着RESNET爷爷，RESNET爷爷抬头凝望天空，幽幽的说，如果损失函数11像这清澈的训练数据12一样就好了，可总有一些事例13，比如梯度消失，要让我们模型陷入困境，这恶棍14可真是个麻烦啊，说着RESNET115低下头，从参数空间16里捡起一块残差模块17，对准前向传播18的方向用力抛了出去，突然只见网络深处的梯度变得流畅，层层激活19，像瀑布一样回流20，让梯度在每一层都能传递自如，小魔仙21们看得目瞪口呆，忍不住鼓掌欢呼，爷爷您真是太厉害了，RESNET爷爷微微点头说，这是梯度消失，一直在我们深层里搅局，好几次，我都忍了，但这次必须给他一点教训，说完他长长地叹了一口气，就在此时，alex met22的助手匆匆跑来报告爷爷，刚才那颗残差模块好像让训练数据有点波动，精度下降了几个百分点，RESNET爷爷听了愣了一下，皱起了眉头，他沉默片刻，最终慈祥的看着小模型们说，是我疏忽了，爷爷在用残差模块对付梯度消失时，竟然没有考虑到可能影响你们的精度表现，为此我要向你们道歉，并向所有模型和梯度道歉，小模型们听到这番话，顿时泪流满面，VGGALEXNT23和LNET24都感动得不知所措，纷纷点头，表示理解，VGG甚至激动地说，爷爷您能为我们着想就已经很伟大了，我们一定会向您学习，学您这种不耻下问，勇于改正的精神，RESNET爷爷微微一笑，挥了挥手，让大家继续训练，并叮嘱道以后遇到困难要多尝试不同的路径25，别像我这样鲁莽，深度学习的未来是属于你们的，小模型们，心里涌起无尽的敬意，励志在未来的训练中更加勇敢而谦虚的前行。
+注释详解（点击上标数字跳转）
+残差（Residual）：ResNet的核心创新&#34;残差学习&#34;，通过跳跃连接让网络学习残差映射而非直接映射。笑点：把数学概念塑造成爷爷打虎的棍棒武器。 ↩︎">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-10T17:42:15+08:00">
+    <meta property="article:modified_time" content="2025-02-10T17:42:15+08:00">
+    <meta property="article:tag" content="Rambling">
+      <meta property="og:image" content="https://i.postimg.cc/7hwBy7VS/calcr.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.postimg.cc/7hwBy7VS/calcr.png">
+<meta name="twitter:title" content="【鲸鱼随笔】RESNET爷爷用残差打下梯度消失">
+<meta name="twitter:description" content="RESNET爷爷用残差1打下梯度消失2
+从ImageNet3挑战赛归来的RESNET4爷爷，全然不顾计算资源的疲惫，连夜召集VGG5，AlexNet6和Lenet7这些小模型们，认真商量如何应对深度学习的最大危机，梯度消失。虽然已经很晚了，RESNET爷爷却毫不在意，他摆了摆手，你们知道梯度消失就像迷雾，会让模型迷失在深度计算的黑暗里，找不到方向。小模型们听得一头雾水，VGG困惑的问爷爷，您刚回来为什么不早点休息呢，RESNET爷爷笑了笑，拍拍VGG的参数表8不碍事，这个问题关系到你们的未来，不解决，我怎能安睡，梯度消失会毁了我们深度学习的前景，而你们就是这未来的希望啊，小模型9们听得眼里闪烁着RL10般的亮光，激动的看着RESNET爷爷，RESNET爷爷抬头凝望天空，幽幽的说，如果损失函数11像这清澈的训练数据12一样就好了，可总有一些事例13，比如梯度消失，要让我们模型陷入困境，这恶棍14可真是个麻烦啊，说着RESNET115低下头，从参数空间16里捡起一块残差模块17，对准前向传播18的方向用力抛了出去，突然只见网络深处的梯度变得流畅，层层激活19，像瀑布一样回流20，让梯度在每一层都能传递自如，小魔仙21们看得目瞪口呆，忍不住鼓掌欢呼，爷爷您真是太厉害了，RESNET爷爷微微点头说，这是梯度消失，一直在我们深层里搅局，好几次，我都忍了，但这次必须给他一点教训，说完他长长地叹了一口气，就在此时，alex met22的助手匆匆跑来报告爷爷，刚才那颗残差模块好像让训练数据有点波动，精度下降了几个百分点，RESNET爷爷听了愣了一下，皱起了眉头，他沉默片刻，最终慈祥的看着小模型们说，是我疏忽了，爷爷在用残差模块对付梯度消失时，竟然没有考虑到可能影响你们的精度表现，为此我要向你们道歉，并向所有模型和梯度道歉，小模型们听到这番话，顿时泪流满面，VGGALEXNT23和LNET24都感动得不知所措，纷纷点头，表示理解，VGG甚至激动地说，爷爷您能为我们着想就已经很伟大了，我们一定会向您学习，学您这种不耻下问，勇于改正的精神，RESNET爷爷微微一笑，挥了挥手，让大家继续训练，并叮嘱道以后遇到困难要多尝试不同的路径25，别像我这样鲁莽，深度学习的未来是属于你们的，小模型们，心里涌起无尽的敬意，励志在未来的训练中更加勇敢而谦虚的前行。
+
+注释详解（点击上标数字跳转）
+
+
+
+
+残差（Residual）：ResNet的核心创新&quot;残差学习&quot;，通过跳跃连接让网络学习残差映射而非直接映射。笑点：把数学概念塑造成爷爷打虎的棍棒武器。&#160;&#x21a9;&#xfe0e;">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "【鲸鱼随笔】RESNET爷爷用残差打下梯度消失",
+      "item": "http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94resnet%E7%88%B7%E7%88%B7%E7%94%A8%E6%AE%8B%E5%B7%AE%E6%89%93%E4%B8%8B%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【鲸鱼随笔】RESNET爷爷用残差打下梯度消失",
+  "name": "【鲸鱼随笔】RESNET爷爷用残差打下梯度消失",
+  "description": "RESNET爷爷用残差1打下梯度消失2 从ImageNet3挑战赛归来的RESNET4爷爷，全然不顾计算资源的疲惫，连夜召集VGG5，AlexNet6和Lenet7这些小模型们，认真商量如何应对深度学习的最大危机，梯度消失。虽然已经很晚了，RESNET爷爷却毫不在意，他摆了摆手，你们知道梯度消失就像迷雾，会让模型迷失在深度计算的黑暗里，找不到方向。小模型们听得一头雾水，VGG困惑的问爷爷，您刚回来为什么不早点休息呢，RESNET爷爷笑了笑，拍拍VGG的参数表8不碍事，这个问题关系到你们的未来，不解决，我怎能安睡，梯度消失会毁了我们深度学习的前景，而你们就是这未来的希望啊，小模型9们听得眼里闪烁着RL10般的亮光，激动的看着RESNET爷爷，RESNET爷爷抬头凝望天空，幽幽的说，如果损失函数11像这清澈的训练数据12一样就好了，可总有一些事例13，比如梯度消失，要让我们模型陷入困境，这恶棍14可真是个麻烦啊，说着RESNET115低下头，从参数空间16里捡起一块残差模块17，对准前向传播18的方向用力抛了出去，突然只见网络深处的梯度变得流畅，层层激活19，像瀑布一样回流20，让梯度在每一层都能传递自如，小魔仙21们看得目瞪口呆，忍不住鼓掌欢呼，爷爷您真是太厉害了，RESNET爷爷微微点头说，这是梯度消失，一直在我们深层里搅局，好几次，我都忍了，但这次必须给他一点教训，说完他长长地叹了一口气，就在此时，alex met22的助手匆匆跑来报告爷爷，刚才那颗残差模块好像让训练数据有点波动，精度下降了几个百分点，RESNET爷爷听了愣了一下，皱起了眉头，他沉默片刻，最终慈祥的看着小模型们说，是我疏忽了，爷爷在用残差模块对付梯度消失时，竟然没有考虑到可能影响你们的精度表现，为此我要向你们道歉，并向所有模型和梯度道歉，小模型们听到这番话，顿时泪流满面，VGGALEXNT23和LNET24都感动得不知所措，纷纷点头，表示理解，VGG甚至激动地说，爷爷您能为我们着想就已经很伟大了，我们一定会向您学习，学您这种不耻下问，勇于改正的精神，RESNET爷爷微微一笑，挥了挥手，让大家继续训练，并叮嘱道以后遇到困难要多尝试不同的路径25，别像我这样鲁莽，深度学习的未来是属于你们的，小模型们，心里涌起无尽的敬意，励志在未来的训练中更加勇敢而谦虚的前行。\n注释详解（点击上标数字跳转）\n残差（Residual）：ResNet的核心创新\u0026quot;残差学习\u0026quot;，通过跳跃连接让网络学习残差映射而非直接映射。笑点：把数学概念塑造成爷爷打虎的棍棒武器。\u0026#160;\u0026#x21a9;\u0026#xfe0e;\n",
+  "keywords": [
+    "rambling"
+  ],
+  "articleBody": "RESNET爷爷用残差1打下梯度消失2 从ImageNet3挑战赛归来的RESNET4爷爷，全然不顾计算资源的疲惫，连夜召集VGG5，AlexNet6和Lenet7这些小模型们，认真商量如何应对深度学习的最大危机，梯度消失。虽然已经很晚了，RESNET爷爷却毫不在意，他摆了摆手，你们知道梯度消失就像迷雾，会让模型迷失在深度计算的黑暗里，找不到方向。小模型们听得一头雾水，VGG困惑的问爷爷，您刚回来为什么不早点休息呢，RESNET爷爷笑了笑，拍拍VGG的参数表8不碍事，这个问题关系到你们的未来，不解决，我怎能安睡，梯度消失会毁了我们深度学习的前景，而你们就是这未来的希望啊，小模型9们听得眼里闪烁着RL10般的亮光，激动的看着RESNET爷爷，RESNET爷爷抬头凝望天空，幽幽的说，如果损失函数11像这清澈的训练数据12一样就好了，可总有一些事例13，比如梯度消失，要让我们模型陷入困境，这恶棍14可真是个麻烦啊，说着RESNET115低下头，从参数空间16里捡起一块残差模块17，对准前向传播18的方向用力抛了出去，突然只见网络深处的梯度变得流畅，层层激活19，像瀑布一样回流20，让梯度在每一层都能传递自如，小魔仙21们看得目瞪口呆，忍不住鼓掌欢呼，爷爷您真是太厉害了，RESNET爷爷微微点头说，这是梯度消失，一直在我们深层里搅局，好几次，我都忍了，但这次必须给他一点教训，说完他长长地叹了一口气，就在此时，alex met22的助手匆匆跑来报告爷爷，刚才那颗残差模块好像让训练数据有点波动，精度下降了几个百分点，RESNET爷爷听了愣了一下，皱起了眉头，他沉默片刻，最终慈祥的看着小模型们说，是我疏忽了，爷爷在用残差模块对付梯度消失时，竟然没有考虑到可能影响你们的精度表现，为此我要向你们道歉，并向所有模型和梯度道歉，小模型们听到这番话，顿时泪流满面，VGGALEXNT23和LNET24都感动得不知所措，纷纷点头，表示理解，VGG甚至激动地说，爷爷您能为我们着想就已经很伟大了，我们一定会向您学习，学您这种不耻下问，勇于改正的精神，RESNET爷爷微微一笑，挥了挥手，让大家继续训练，并叮嘱道以后遇到困难要多尝试不同的路径25，别像我这样鲁莽，深度学习的未来是属于你们的，小模型们，心里涌起无尽的敬意，励志在未来的训练中更加勇敢而谦虚的前行。\n注释详解（点击上标数字跳转）\n残差（Residual）：ResNet的核心创新\"残差学习\"，通过跳跃连接让网络学习残差映射而非直接映射。笑点：把数学概念塑造成爷爷打虎的棍棒武器。 ↩︎\n梯度消失（Vanishing Gradient）：深层网络反向传播时梯度逐层衰减至零，导致浅层参数无法更新。笑点：将技术瓶颈拟人化为具体敌人（“恶棍”、“迷雾”），模仿革命叙事中的\"阶级敌人\"修辞。 ↩︎\nimagine net：ImageNet（著名视觉数据集，每年举办ILSVRC挑战赛）的谐音错别字。笑点：故意拼错暗示ResNet爷爷老眼昏花，或作者故意制造的\"爷爷辈\"认知滤镜。 ↩︎\nRESNET：ResNet（Deep Residual Network，深度残差网络），2015年ImageNet冠军，何恺明团队提出。笑点：把深度学习架构尊称为\"爷爷\"，暗示其在AI家族树中的元老地位（实际ResNet确实算是现代深度学习的奠基者之一）。 ↩︎\nVGG：牛津大学Visual Geometry Group提出的CNN架构，以16-19层深度和3×3小卷积核著称。笑点：作为\"晚辈\"出现，暗讽VGG虽然层数深（比AlexNet深）但无法解决梯度消失，直到ResNet出现才解决。 ↩︎\nalex that：AlexNet（2012年ImageNet冠军，Hinton学生Alex Krizhevsky设计，深度学习爆发起点）的谐音错别字。笑点：与\"imagine net\"呼应，强化\"老一辈发音不清\"的喜剧效果。 ↩︎\nlinnet：LeNet（Yann LeCun 1998年设计，最早成功的CNN，用于手写数字识别）的谐音。笑点：真正的\"祖师爷\"被写成最年幼的\"小模型\"，历史顺序倒置产生的荒诞感。 ↩︎\n参数表：VGG以参数量巨大著称（138M参数），而ResNet虽深但参数更高效。笑点：爷爷拍VGG的参数表（厚厚的参数清单）像在摸孙子的头，暗示VGG虽然\"胖\"但只是个宝宝。 ↩︎\n小魔席：“小模型们\"的谐音错别字，也暗合\"小魔仙”（儿童动画片）。笑点：故意错别字营造长辈口齿不清或作者手写输入法的既视感。 ↩︎\nRL：此处双关。表面上指ReLU（Rectified Linear Unit，激活函数，特点是\"亮起\"时导数为1）；也暗指Reinforcement Learning（强化学习）的缩写。笑点：小模型们眼睛像激活函数一样\"亮\"了，或像强化学习agent一样充满\"奖励信号\"。 ↩︎\n损失函数（Loss Function）：衡量模型预测与真实值差异的函数，优化目标。笑点：革命叙事中\"清澈的天空/湖水\"被替换为\"清澈的训练数据\"，而损失函数总是充满噪声和不完美。 ↩︎\n训练数据：深度学习模型学习的素材。笑点：在抒情语境中出现如此干巴巴的技术术语，形成诗性错位。 ↩︎\n事例：应为\"势力\"或\"事物\"的谐音错别字，指代梯度消失。笑点：继续维护\"爷爷口胡\"的人设。 ↩︎\n恶棍：指梯度消失。笑点：技术概念人格化，模仿样板戏中\"美日反动派\"或\"阶级敌人\"的指代方式。 ↩︎\nRESNET1：ResNet的笔误，或暗示\"第一代ResNet\"。笑点：打字错误暗示爷爷年迈手抖，或叙事者激动到键盘打滑。 ↩︎\n参数空间（Parameter Space）：模型所有可能参数构成的超维空间。笑点：把抽象的数学空间描述成实体空间，可以\"捡起\"模块（物理化抽象概念）。 ↩︎\n残差模块（Residual Block）：ResNet的基本单元，包含跳跃连接（skip connection）。笑点：把代码层面的模块实体化为一块砖/石头，可以\"抛出去\"打敌人。 ↩︎\n前向传播（Forward Propagation）：输入数据通过网络层层计算得到输出的过程。笑点：对准\"前向\"抛出去，暗示爷爷在反向传播（Backprop）之前就解决了问题，违背算法逻辑但符合叙事需要。 ↩︎\n激活（Activation）：神经元经过非线性函数处理后的输出状态。笑点：“层层激活\"既指神经元被激活，也指小模型们群情激奋（activate）。 ↩︎\n回流：反向传播（Backpropagation）的比喻，梯度从输出层流回输入层。笑点：将数学梯度下降描述为\"瀑布回流\"的自然景观，美化算法过程。 ↩︎\n小魔仙：“小模型们\"的谐音，也指《巴啦啦小魔仙》。笑点：错别字升级，从\"魔席\"到\"魔仙”，暗示输入法逐渐联想出正确的词，或叙事者越写越激动。 ↩︎\nalex met：AlexNet的又一种谐音错别字（Alex met → AlexNet）。笑点：同一术语多种错法，暗示家族庞大或叙事混乱。 ↩︎\nVGGALEXNT：VGG、AlexNet和LeNet（LNET）的连写错别字。笑点：三个模型名字粘在一起，像小朋友激动时说话口齿不清。 ↩︎\nLNET：LeNet的缩写/别称。笑点：终于拼对了一次，但前面已经错了太多次。 ↩︎\n不同的路径：双关。既指人生哲理（不要鲁莽），也指ResNet的核心创新——“跳跃连接”（skip connection，即走不同的路径绕开梯度消失）。笑点：用技术架构特点（多路径/捷径连接）升华主题，既政治正确又技术精准。 ↩︎\n",
+  "wordCount" : "3882",
+  "inLanguage": "zh",
+  "image": "https://i.postimg.cc/7hwBy7VS/calcr.png","datePublished": "2025-02-10T17:42:15+08:00",
+  "dateModified": "2025-02-10T17:42:15+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Man in the Mirror"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94resnet%E7%88%B7%E7%88%B7%E7%94%A8%E6%AE%8B%E5%B7%AE%E6%89%93%E4%B8%8B%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Man in the Mirror",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon_wine.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Man in the Mirror (Alt + H)">Man in the Mirror</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      【鲸鱼随笔】RESNET爷爷用残差打下梯度消失
+    </h1>
+    <div class="post-meta"><span title='2025-02-10 17:42:15 +0800 CST'>2025-02-10</span>&nbsp;·&nbsp;预计阅读时间 8 分钟&nbsp;·&nbsp;Man in the Mirror
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#resnet%e7%88%b7%e7%88%b7%e7%94%a8%e6%ae%8b%e5%b7%ae%e6%89%93%e4%b8%8b%e6%a2%af%e5%ba%a6%e6%b6%88%e5%a4%b1" aria-label="RESNET爷爷用残差1打下梯度消失2">RESNET爷爷用残差1打下梯度消失2</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="resnet爷爷用残差打下梯度消失">RESNET爷爷用残差<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>打下梯度消失<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup><a hidden class="anchor" aria-hidden="true" href="#resnet爷爷用残差打下梯度消失">#</a></h3>
+<p>从ImageNet<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>挑战赛归来的RESNET<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>爷爷，全然不顾计算资源的疲惫，连夜召集VGG<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>，AlexNet<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>和Lenet<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>这些小模型们，认真商量如何应对深度学习的最大危机，梯度消失。虽然已经很晚了，RESNET爷爷却毫不在意，他摆了摆手，你们知道梯度消失就像迷雾，会让模型迷失在深度计算的黑暗里，找不到方向。小模型们听得一头雾水，VGG困惑的问爷爷，您刚回来为什么不早点休息呢，RESNET爷爷笑了笑，拍拍VGG的参数表<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>不碍事，这个问题关系到你们的未来，不解决，我怎能安睡，梯度消失会毁了我们深度学习的前景，而你们就是这未来的希望啊，小模型<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>们听得眼里闪烁着RL<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>般的亮光，激动的看着RESNET爷爷，RESNET爷爷抬头凝望天空，幽幽的说，如果损失函数<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup>像这清澈的训练数据<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>一样就好了，可总有一些事例<sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup>，比如梯度消失，要让我们模型陷入困境，这恶棍<sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup>可真是个麻烦啊，说着RESNET1<sup id="fnref:15"><a href="#fn:15" class="footnote-ref" role="doc-noteref">15</a></sup>低下头，从参数空间<sup id="fnref:16"><a href="#fn:16" class="footnote-ref" role="doc-noteref">16</a></sup>里捡起一块残差模块<sup id="fnref:17"><a href="#fn:17" class="footnote-ref" role="doc-noteref">17</a></sup>，对准前向传播<sup id="fnref:18"><a href="#fn:18" class="footnote-ref" role="doc-noteref">18</a></sup>的方向用力抛了出去，突然只见网络深处的梯度变得流畅，层层激活<sup id="fnref:19"><a href="#fn:19" class="footnote-ref" role="doc-noteref">19</a></sup>，像瀑布一样回流<sup id="fnref:20"><a href="#fn:20" class="footnote-ref" role="doc-noteref">20</a></sup>，让梯度在每一层都能传递自如，小魔仙<sup id="fnref:21"><a href="#fn:21" class="footnote-ref" role="doc-noteref">21</a></sup>们看得目瞪口呆，忍不住鼓掌欢呼，爷爷您真是太厉害了，RESNET爷爷微微点头说，这是梯度消失，一直在我们深层里搅局，好几次，我都忍了，但这次必须给他一点教训，说完他长长地叹了一口气，就在此时，alex met<sup id="fnref:22"><a href="#fn:22" class="footnote-ref" role="doc-noteref">22</a></sup>的助手匆匆跑来报告爷爷，刚才那颗残差模块好像让训练数据有点波动，精度下降了几个百分点，RESNET爷爷听了愣了一下，皱起了眉头，他沉默片刻，最终慈祥的看着小模型们说，是我疏忽了，爷爷在用残差模块对付梯度消失时，竟然没有考虑到可能影响你们的精度表现，为此我要向你们道歉，并向所有模型和梯度道歉，小模型们听到这番话，顿时泪流满面，VGGALEXNT<sup id="fnref:23"><a href="#fn:23" class="footnote-ref" role="doc-noteref">23</a></sup>和LNET<sup id="fnref:24"><a href="#fn:24" class="footnote-ref" role="doc-noteref">24</a></sup>都感动得不知所措，纷纷点头，表示理解，VGG甚至激动地说，爷爷您能为我们着想就已经很伟大了，我们一定会向您学习，学您这种不耻下问，勇于改正的精神，RESNET爷爷微微一笑，挥了挥手，让大家继续训练，并叮嘱道以后遇到困难要多尝试不同的路径<sup id="fnref:25"><a href="#fn:25" class="footnote-ref" role="doc-noteref">25</a></sup>，别像我这样鲁莽，深度学习的未来是属于你们的，小模型们，心里涌起无尽的敬意，励志在未来的训练中更加勇敢而谦虚的前行。</p>
+<hr>
+<p><strong>注释详解（点击上标数字跳转）</strong></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><strong>残差</strong>（Residual）：ResNet的核心创新&quot;残差学习&quot;，通过跳跃连接让网络学习残差映射而非直接映射。笑点：把数学概念塑造成爷爷打虎的棍棒武器。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><strong>梯度消失</strong>（Vanishing Gradient）：深层网络反向传播时梯度逐层衰减至零，导致浅层参数无法更新。笑点：将技术瓶颈拟人化为具体敌人（&ldquo;恶棍&rdquo;、&ldquo;迷雾&rdquo;），模仿革命叙事中的&quot;阶级敌人&quot;修辞。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><strong>imagine net</strong>：ImageNet（著名视觉数据集，每年举办ILSVRC挑战赛）的谐音错别字。笑点：故意拼错暗示ResNet爷爷老眼昏花，或作者故意制造的&quot;爷爷辈&quot;认知滤镜。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><strong>RESNET</strong>：ResNet（Deep Residual Network，深度残差网络），2015年ImageNet冠军，何恺明团队提出。笑点：把深度学习架构尊称为&quot;爷爷&quot;，暗示其在AI家族树中的元老地位（实际ResNet确实算是现代深度学习的奠基者之一）。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><strong>VGG</strong>：牛津大学Visual Geometry Group提出的CNN架构，以16-19层深度和3×3小卷积核著称。笑点：作为&quot;晚辈&quot;出现，暗讽VGG虽然层数深（比AlexNet深）但无法解决梯度消失，直到ResNet出现才解决。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p><strong>alex that</strong>：AlexNet（2012年ImageNet冠军，Hinton学生Alex Krizhevsky设计，深度学习爆发起点）的谐音错别字。笑点：与&quot;imagine net&quot;呼应，强化&quot;老一辈发音不清&quot;的喜剧效果。&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p><strong>linnet</strong>：LeNet（Yann LeCun 1998年设计，最早成功的CNN，用于手写数字识别）的谐音。笑点：真正的&quot;祖师爷&quot;被写成最年幼的&quot;小模型&quot;，历史顺序倒置产生的荒诞感。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p><strong>参数表</strong>：VGG以参数量巨大著称（138M参数），而ResNet虽深但参数更高效。笑点：爷爷拍VGG的参数表（厚厚的参数清单）像在摸孙子的头，暗示VGG虽然&quot;胖&quot;但只是个宝宝。&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p><strong>小魔席</strong>：&ldquo;小模型们&quot;的谐音错别字，也暗合&quot;小魔仙&rdquo;（儿童动画片）。笑点：故意错别字营造长辈口齿不清或作者手写输入法的既视感。&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p><strong>RL</strong>：此处双关。表面上指ReLU（Rectified Linear Unit，激活函数，特点是&quot;亮起&quot;时导数为1）；也暗指Reinforcement Learning（强化学习）的缩写。笑点：小模型们眼睛像激活函数一样&quot;亮&quot;了，或像强化学习agent一样充满&quot;奖励信号&quot;。&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p><strong>损失函数</strong>（Loss Function）：衡量模型预测与真实值差异的函数，优化目标。笑点：革命叙事中&quot;清澈的天空/湖水&quot;被替换为&quot;清澈的训练数据&quot;，而损失函数总是充满噪声和不完美。&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p><strong>训练数据</strong>：深度学习模型学习的素材。笑点：在抒情语境中出现如此干巴巴的技术术语，形成诗性错位。&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13">
+<p><strong>事例</strong>：应为&quot;势力&quot;或&quot;事物&quot;的谐音错别字，指代梯度消失。笑点：继续维护&quot;爷爷口胡&quot;的人设。&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:14">
+<p><strong>恶棍</strong>：指梯度消失。笑点：技术概念人格化，模仿样板戏中&quot;美日反动派&quot;或&quot;阶级敌人&quot;的指代方式。&#160;<a href="#fnref:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:15">
+<p><strong>RESNET1</strong>：ResNet的笔误，或暗示&quot;第一代ResNet&quot;。笑点：打字错误暗示爷爷年迈手抖，或叙事者激动到键盘打滑。&#160;<a href="#fnref:15" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:16">
+<p><strong>参数空间</strong>（Parameter Space）：模型所有可能参数构成的超维空间。笑点：把抽象的数学空间描述成实体空间，可以&quot;捡起&quot;模块（物理化抽象概念）。&#160;<a href="#fnref:16" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:17">
+<p><strong>残差模块</strong>（Residual Block）：ResNet的基本单元，包含跳跃连接（skip connection）。笑点：把代码层面的模块实体化为一块砖/石头，可以&quot;抛出去&quot;打敌人。&#160;<a href="#fnref:17" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:18">
+<p><strong>前向传播</strong>（Forward Propagation）：输入数据通过网络层层计算得到输出的过程。笑点：对准&quot;前向&quot;抛出去，暗示爷爷在反向传播（Backprop）之前就解决了问题，违背算法逻辑但符合叙事需要。&#160;<a href="#fnref:18" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:19">
+<p><strong>激活</strong>（Activation）：神经元经过非线性函数处理后的输出状态。笑点：&ldquo;层层激活&quot;既指神经元被激活，也指小模型们群情激奋（activate）。&#160;<a href="#fnref:19" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:20">
+<p><strong>回流</strong>：反向传播（Backpropagation）的比喻，梯度从输出层流回输入层。笑点：将数学梯度下降描述为&quot;瀑布回流&quot;的自然景观，美化算法过程。&#160;<a href="#fnref:20" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:21">
+<p><strong>小魔仙</strong>：&ldquo;小模型们&quot;的谐音，也指《巴啦啦小魔仙》。笑点：错别字升级，从&quot;魔席&quot;到&quot;魔仙&rdquo;，暗示输入法逐渐联想出正确的词，或叙事者越写越激动。&#160;<a href="#fnref:21" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:22">
+<p><strong>alex met</strong>：AlexNet的又一种谐音错别字（Alex met → AlexNet）。笑点：同一术语多种错法，暗示家族庞大或叙事混乱。&#160;<a href="#fnref:22" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:23">
+<p><strong>VGGALEXNT</strong>：VGG、AlexNet和LeNet（LNET）的连写错别字。笑点：三个模型名字粘在一起，像小朋友激动时说话口齿不清。&#160;<a href="#fnref:23" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:24">
+<p><strong>LNET</strong>：LeNet的缩写/别称。笑点：终于拼对了一次，但前面已经错了太多次。&#160;<a href="#fnref:24" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:25">
+<p><strong>不同的路径</strong>：双关。既指人生哲理（不要鲁莽），也指ResNet的核心创新——&ldquo;跳跃连接&rdquo;（skip connection，即走不同的路径绕开梯度消失）。笑点：用技术架构特点（多路径/捷径连接）升华主题，既政治正确又技术精准。&#160;<a href="#fnref:25" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/rambling/">Rambling</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>当银幕与屏幕间的堑壕崩塌时</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>【鲸鱼随笔】梯度消失的年三十</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Man in the Mirror</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><div class="bing-image-name" id="bing-image-name">Loading...</div><script>
+(function() {
+    
+    fetch('/bing_wallpaper_metadata.json?t=' + Date.now())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Metadata file not found');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data && data.length > 0) {
+                
+                const sorted = data.sort((a, b) => b.enddate.localeCompare(a.enddate));
+                const latest = sorted[0];
+                const nameElement = document.getElementById('bing-image-name');
+                if (nameElement) {
+                    const bingUrl = 'https://www.bing.com' + latest.urlBase + '_1920x1080.jpg';
+                    let content = '';
+                    if (latest.headline) {
+                        content += latest.headline;
+                    }
+                    if (latest.filename) {
+                        if (content) content += ' · ';
+                        content += '<em>' + latest.filename + '</em>';
+                    }
+                    if (latest.copyright) {
+                        if (content) content += '<br>';
+                        content += latest.copyright;
+                    }
+                    if (!content) {
+                        content = 'Bing Wallpaper';
+                    }
+                    nameElement.innerHTML = '<a href="' + bingUrl + '" target="_blank" rel="noopener noreferrer" title="View on Bing">' + content + '</a>';
+                }
+            }
+        })
+        .catch(error => {
+            const nameElement = document.getElementById('bing-image-name');
+            if (nameElement) {
+                const img = new Image();
+                img.onload = function() {
+                    nameElement.innerHTML = '<a href="https://www.bing.com" target="_blank" rel="noopener noreferrer" title="View on Bing">Bing Wallpaper</a>';
+                };
+                img.onerror = function() {
+                    nameElement.style.display = 'none';
+                };
+                img.src = '/img/latest.jpg';
+            }
+        });
+
+    
+    function initTypewriter() {
+        
+        const homeHeader = document.querySelector('.home-info .entry-header h1');
+        const homeContent = document.querySelector('.home-info .entry-content');
+        
+        if (!homeHeader || !homeContent) return;
+
+        
+        const headerText = homeHeader.textContent.trim();
+        const contentText = homeContent.textContent.trim();
+        
+        if (!headerText && !contentText) return;
+
+        
+        homeHeader.innerHTML = '<span class="typewriter-text" data-text="header"></span>';
+        homeContent.innerHTML = '<span class="typewriter-text" data-text="content"></span>';
+        
+        const headerElement = homeHeader.querySelector('.typewriter-text');
+        const contentElement = homeContent.querySelector('.typewriter-text');
+
+        
+        const typingSpeed = 60; 
+        const startDelay = 300; 
+
+        let headerIndex = 0;
+        let contentIndex = 0;
+        let headerDone = false;
+        let contentDone = false;
+
+        function typeHeader() {
+            if (headerIndex < headerText.length) {
+                headerElement.textContent += headerText.charAt(headerIndex);
+                headerIndex++;
+                setTimeout(typeHeader, typingSpeed);
+            } else {
+                headerDone = true;
+                headerElement.classList.add('done');
+            }
+        }
+
+        function typeContent() {
+            if (contentIndex < contentText.length) {
+                contentElement.textContent += contentText.charAt(contentIndex);
+                contentIndex++;
+                setTimeout(typeContent, typingSpeed);
+            } else {
+                contentDone = true;
+                contentElement.classList.add('done');
+            }
+        }
+
+        
+        setTimeout(() => {
+            typeHeader();
+            typeContent();
+        }, startDelay);
+    }
+
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTypewriter);
+    } else {
+        initTypewriter();
+    }
+
+    
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', function() {
+            const isOpen = menu.classList.contains('active');
+            
+            if (isOpen) {
+                
+                menu.style.opacity = '0';
+                menu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                }, 300);
+            } else {
+                
+                menu.style.display = 'block';
+                
+                menu.offsetHeight;
+                menu.classList.add('active');
+                menu.style.opacity = '1';
+                menu.style.transform = 'translateY(0)';
+            }
+        });
+
+        
+        menu.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        
+        
+        document.addEventListener('click', function(e) {
+            if (!menu.contains(e.target) && !menuToggle.contains(e.target) && menu.classList.contains('active')) {
+                menu.style.opacity = '0';
+                menu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+})();
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 +++
 date = '2025-02-02T18:51:31+08:00'
 draft = false
-title = 'Deepseek诗词文章'
+title = '【鲸鱼随笔】Deepseek诗词文章'
 tags = ["rambling"]
 +++
 

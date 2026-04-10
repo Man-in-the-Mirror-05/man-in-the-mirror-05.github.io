@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Rambling on Man in the Mirror</title>
-    <link>https://man-in-the-mirror-05.github.io/tags/rambling/</link>
+    <link>http://localhost:1313/tags/rambling/</link>
     <description>Recent content in Rambling on Man in the Mirror</description>
     <image>
       <title>Man in the Mirror</title>
@@ -11,13 +11,38 @@
     </image>
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 02 Feb 2025 18:51:31 +0800</lastBuildDate>
-    <atom:link href="https://man-in-the-mirror-05.github.io/tags/rambling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Apr 2026 09:02:15 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rambling/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Deepseek诗词文章</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</link>
+      <title>【鲸鱼随笔】RESNET爷爷用残差打下梯度消失</title>
+      <link>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94resnet%E7%88%B7%E7%88%B7%E7%94%A8%E6%AE%8B%E5%B7%AE%E6%89%93%E4%B8%8B%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1/</link>
+      <pubDate>Fri, 10 Apr 2026 09:02:15 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94resnet%E7%88%B7%E7%88%B7%E7%94%A8%E6%AE%8B%E5%B7%AE%E6%89%93%E4%B8%8B%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1/</guid>
+      <description>&lt;p&gt;RESNET爷爷用残差&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;打下梯度消失&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;
+从imagine net&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;挑战赛归来的RESNET&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;爷爷，全然不顾计算资源的疲惫，连夜召集VGG&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;，alex that&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;和linnet&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;这些小模型们，认真商量如何应对深度学习的最大危机，梯度消失。虽然已经很晚了，RESNET爷爷却毫不在意，他摆了摆手，你们知道梯度消失就像迷雾，会让模型迷失在深度计算的黑暗里，找不到方向。小模型们听得一头雾水，VGG困惑的问爷爷，您刚回来为什么不早点休息呢，RSNET爷爷笑了笑，排排VGG的参数表&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;不碍事，这个问题关系到你们的未来，不解决，我怎能安睡，梯度消失会毁了我们深度学习的前景，而你们就是这未来的希望啊，小魔席&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;们听得眼里闪烁着RL&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;般的亮光，激动的看着RESNET爷爷，RESNET爷爷抬头凝望天空，幽幽的说，如果损失函数&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;像这清澈的训练数据&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;一样就好了，可总有一些事例&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;，比如梯度消失，要让我们模型陷入困境，这恶棍&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;可真是个麻烦啊，说着RESNET1&lt;sup id=&#34;fnref:15&#34;&gt;&lt;a href=&#34;#fn:15&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;15&lt;/a&gt;&lt;/sup&gt;低下头，从参数空间&lt;sup id=&#34;fnref:16&#34;&gt;&lt;a href=&#34;#fn:16&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;16&lt;/a&gt;&lt;/sup&gt;里捡起一块残差模块&lt;sup id=&#34;fnref:17&#34;&gt;&lt;a href=&#34;#fn:17&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;17&lt;/a&gt;&lt;/sup&gt;，对准前向传播&lt;sup id=&#34;fnref:18&#34;&gt;&lt;a href=&#34;#fn:18&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;18&lt;/a&gt;&lt;/sup&gt;的方向用力抛了出去，突然只见网络深处的梯度变得流畅，层层激活&lt;sup id=&#34;fnref:19&#34;&gt;&lt;a href=&#34;#fn:19&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;19&lt;/a&gt;&lt;/sup&gt;，像瀑布一样回流&lt;sup id=&#34;fnref:20&#34;&gt;&lt;a href=&#34;#fn:20&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;20&lt;/a&gt;&lt;/sup&gt;，让梯度在每一层都能传递自如，小魔仙&lt;sup id=&#34;fnref:21&#34;&gt;&lt;a href=&#34;#fn:21&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;21&lt;/a&gt;&lt;/sup&gt;们看得目瞪口呆，忍不住鼓掌欢呼，爷爷您真是太厉害了，RESNET爷爷微微点头说，这是梯度消失，一直在我们深层里搅局，好几次，我都忍了，但这次必须给他一点教训，说完他长长地叹了一口气，就在此时，alex met&lt;sup id=&#34;fnref:22&#34;&gt;&lt;a href=&#34;#fn:22&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;22&lt;/a&gt;&lt;/sup&gt;的助手匆匆跑来报告爷爷，刚才那颗残差模块好像让训练数据有点波动，精度下降了几个百分点，RESNET爷爷听了愣了一下，皱起了眉头，他沉默片刻，最终慈祥的看着小模型们说，是我疏忽了，爷爷在用残差模块对付梯度消失时，竟然没有考虑到可能影响你们的精度表现，为此我要向你们道歉，并向所有模型和梯度道歉，小模型们听到这番话，顿时泪流满面，VGGALEXNT&lt;sup id=&#34;fnref:23&#34;&gt;&lt;a href=&#34;#fn:23&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;23&lt;/a&gt;&lt;/sup&gt;和LNET&lt;sup id=&#34;fnref:24&#34;&gt;&lt;a href=&#34;#fn:24&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;24&lt;/a&gt;&lt;/sup&gt;都感动得不知所措，纷纷点头，表示理解，VGG甚至激动地说，爷爷您能为我们着想就已经很伟大了，我们一定会向您学习，学您这种不耻下问，勇于改正的精神，RESNET爷爷微微一笑，挥了挥手，让大家继续训练，并叮嘱道以后遇到困难要多尝试不同的路径&lt;sup id=&#34;fnref:25&#34;&gt;&lt;a href=&#34;#fn:25&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;25&lt;/a&gt;&lt;/sup&gt;，别像我这样鲁莽，深度学习的未来是属于你们的，小模型们，心里涌起无尽的敬意，励志在未来的训练中更加勇敢而谦虚的前行。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;注释详解（点击上标数字跳转）&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;strong&gt;残差&lt;/strong&gt;（Residual）：ResNet的核心创新&amp;quot;残差学习&amp;quot;，通过跳跃连接让网络学习残差映射而非直接映射。笑点：把数学概念塑造成爷爷打虎的棍棒武器。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【鲸鱼随笔】梯度消失的年三十</title>
+      <link>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/</link>
+      <pubDate>Tue, 04 Feb 2025 09:00:18 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/</guid>
+      <description>&lt;p&gt;过年了，不要再讨论什么transformer&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;、SOTA&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;、pretrain&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;之类的了。你背着贴满各大厂logo的破双肩包&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;连上实验室的3090集群&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;继续调prompt&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;。亲戚围炉时问起你的学术成就，你掏手机展示arxiv&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;最新预印本，说在cifar-10&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;上把准确率卷到了99.114514%&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;的滑动窗口解法。&lt;/p&gt;
+&lt;p&gt;你暗笑他们不懂attention机制&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;的精妙，不明白你凌晨三点调learning rate schedule&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;的禅意，更看不懂你GitHub仓库里那串寒碜的几个star&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;。当大姑炫耀儿子在滨江&lt;sup id=&#34;fnref:15&#34;&gt;&lt;a href=&#34;#fn:15&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;15&lt;/a&gt;&lt;/sup&gt;买了89平学区房，小叔吹嘘女儿特斯拉又蹭了保险时，你父母低头扒饭，嘟囔着&amp;quot;我崽的MacBook键盘包了浆，空调房还戴毛线帽，说是什么对抗梯度消失&lt;sup id=&#34;fnref:16&#34;&gt;&lt;a href=&#34;#fn:16&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;16&lt;/a&gt;&lt;/sup&gt;&amp;quot;。&lt;/p&gt;
+&lt;p&gt;你凌晨三点蹲在老家路由器旁边抢算力配额&lt;sup id=&#34;fnref:17&#34;&gt;&lt;a href=&#34;#fn:17&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;17&lt;/a&gt;&lt;/sup&gt;，发现HuggingFace&lt;sup id=&#34;fnref:18&#34;&gt;&lt;a href=&#34;#fn:18&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;18&lt;/a&gt;&lt;/sup&gt;的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop&lt;sup id=&#34;fnref:19&#34;&gt;&lt;a href=&#34;#fn:19&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;19&lt;/a&gt;&lt;/sup&gt;链接，配文&amp;quot;大模型幻觉问题&lt;sup id=&#34;fnref:20&#34;&gt;&lt;a href=&#34;#fn:20&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;20&lt;/a&gt;&lt;/sup&gt;新SOTA&amp;quot;。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式&lt;sup id=&#34;fnref:21&#34;&gt;&lt;a href=&#34;#fn:21&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;21&lt;/a&gt;&lt;/sup&gt;分析海滩游客密度与Transformer位置编码的相似性，最后补了句&amp;quot;求NeurIPS&lt;sup id=&#34;fnref:22&#34;&gt;&lt;a href=&#34;#fn:22&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;22&lt;/a&gt;&lt;/sup&gt;在投论文互审&amp;quot;。&lt;/p&gt;
+&lt;p&gt;年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线&lt;sup id=&#34;fnref:23&#34;&gt;&lt;a href=&#34;#fn:23&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;23&lt;/a&gt;&lt;/sup&gt;最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差&lt;sup id=&#34;fnref:24&#34;&gt;&lt;a href=&#34;#fn:24&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;24&lt;/a&gt;&lt;/sup&gt;在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：&amp;ldquo;这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着&amp;hellip;&amp;quot;。尾音混着远处炸响的二踢脚，在过拟合&lt;sup id=&#34;fnref:25&#34;&gt;&lt;a href=&#34;#fn:25&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;25&lt;/a&gt;&lt;/sup&gt;的耳鸣中碎成梯度消失&lt;sup id=&#34;fnref:26&#34;&gt;&lt;a href=&#34;#fn:26&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;26&lt;/a&gt;&lt;/sup&gt;的残响。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【鲸鱼随笔】Deepseek诗词文章</title>
+      <link>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</link>
       <pubDate>Sun, 02 Feb 2025 18:51:31 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</guid>
+      <guid>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</guid>
       <description>&lt;p&gt;2025年春节期间，Deekseek刚刚爆火，我发现它文笔不错，故让其创作了以下诗词和文章。&lt;/p&gt;
 &lt;h2 id=&#34;春晚&#34;&gt;春晚&lt;/h2&gt;
 &lt;h3 id=&#34;浣溪沙寄onerepublic春晚之约&#34;&gt;浣溪沙·寄OneRepublic春晚之约&lt;/h3&gt;
@@ -26,23 +51,23 @@
     </item>
     <item>
       <title>评2023年度E军群面题目脱下长衫</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</link>
+      <link>http://localhost:1313/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</link>
       <pubDate>Sat, 01 Feb 2025 16:01:13 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</guid>
+      <guid>http://localhost:1313/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</guid>
       <description>&lt;p&gt;题目是谈谈对于“脱下长衫”的看法。E军是电院团委下面的学生组织，决定了面试不能批判性思维、不能畅所欲言。正确的立意是：要脱下长衫、要奋斗。当某个组员说“够努力，就不需要思考要不要脱下长衫”，我直接放弃面试，光看戏。很有意思，一帮没找过工作的大谈特谈解决就业问题。&lt;/p&gt;</description>
     </item>
     <item>
       <title>一句话不吐不快</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</link>
+      <link>http://localhost:1313/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</link>
       <pubDate>Fri, 31 Jan 2025 22:08:09 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</guid>
+      <guid>http://localhost:1313/posts/%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8D%E5%90%90%E4%B8%8D%E5%BF%AB/</guid>
       <description>&lt;p&gt;过年回家，亲戚会让我“教教孩子”。我不知道说什么，我也是这个体制的帮凶。&lt;/p&gt;</description>
     </item>
     <item>
       <title>通识课和红课的经验分享</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</link>
+      <link>http://localhost:1313/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</link>
       <pubDate>Fri, 24 Jan 2025 14:55:32 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</guid>
+      <guid>http://localhost:1313/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</guid>
       <description>&lt;p&gt;本人通识课3门90+，其中一门97；红课五门全部85+，其中一门90一门95。给一些经验&lt;/p&gt;
 &lt;h3 id=&#34;选课&#34;&gt;选课&lt;/h3&gt;
 &lt;p&gt;看选课社区，选择大于努力&lt;/p&gt;
@@ -57,9 +82,9 @@
     </item>
     <item>
       <title>从戏剧讲到审美</title>
-      <link>https://man-in-the-mirror-05.github.io/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</link>
+      <link>http://localhost:1313/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</link>
       <pubDate>Sat, 27 Apr 2024 09:33:20 +0800</pubDate>
-      <guid>https://man-in-the-mirror-05.github.io/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</guid>
+      <guid>http://localhost:1313/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</guid>
       <description>&lt;p&gt;这个月交大邀请上戏的教授讲戏剧。关于戏剧的魅力​​，可以从多重维度理解。对观众而言，其吸引力在于跌宕的情节、生动的表演、深刻的思想表达与震撼的舞台呈现；而编导演则通过戏剧体验他人精神世界、创造全新舞台形象，在演出成功的诱惑与未知成败的忐忑中收获独特价值。从​​戏剧的呈现方式​​看，它是一种可自由观看的表演——观众自主选择焦点，与演员实时互动，每场演出因观众反应、演员状态等变量产生不可复制的感染力。若探究​​戏剧的本质目的​​，优秀作品始终聚焦人物如何解决问题：哈姆雷特的悲怆复仇与《雷雨》中破碎的家庭宿命，无不揭示世界的复杂性与内心困境。戏剧并非生活教科书，而是通过展现民族文化基因与人性光谱，让观众在精神洗礼中获得期待与共鸣。我看过的《扬名立万》和《十二怒汉》，场景集中、台词密集，恰是戏剧张力在银幕的延伸。&lt;/p&gt;</description>
     </item>
   </channel>
