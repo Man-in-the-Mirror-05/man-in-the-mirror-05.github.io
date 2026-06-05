@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Podcast on Man in the Mirror</title>
+    <link>http://localhost:2550/tags/podcast/</link>
+    <description>Recent content in Podcast on Man in the Mirror</description>
+    <image>
+      <title>Man in the Mirror</title>
+      <url>https://i.postimg.cc/7hwBy7VS/calcr.png</url>
+      <link>https://i.postimg.cc/7hwBy7VS/calcr.png</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 22 Apr 2026 19:45:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:2550/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>播客：高校机器——文凭、权力与逃离路线</title>
+      <link>http://localhost:2550/posts/%E6%92%AD%E5%AE%A2-%E9%AB%98%E6%A0%A1%E6%9C%BA%E5%99%A8/</link>
+      <pubDate>Wed, 22 Apr 2026 19:45:00 +0800</pubDate>
+      <guid>http://localhost:2550/posts/%E6%92%AD%E5%AE%A2-%E9%AB%98%E6%A0%A1%E6%9C%BA%E5%99%A8/</guid>
+      <description>一期播客对话文稿：关于985高校内部的权力结构、资源流向，以及一个二十一岁学生如何在其中找到生存路线。</description>
+    </item>
+    <item>
+      <title>播客：十块钱的牛奶与四十块的猪排——健身人餐桌上的资本主义课</title>
+      <link>http://localhost:2550/posts/%E6%92%AD%E5%AE%A2-%E9%A3%9F%E7%89%A9%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/</link>
+      <pubDate>Wed, 22 Apr 2026 18:36:00 +0800</pubDate>
+      <guid>http://localhost:2550/posts/%E6%92%AD%E5%AE%A2-%E9%A3%9F%E7%89%A9%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/</guid>
+      <description>《杠铃与豆腐》第1期播客文稿：从健身人的日常饮食选择出发，聊资本主义、消费主义、鲍曼与布迪厄。</description>
+    </item>
+  </channel>
+</rss>
