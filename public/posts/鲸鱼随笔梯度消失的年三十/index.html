@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=2550&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -12,16 +12,16 @@
 你凌晨三点蹲在老家路由器旁边抢算力配额17，发现HuggingFace18的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop19链接，配文&quot;大模型幻觉问题20新SOTA&quot;。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式21分析海滩游客密度与Transformer位置编码的相似性，最后补了句&quot;求NeurIPS22在投论文互审&quot;。
 年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线23最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差24在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：&ldquo;这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着&hellip;&quot;。尾音混着远处炸响的二踢脚，在过拟合25的耳鸣中碎成梯度消失26的残响。">
 <meta name="author" content="Man in the Mirror">
-<link rel="canonical" href="http://localhost:2550/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
+<link rel="canonical" href="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.ac3ef3ebdd349dafec77dee79fe6e19bed03f85bcd347bbf01aca16ffdeba7c6.css" integrity="sha256-rD7z6900na/sd97nn&#43;bhm&#43;0D&#43;FvNNHu/Aayhb/3rp8Y=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:2550/favicon_wine.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:2550/favicon_wine.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:2550/favicon_wine.ico">
-<link rel="apple-touch-icon" href="http://localhost:2550/favicon_wine.ico">
-<link rel="mask-icon" href="http://localhost:2550/favicon_wine.ico">
+<link rel="icon" href="http://localhost:1313/favicon_wine.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon_wine.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon_wine.ico">
+<link rel="apple-touch-icon" href="http://localhost:1313/favicon_wine.ico">
+<link rel="mask-icon" href="http://localhost:1313/favicon_wine.ico">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://localhost:2550/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +43,7 @@ MathJax = {
   }
 };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script><meta property="og:url" content="http://localhost:2550/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script><meta property="og:url" content="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/">
   <meta property="og:site_name" content="Man in the Mirror">
   <meta property="og:title" content="【鲸鱼随笔】梯度消失的年三十">
   <meta property="og:description" content="过年了，不要再讨论什么transformer1、SOTA2、pretrain3之类的了。你背着贴满各大厂logo的破双肩包4回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH5连上实验室的3090集群6继续调prompt7。亲戚围炉时问起你的学术成就，你掏手机展示arxiv8最新预印本，说在cifar-109上把准确率卷到了99.114514%10，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard11的滑动窗口解法。
@@ -75,13 +75,13 @@ MathJax = {
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:2550/posts/"
+      "item": "http://localhost:1313/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "【鲸鱼随笔】梯度消失的年三十",
-      "item": "http://localhost:2550/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/"
+      "item": "http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/"
     }
   ]
 }
@@ -107,14 +107,14 @@ MathJax = {
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:2550/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/"
+    "@id": "http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Man in the Mirror",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:2550/favicon_wine.ico"
+      "url": "http://localhost:1313/favicon_wine.ico"
     }
   }
 }
@@ -132,7 +132,7 @@ MathJax = {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:2550/" accesskey="h" title="Man in the Mirror (Alt + H)">Man in the Mirror</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Man in the Mirror (Alt + H)">Man in the Mirror</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -158,27 +158,27 @@ MathJax = {
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:2550/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:2550/archive/" title="Archive">
+                <a href="http://localhost:1313/archive/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:2550/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:2550/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:2550/about/" title="FAQ">
+                <a href="http://localhost:1313/about/" title="FAQ">
                     <span>FAQ</span>
                 </a>
             </li>
@@ -293,15 +293,15 @@ MathJax = {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:2550/tags/rambling/">Rambling</a></li>
+      <li><a href="http://localhost:1313/tags/rambling/">Rambling</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:2550/posts/stanley%E4%B8%80%E6%88%98%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B1917%E5%85%89%E8%8D%A3%E4%B9%8B%E8%B7%AF%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/">
+  <a class="prev" href="http://localhost:1313/posts/stanley%E4%B8%80%E6%88%98%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B1917%E5%85%89%E8%8D%A3%E4%B9%8B%E8%B7%AF%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/">
     <span class="title">« 上一页</span>
     <br>
     <span>【Stanley】一战、《西线无战事》《1917》《光荣之路》：当银幕与屏幕间的堑壕崩塌时</span>
   </a>
-  <a class="next" href="http://localhost:2550/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/">
+  <a class="next" href="http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/">
     <span class="title">下一页 »</span>
     <br>
     <span>【鲸鱼随笔】Deepseek诗词文章</span>
@@ -313,7 +313,7 @@ MathJax = {
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:2550/">Man in the Mirror</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">Man in the Mirror</a></span> · 
 
     <span>
         Powered by
