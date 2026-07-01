@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>命运的梯度下降：谢赛宁与反向OpenAI的七小时 | Man in the Mirror</title>
+<meta name="keywords" content="podcast">
+<meta name="description" content="纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。">
+<meta name="author" content="Man in the Mirror">
+<link rel="canonical" href="http://localhost:1313/posts/%E8%B0%A2%E8%B5%9B%E5%AE%81%E8%AE%BF%E8%B0%88/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.ac3ef3ebdd349dafec77dee79fe6e19bed03f85bcd347bbf01aca16ffdeba7c6.css" integrity="sha256-rD7z6900na/sd97nn&#43;bhm&#43;0D&#43;FvNNHu/Aayhb/3rp8Y=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon_wine.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon_wine.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon_wine.ico">
+<link rel="apple-touch-icon" href="http://localhost:1313/favicon_wine.ico">
+<link rel="mask-icon" href="http://localhost:1313/favicon_wine.ico">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/%E8%B0%A2%E8%B5%9B%E5%AE%81%E8%AE%BF%E8%B0%88/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="/css/custom-background.css"><script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script><meta property="og:url" content="http://localhost:1313/posts/%E8%B0%A2%E8%B5%9B%E5%AE%81%E8%AE%BF%E8%B0%88/">
+  <meta property="og:site_name" content="Man in the Mirror">
+  <meta property="og:title" content="命运的梯度下降：谢赛宁与反向OpenAI的七小时">
+  <meta property="og:description" content="纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-04-05T21:59:19+08:00">
+    <meta property="article:modified_time" content="2026-04-05T21:59:19+08:00">
+    <meta property="article:tag" content="Podcast">
+      <meta property="og:image" content="https://i.postimg.cc/7hwBy7VS/calcr.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.postimg.cc/7hwBy7VS/calcr.png">
+<meta name="twitter:title" content="命运的梯度下降：谢赛宁与反向OpenAI的七小时">
+<meta name="twitter:description" content="纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "命运的梯度下降：谢赛宁与反向OpenAI的七小时",
+      "item": "http://localhost:1313/posts/%E8%B0%A2%E8%B5%9B%E5%AE%81%E8%AE%BF%E8%B0%88/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "命运的梯度下降：谢赛宁与反向OpenAI的七小时",
+  "name": "命运的梯度下降：谢赛宁与反向OpenAI的七小时",
+  "description": "纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。\n",
+  "keywords": [
+    "podcast"
+  ],
+  "articleBody": "纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。\n“我不是那个天选之子，“他开场便说，“我只是普通的那一个。”\n然而接下来的七小时里，这位\"普通人\"讲述了一个关于两次拒绝OpenAI、与AI史上最重要人物们的羁绊、以及试图重新定义智能本质的故事。这是一个关于如何从硅谷的叙事重力中逃逸，如何在语言模型的狂潮中坚守视觉的根基，以及最终，如何理解那个宇宙终极答案\"42\"的真正含义。\n一、逃出硅谷：反向OpenAI的叛逆 2024年年中，当杨立昆告诉谢赛宁他决定离开Meta创业时，谢赛宁的第一反应是怀疑。“这怎么可能？“他心想。彼时杨立昆仍是Meta的AI负责人，“图灵奖得主”、“深度学习教父\"的光环加身，怎么会选择在最动荡的时刻跳入创业的洪流？\n但杨立昆只说了一句话：“我觉得我应该在外面做这件事。”\n两周后的周一，两人在NYU的办公室里一对一谈话。杨立昆阐述了他的愿景：不是要做一个比GPT-4更大的语言模型，而是要构建真正的\"世界模型”（World Model）——一个能够理解物理世界、进行因果推理、具备规划能力的智能系统。更重要的是，这家公司不应该在硅谷。\n“硅谷已经被叙事催眠了，“谢赛宁后来说。“所有人都在玩一个有限游戏：抢算力、抢数据、抢榜单排名。这不是研究，这是军备竞赛。”\n这种窒息感源于他在Meta的最后几年。Fair（Facebook AI Research）曾经是最纯粹的学术殿堂，何凯明、Ross Girshick、Piotr Dollár等人在那里创造了ResNet、Mask R-CNN、MoCo等改变历史的工作。但当ChatGPT出现后，一切都变了。\n“开不完的alignment会议，“谢赛宁回忆。“大家坐在一起讨论：接下来两年我们应该做什么？但没有人知道答案。这种自上而下的规划完全违背了研究的逻辑。”\nAMI Labs的诞生因此带有某种\"反向OpenAI\"的基因。如果说OpenAI的模式是\"下载互联网”——爬取全网文本训练Transformer，然后推给市场——那么AMI要做的是\"下载世界”。从工厂传感器到农场数据，从医院监护到真实世界的视频流，构建一个能够理解物理实在而非仅仅语言符号的模型。\n“这是一个草根联盟，“谢赛宁说。“Visa最初由美洲银行创立并垄断市场，直到各地小银行联合起来推出了MasterCard。我们也要做那个反Visa的联盟。”\n公司最终选址巴黎（总部）、纽约、蒙特利尔和新加坡，刻意避开硅谷。融资规模据称达到10亿美元级别，但谢赛宁强调这不是\"含着金汤匙出生\"的创业。“杨立昆在网上是个斗士，四处开战，“他说，“但在投资人面前，他有一半支持一半反对。我们是underdog（弱者），这才是创业者的正常状态。”\n二、两次拒绝Ilya：选择的勇气 在谢赛宁的职业生涯中，有两次关键的选择体现了他对\"正确\"的执着——两次拒绝Ilya Sutskever。\n第一次发生在2018年。博士毕业前夕，谢赛宁在求职面试中经历了OpenAI著名的\"小黑屋面试”：被关在小房间里五个小时解一道手写数学题，出来时天已黑。他拿到了offer，但几乎毫不犹豫地拒绝了。\n“他们发给我offer，我什么都没说就拒了，“他回忆。“Ilya很生气，打电话问我是不是钱不够。我说不是，我就是不能去。”\n当时OpenAI还是一个小型非营利组织，而Fair正处巅峰。何凯明、Ross Girshick等人组成的\"计算机视觉三驾马车\"在那里创造历史。“如果我去Fair，我可以和他们一起工作，“谢赛宁说，“这是无需思考的选择。”\n第二次拒绝发生在2024年7月。Ilya在创立SSI（Safe Superintelligence）后不久，给谢赛宁发邮件邀请他加入。这一次，Ilya不谈钱，而是谈哲学：“我们如何给未来的人工智能赋予爱的能力？”\n谢赛宁问他对多模态怎么看。Ilya回答：“视觉已经解决得很好了。”\n“那一刻我知道我们的路径不同，“谢赛宁说。“SSI有自己的基于语言的路线，但这至少在现在不是我想要设计的路线。”\n这两次拒绝定义了他的研究品味：不追逐最热门的叙事，而是追随自己认为真正重要的问题。这种品味形成于上海交大ACM班，成熟于与何凯明的合作，最终在杨立昆的JEPA（Joint Embedding Predictive Architecture）框架中找到了归宿。\n“有爱的同时一定就有恨，“他回忆与Ilya的对话，“这是一体两面。但更重要的是，LLM和我想做的事情不冲突，它们只是智能的不同部分。兄弟爬山，各自努力。”\n三、从表征到世界：智能的层次 谢赛宁的研究轨迹是一条清晰的\"表征学习\"主线，但这条线本身充满了非线性的跳跃。\n2012年，他在新加坡国立大学发表第一篇关于人脸识别的论文，恰逢AlexNet横空出世。2014年，他与何凯明在Meta实习期间创造了ResNeXt——一个被视作Mixture of Experts（MoE）雏形的架构。随后是MoCo（Momentum Contrast）和MAE（Masked Autoencoder），探索自监督学习的边界。2022年，在Fair的最后时光，他与Bill Peebles合作发表了DiT（Diffusion Transformer），这篇最初被CVPR拒稿的论文，后来成为Sora的架构基础。\n但所有这些工作，在谢赛宁看来都只是在\"切线\"上推进。\n“深度学习领域有大概25篇真正改变历史的论文，“他说。“AlexNet、ResNet、ImageNet、Transformer、GPT-3…我没有一篇在其中。我发表过Best Paper提名，但那只是运气。真正的代表作应该像ImageNet那样——不是发论文，而是定义问题。”\n这种对\"定义问题\"的渴望，将他引向了世界模型。\n在AMI Labs的愿景中，世界模型不是简单的视频生成器（如Sora或Runway），也不是语言模型的多模态扩展。它是一个能够接收连续、高维、带噪声的感官信号（视频、传感器数据、触觉反馈），并从中学习层次化表征的系统。这个系统能够预测行动的后果（predictive modeling），进行反事实推理（counterfactual reasoning），并最终指导行动（planning）。\n“LLM是一个’单词模型’（Word Model），“谢赛宁强调。“维特根斯坦说’语言的边界就是世界的边界’，但他后来推翻了自己。语言是一个游戏，它的意义来自于与真实世界的实践交互。纯语言模型就像柏拉图洞穴中的囚徒，只看到墙上的影子。”\n他指出，人类智能的演化史支持这一观点。寒武纪大爆发被认为源于视觉能力的进化——5.3亿年前，生物发展出眼睛，引发了物种间的\"军备竞赛”。而语言的出现，在地球24小时的演化史中只占了最后8到10秒。\n“我们的大脑每秒处理约10亿比特的感官信息，但说话时只输出10到100比特，“他说。“信息被极大地压缩了。世界模型的核心就是学会这种过滤——不是记住每一个细节，而是学会哪些信息对决策真正重要。”\n这与杨立昆的JEPA架构一脉相承。JEPA不是生成模型（试图重建每一个像素），而是预测模型——在抽象的表征空间中预测未来状态。谢赛宁认为，这是通往类人智能的唯一路径。\n“Rich Sutton（强化学习奠基人）说，能造出松鼠的智能比能拿IMO金牌更难，“谢赛宁说。“松鼠能在真实世界生存，有目标、有情绪、有社群。一旦你有这种具身智能（embodied intelligence），写代码上月球反而是简单的。”\n四、师承：那些塑造品味的人 谢赛宁反复强调自己\"不是天才”，而是\"电池”——一个为团队提供能量的人。这种自我认知源于他一路上遇到的导师们。\n何凯明是其中最重要的一位。在Meta的四年里，何凯明教会了他什么是\"研究品味”（research taste）：极致的专注力、对基础设施的执着（何曾单枪匹马在TPU上搭建整套系统）、以及写作的优雅（“一行论文不能少于60%的文字填充，否则不好看”）。\n“凯明身上有现实扭曲力场，“谢赛宁说。“他能把普通的东西变成金字招牌。最重要的是，他教会我：idea不是想出来的，是探索出来的。你要像黑客一样玩（hack），找到那个梯度（gradient）——那个告诉你方向在哪里的信号。”\n杨立昆则是现在的精神舵手。谢赛宁形容他像\"哈利波特在施咒”——每次谈话后，焦虑都会转化为宁静和勇气。杨立昆的乐观与反脆弱性（做过AI寒冬的\"过来人”），以及对JEPA架构的数学化坚持（“他永远在写公式”），与谢赛宁形成互补。\n李飞飞教会了他\"定义问题\"的能力。“ImageNet不只是个数据集，“谢赛宁说，“它定义了图像分类这个问题本身。飞飞老师的《我看见的世界》里，她讲述的荆棘之路让我明白，做大事需要踏遍荆棘。”\n还有交大的侯晓迪——那位写《交大生存手册》、用七行代码发CVPR的传奇学长。他在谢赛宁大一时就告诉他：做研究不是为了灌水，而是对无限未知的探索。\n这些人共同塑造了谢赛宁的\"世界模型”——一种既文艺又科学的视角。他喜欢贾樟柯和毕赣的电影，认为长镜头（long take）才是人类感知的真实方式：连续的、非离散的、充满上下文的信息流。\n“研究就像拍电影，“他说。“最差的电影是流水账：从A直线到B。最好的电影是人物在特定时刻的选择带来冲突和变化。好的论文也是如此——重要的不是你解决了什么技术问题，而是你怎么到达那里的决策过程。”\n五、42：非线性的无限游戏 访谈的最后，我们回到了那个终极问题：42。\n《银河系漫游指南》中，超级计算机Deep Thought计算了750万年后得出\"42\"是生命、宇宙及一切的答案——尽管没人知道问题是什么。\n谢赛宁认为，这恰好隐喻了当前AI研究的处境：我们急于寻找答案（Scaling Law、AGI），却可能问错了问题。\n“AGI是个伪命题，“他说。“杨立昆和Hassabis辩论时说过：人类智能是极其特化的。我们有200万根视觉神经纤维，能处理的视觉函数是2的200万次方种可能性，但人真正能认知的趋近于零。智能是连续的谱系，从松鼠到人类，不是二元的开关。”\n他强调，研究是一场\"无限游戏”——不是为了赢，而是为了继续玩下去。有限游戏（如下棋、体育竞技）不允许失败，一步错满盘输；但研究像创业，是\"反脆弱\"的：越受冲击，越能成长。\n“DiT被拒稿时我已经免疫了，“他笑道。“最好的论文总是在最后一个月才找到方向。如果你一开始就对了，那说明你的问题太简单（boring）。”\n这种非线性的人生观贯穿始终：从ACM班时\"虚度时光\"的高光时刻（在宿舍打两个月DOTA），到博士期间五次实习的\"流浪”，再到两次拒绝OpenAI的\"逆行”。\n“命运在推我吗？好像也没有，“他说。“但在下一次需要做选择的时候，希望上天保佑吧。”\n纽约的积雪开始融化。谢赛宁即将回到华盛顿广场公园旁的办公室——那里没有隐私，玻璃门内的一切清晰可见，机器人满地跑，学生窝在橙色沙发里。这是他选择的\"世界模型”：开放、混乱、充满生活气息。\n而那个关于42的真正问题，或许就藏在这些连续的、高维的、带噪音的真实世界信号之中——不是语言的边界，而是视觉的起点。\n原视频\n",
+  "wordCount" : "5482",
+  "inLanguage": "zh",
+  "image": "https://i.postimg.cc/7hwBy7VS/calcr.png","datePublished": "2026-04-05T21:59:19+08:00",
+  "dateModified": "2026-04-05T21:59:19+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Man in the Mirror"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/%E8%B0%A2%E8%B5%9B%E5%AE%81%E8%AE%BF%E8%B0%88/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Man in the Mirror",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon_wine.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Man in the Mirror (Alt + H)">Man in the Mirror</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      命运的梯度下降：谢赛宁与反向OpenAI的七小时
+    </h1>
+    <div class="post-meta"><span title='2026-04-05 21:59:19 +0800 CST'>2026-04-05</span>&nbsp;·&nbsp;预计阅读时间 11 分钟&nbsp;·&nbsp;Man in the Mirror
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%80%e9%80%83%e5%87%ba%e7%a1%85%e8%b0%b7%e5%8f%8d%e5%90%91openai%e7%9a%84%e5%8f%9b%e9%80%86" aria-label="一、逃出硅谷：反向OpenAI的叛逆">一、逃出硅谷：反向OpenAI的叛逆</a></li>
+                <li>
+                    <a href="#%e4%ba%8c%e4%b8%a4%e6%ac%a1%e6%8b%92%e7%bb%9dilya%e9%80%89%e6%8b%a9%e7%9a%84%e5%8b%87%e6%b0%94" aria-label="二、两次拒绝Ilya：选择的勇气">二、两次拒绝Ilya：选择的勇气</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e4%bb%8e%e8%a1%a8%e5%be%81%e5%88%b0%e4%b8%96%e7%95%8c%e6%99%ba%e8%83%bd%e7%9a%84%e5%b1%82%e6%ac%a1" aria-label="三、从表征到世界：智能的层次">三、从表征到世界：智能的层次</a></li>
+                <li>
+                    <a href="#%e5%9b%9b%e5%b8%88%e6%89%bf%e9%82%a3%e4%ba%9b%e5%a1%91%e9%80%a0%e5%93%81%e5%91%b3%e7%9a%84%e4%ba%ba" aria-label="四、师承：那些塑造品味的人">四、师承：那些塑造品味的人</a></li>
+                <li>
+                    <a href="#%e4%ba%9442%e9%9d%9e%e7%ba%bf%e6%80%a7%e7%9a%84%e6%97%a0%e9%99%90%e6%b8%b8%e6%88%8f" aria-label="五、42：非线性的无限游戏">五、42：非线性的无限游戏</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。</p>
+<p>&ldquo;我不是那个天选之子，&ldquo;他开场便说，&ldquo;我只是普通的那一个。&rdquo;</p>
+<p>然而接下来的七小时里，这位&quot;普通人&quot;讲述了一个关于两次拒绝OpenAI、与AI史上最重要人物们的羁绊、以及试图重新定义智能本质的故事。这是一个关于如何从硅谷的叙事重力中逃逸，如何在语言模型的狂潮中坚守视觉的根基，以及最终，如何理解那个宇宙终极答案&quot;42&quot;的真正含义。</p>
+<hr>
+<h3 id="一逃出硅谷反向openai的叛逆">一、逃出硅谷：反向OpenAI的叛逆<a hidden class="anchor" aria-hidden="true" href="#一逃出硅谷反向openai的叛逆">#</a></h3>
+<p>2024年年中，当杨立昆告诉谢赛宁他决定离开Meta创业时，谢赛宁的第一反应是怀疑。&ldquo;这怎么可能？&ldquo;他心想。彼时杨立昆仍是Meta的AI负责人，&ldquo;图灵奖得主&rdquo;、&ldquo;深度学习教父&quot;的光环加身，怎么会选择在最动荡的时刻跳入创业的洪流？</p>
+<p>但杨立昆只说了一句话：&ldquo;我觉得我应该在外面做这件事。&rdquo;</p>
+<p>两周后的周一，两人在NYU的办公室里一对一谈话。杨立昆阐述了他的愿景：不是要做一个比GPT-4更大的语言模型，而是要构建真正的&quot;世界模型&rdquo;（World Model）——一个能够理解物理世界、进行因果推理、具备规划能力的智能系统。更重要的是，这家公司不应该在硅谷。</p>
+<p>&ldquo;硅谷已经被叙事催眠了，&ldquo;谢赛宁后来说。&ldquo;所有人都在玩一个有限游戏：抢算力、抢数据、抢榜单排名。这不是研究，这是军备竞赛。&rdquo;</p>
+<p>这种窒息感源于他在Meta的最后几年。Fair（Facebook AI Research）曾经是最纯粹的学术殿堂，何凯明、Ross Girshick、Piotr Dollár等人在那里创造了ResNet、Mask R-CNN、MoCo等改变历史的工作。但当ChatGPT出现后，一切都变了。</p>
+<p>&ldquo;开不完的alignment会议，&ldquo;谢赛宁回忆。&ldquo;大家坐在一起讨论：接下来两年我们应该做什么？但没有人知道答案。这种自上而下的规划完全违背了研究的逻辑。&rdquo;</p>
+<p>AMI Labs的诞生因此带有某种&quot;反向OpenAI&quot;的基因。如果说OpenAI的模式是&quot;下载互联网&rdquo;——爬取全网文本训练Transformer，然后推给市场——那么AMI要做的是&quot;下载世界&rdquo;。从工厂传感器到农场数据，从医院监护到真实世界的视频流，构建一个能够理解物理实在而非仅仅语言符号的模型。</p>
+<p>&ldquo;这是一个草根联盟，&ldquo;谢赛宁说。&ldquo;Visa最初由美洲银行创立并垄断市场，直到各地小银行联合起来推出了MasterCard。我们也要做那个反Visa的联盟。&rdquo;</p>
+<p>公司最终选址巴黎（总部）、纽约、蒙特利尔和新加坡，刻意避开硅谷。融资规模据称达到10亿美元级别，但谢赛宁强调这不是&quot;含着金汤匙出生&quot;的创业。&ldquo;杨立昆在网上是个斗士，四处开战，&ldquo;他说，&ldquo;但在投资人面前，他有一半支持一半反对。我们是underdog（弱者），这才是创业者的正常状态。&rdquo;</p>
+<hr>
+<h3 id="二两次拒绝ilya选择的勇气">二、两次拒绝Ilya：选择的勇气<a hidden class="anchor" aria-hidden="true" href="#二两次拒绝ilya选择的勇气">#</a></h3>
+<p>在谢赛宁的职业生涯中，有两次关键的选择体现了他对&quot;正确&quot;的执着——两次拒绝Ilya Sutskever。</p>
+<p>第一次发生在2018年。博士毕业前夕，谢赛宁在求职面试中经历了OpenAI著名的&quot;小黑屋面试&rdquo;：被关在小房间里五个小时解一道手写数学题，出来时天已黑。他拿到了offer，但几乎毫不犹豫地拒绝了。</p>
+<p>&ldquo;他们发给我offer，我什么都没说就拒了，&ldquo;他回忆。&ldquo;Ilya很生气，打电话问我是不是钱不够。我说不是，我就是不能去。&rdquo;</p>
+<p>当时OpenAI还是一个小型非营利组织，而Fair正处巅峰。何凯明、Ross Girshick等人组成的&quot;计算机视觉三驾马车&quot;在那里创造历史。&ldquo;如果我去Fair，我可以和他们一起工作，&ldquo;谢赛宁说，&ldquo;这是无需思考的选择。&rdquo;</p>
+<p>第二次拒绝发生在2024年7月。Ilya在创立SSI（Safe Superintelligence）后不久，给谢赛宁发邮件邀请他加入。这一次，Ilya不谈钱，而是谈哲学：&ldquo;我们如何给未来的人工智能赋予爱的能力？&rdquo;</p>
+<p>谢赛宁问他对多模态怎么看。Ilya回答：&ldquo;视觉已经解决得很好了。&rdquo;</p>
+<p>&ldquo;那一刻我知道我们的路径不同，&ldquo;谢赛宁说。&ldquo;SSI有自己的基于语言的路线，但这至少在现在不是我想要设计的路线。&rdquo;</p>
+<p>这两次拒绝定义了他的研究品味：不追逐最热门的叙事，而是追随自己认为真正重要的问题。这种品味形成于上海交大ACM班，成熟于与何凯明的合作，最终在杨立昆的JEPA（Joint Embedding Predictive Architecture）框架中找到了归宿。</p>
+<p>&ldquo;有爱的同时一定就有恨，&ldquo;他回忆与Ilya的对话，&ldquo;这是一体两面。但更重要的是，LLM和我想做的事情不冲突，它们只是智能的不同部分。兄弟爬山，各自努力。&rdquo;</p>
+<hr>
+<h3 id="三从表征到世界智能的层次">三、从表征到世界：智能的层次<a hidden class="anchor" aria-hidden="true" href="#三从表征到世界智能的层次">#</a></h3>
+<p>谢赛宁的研究轨迹是一条清晰的&quot;表征学习&quot;主线，但这条线本身充满了非线性的跳跃。</p>
+<p>2012年，他在新加坡国立大学发表第一篇关于人脸识别的论文，恰逢AlexNet横空出世。2014年，他与何凯明在Meta实习期间创造了ResNeXt——一个被视作Mixture of Experts（MoE）雏形的架构。随后是MoCo（Momentum Contrast）和MAE（Masked Autoencoder），探索自监督学习的边界。2022年，在Fair的最后时光，他与Bill Peebles合作发表了DiT（Diffusion Transformer），这篇最初被CVPR拒稿的论文，后来成为Sora的架构基础。</p>
+<p>但所有这些工作，在谢赛宁看来都只是在&quot;切线&quot;上推进。</p>
+<p>&ldquo;深度学习领域有大概25篇真正改变历史的论文，&ldquo;他说。&ldquo;AlexNet、ResNet、ImageNet、Transformer、GPT-3&hellip;我没有一篇在其中。我发表过Best Paper提名，但那只是运气。真正的代表作应该像ImageNet那样——不是发论文，而是定义问题。&rdquo;</p>
+<p>这种对&quot;定义问题&quot;的渴望，将他引向了世界模型。</p>
+<p>在AMI Labs的愿景中，世界模型不是简单的视频生成器（如Sora或Runway），也不是语言模型的多模态扩展。它是一个能够接收连续、高维、带噪声的感官信号（视频、传感器数据、触觉反馈），并从中学习层次化表征的系统。这个系统能够预测行动的后果（predictive modeling），进行反事实推理（counterfactual reasoning），并最终指导行动（planning）。</p>
+<p>&ldquo;LLM是一个&rsquo;单词模型&rsquo;（Word Model），&ldquo;谢赛宁强调。&ldquo;维特根斯坦说&rsquo;语言的边界就是世界的边界&rsquo;，但他后来推翻了自己。语言是一个游戏，它的意义来自于与真实世界的实践交互。纯语言模型就像柏拉图洞穴中的囚徒，只看到墙上的影子。&rdquo;</p>
+<p>他指出，人类智能的演化史支持这一观点。寒武纪大爆发被认为源于视觉能力的进化——5.3亿年前，生物发展出眼睛，引发了物种间的&quot;军备竞赛&rdquo;。而语言的出现，在地球24小时的演化史中只占了最后8到10秒。</p>
+<p>&ldquo;我们的大脑每秒处理约10亿比特的感官信息，但说话时只输出10到100比特，&ldquo;他说。&ldquo;信息被极大地压缩了。世界模型的核心就是学会这种过滤——不是记住每一个细节，而是学会哪些信息对决策真正重要。&rdquo;</p>
+<p>这与杨立昆的JEPA架构一脉相承。JEPA不是生成模型（试图重建每一个像素），而是预测模型——在抽象的表征空间中预测未来状态。谢赛宁认为，这是通往类人智能的唯一路径。</p>
+<p>&ldquo;Rich Sutton（强化学习奠基人）说，能造出松鼠的智能比能拿IMO金牌更难，&ldquo;谢赛宁说。&ldquo;松鼠能在真实世界生存，有目标、有情绪、有社群。一旦你有这种具身智能（embodied intelligence），写代码上月球反而是简单的。&rdquo;</p>
+<hr>
+<h3 id="四师承那些塑造品味的人">四、师承：那些塑造品味的人<a hidden class="anchor" aria-hidden="true" href="#四师承那些塑造品味的人">#</a></h3>
+<p>谢赛宁反复强调自己&quot;不是天才&rdquo;，而是&quot;电池&rdquo;——一个为团队提供能量的人。这种自我认知源于他一路上遇到的导师们。</p>
+<p>何凯明是其中最重要的一位。在Meta的四年里，何凯明教会了他什么是&quot;研究品味&rdquo;（research taste）：极致的专注力、对基础设施的执着（何曾单枪匹马在TPU上搭建整套系统）、以及写作的优雅（&ldquo;一行论文不能少于60%的文字填充，否则不好看&rdquo;）。</p>
+<p>&ldquo;凯明身上有现实扭曲力场，&ldquo;谢赛宁说。&ldquo;他能把普通的东西变成金字招牌。最重要的是，他教会我：idea不是想出来的，是探索出来的。你要像黑客一样玩（hack），找到那个梯度（gradient）——那个告诉你方向在哪里的信号。&rdquo;</p>
+<p>杨立昆则是现在的精神舵手。谢赛宁形容他像&quot;哈利波特在施咒&rdquo;——每次谈话后，焦虑都会转化为宁静和勇气。杨立昆的乐观与反脆弱性（做过AI寒冬的&quot;过来人&rdquo;），以及对JEPA架构的数学化坚持（&ldquo;他永远在写公式&rdquo;），与谢赛宁形成互补。</p>
+<p>李飞飞教会了他&quot;定义问题&quot;的能力。&ldquo;ImageNet不只是个数据集，&ldquo;谢赛宁说，&ldquo;它定义了图像分类这个问题本身。飞飞老师的《我看见的世界》里，她讲述的荆棘之路让我明白，做大事需要踏遍荆棘。&rdquo;</p>
+<p>还有交大的侯晓迪——那位写《交大生存手册》、用七行代码发CVPR的传奇学长。他在谢赛宁大一时就告诉他：做研究不是为了灌水，而是对无限未知的探索。</p>
+<p>这些人共同塑造了谢赛宁的&quot;世界模型&rdquo;——一种既文艺又科学的视角。他喜欢贾樟柯和毕赣的电影，认为长镜头（long take）才是人类感知的真实方式：连续的、非离散的、充满上下文的信息流。</p>
+<p>&ldquo;研究就像拍电影，&ldquo;他说。&ldquo;最差的电影是流水账：从A直线到B。最好的电影是人物在特定时刻的选择带来冲突和变化。好的论文也是如此——重要的不是你解决了什么技术问题，而是你怎么到达那里的决策过程。&rdquo;</p>
+<hr>
+<h3 id="五42非线性的无限游戏">五、42：非线性的无限游戏<a hidden class="anchor" aria-hidden="true" href="#五42非线性的无限游戏">#</a></h3>
+<p>访谈的最后，我们回到了那个终极问题：42。</p>
+<p>《银河系漫游指南》中，超级计算机Deep Thought计算了750万年后得出&quot;42&quot;是生命、宇宙及一切的答案——尽管没人知道问题是什么。</p>
+<p>谢赛宁认为，这恰好隐喻了当前AI研究的处境：我们急于寻找答案（Scaling Law、AGI），却可能问错了问题。</p>
+<p>&ldquo;AGI是个伪命题，&ldquo;他说。&ldquo;杨立昆和Hassabis辩论时说过：人类智能是极其特化的。我们有200万根视觉神经纤维，能处理的视觉函数是2的200万次方种可能性，但人真正能认知的趋近于零。智能是连续的谱系，从松鼠到人类，不是二元的开关。&rdquo;</p>
+<p>他强调，研究是一场&quot;无限游戏&rdquo;——不是为了赢，而是为了继续玩下去。有限游戏（如下棋、体育竞技）不允许失败，一步错满盘输；但研究像创业，是&quot;反脆弱&quot;的：越受冲击，越能成长。</p>
+<p>&ldquo;DiT被拒稿时我已经免疫了，&ldquo;他笑道。&ldquo;最好的论文总是在最后一个月才找到方向。如果你一开始就对了，那说明你的问题太简单（boring）。&rdquo;</p>
+<p>这种非线性的人生观贯穿始终：从ACM班时&quot;虚度时光&quot;的高光时刻（在宿舍打两个月DOTA），到博士期间五次实习的&quot;流浪&rdquo;，再到两次拒绝OpenAI的&quot;逆行&rdquo;。</p>
+<p>&ldquo;命运在推我吗？好像也没有，&ldquo;他说。&ldquo;但在下一次需要做选择的时候，希望上天保佑吧。&rdquo;</p>
+<p>纽约的积雪开始融化。谢赛宁即将回到华盛顿广场公园旁的办公室——那里没有隐私，玻璃门内的一切清晰可见，机器人满地跑，学生窝在橙色沙发里。这是他选择的&quot;世界模型&rdquo;：开放、混乱、充满生活气息。</p>
+<p>而那个关于42的真正问题，或许就藏在这些连续的、高维的、带噪音的真实世界信号之中——不是语言的边界，而是视觉的起点。</p>
+<p><a href="https://www.bilibili.com/video/BV1tew5zVEDf/">原视频</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/podcast/">Podcast</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/%E6%92%AD%E5%AE%A2-%E9%A3%9F%E7%89%A9%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>【播客】十块钱的牛奶与四十块的猪排——健身人餐桌上的资本主义课</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/ppt%E5%85%A5%E5%8F%A3/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>PPT 演示入口</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Man in the Mirror</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><div class="bing-image-name" id="bing-image-name">Loading...</div><script>
+(function() {
+    
+    fetch('/bing_wallpaper_metadata.json?t=' + Date.now())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Metadata file not found');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data && data.length > 0) {
+                
+                const sorted = data.sort((a, b) => b.enddate.localeCompare(a.enddate));
+                const latest = sorted[0];
+                const nameElement = document.getElementById('bing-image-name');
+                if (nameElement) {
+                    const bingUrl = 'https://www.bing.com' + latest.urlBase + '_1920x1080.jpg';
+                    let content = '';
+                    if (latest.headline) {
+                        content += latest.headline;
+                    }
+                    if (latest.filename) {
+                        if (content) content += ' · ';
+                        content += '<em>' + latest.filename + '</em>';
+                    }
+                    if (latest.copyright) {
+                        if (content) content += '<br>';
+                        content += latest.copyright;
+                    }
+                    if (!content) {
+                        content = 'Bing Wallpaper';
+                    }
+                    nameElement.innerHTML = '<a href="' + bingUrl + '" target="_blank" rel="noopener noreferrer" title="View on Bing">' + content + '</a>';
+                }
+            }
+        })
+        .catch(error => {
+            const nameElement = document.getElementById('bing-image-name');
+            if (nameElement) {
+                const img = new Image();
+                img.onload = function() {
+                    nameElement.innerHTML = '<a href="https://www.bing.com" target="_blank" rel="noopener noreferrer" title="View on Bing">Bing Wallpaper</a>';
+                };
+                img.onerror = function() {
+                    nameElement.style.display = 'none';
+                };
+                img.src = '/img/latest.jpg';
+            }
+        });
+
+    
+    function initTypewriter() {
+        
+        const homeHeader = document.querySelector('.home-info .entry-header h1');
+        const homeContent = document.querySelector('.home-info .entry-content');
+        
+        if (!homeHeader || !homeContent) return;
+
+        
+        const headerText = homeHeader.textContent.trim();
+        const contentText = homeContent.textContent.trim();
+        
+        if (!headerText && !contentText) return;
+
+        
+        homeHeader.innerHTML = '<span class="typewriter-text" data-text="header"></span>';
+        homeContent.innerHTML = '<span class="typewriter-text" data-text="content"></span>';
+        
+        const headerElement = homeHeader.querySelector('.typewriter-text');
+        const contentElement = homeContent.querySelector('.typewriter-text');
+
+        
+        const typingSpeed = 60; 
+        const startDelay = 300; 
+
+        let headerIndex = 0;
+        let contentIndex = 0;
+        let headerDone = false;
+        let contentDone = false;
+
+        function typeHeader() {
+            if (headerIndex < headerText.length) {
+                headerElement.textContent += headerText.charAt(headerIndex);
+                headerIndex++;
+                setTimeout(typeHeader, typingSpeed);
+            } else {
+                headerDone = true;
+                headerElement.classList.add('done');
+            }
+        }
+
+        function typeContent() {
+            if (contentIndex < contentText.length) {
+                contentElement.textContent += contentText.charAt(contentIndex);
+                contentIndex++;
+                setTimeout(typeContent, typingSpeed);
+            } else {
+                contentDone = true;
+                contentElement.classList.add('done');
+            }
+        }
+
+        
+        setTimeout(() => {
+            typeHeader();
+            typeContent();
+        }, startDelay);
+    }
+
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTypewriter);
+    } else {
+        initTypewriter();
+    }
+
+    
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', function() {
+            const isOpen = menu.classList.contains('active');
+            
+            if (isOpen) {
+                
+                menu.style.opacity = '0';
+                menu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                }, 300);
+            } else {
+                
+                menu.style.display = 'block';
+                
+                menu.offsetHeight;
+                menu.classList.add('active');
+                menu.style.opacity = '1';
+                menu.style.transform = 'translateY(0)';
+            }
+        });
+
+        
+        menu.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        
+        
+        document.addEventListener('click', function(e) {
+            if (!menu.contains(e.target) && !menuToggle.contains(e.target) && menu.classList.contains('active')) {
+                menu.style.opacity = '0';
+                menu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+})();
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
