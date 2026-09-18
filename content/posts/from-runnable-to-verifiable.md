@@ -1,5 +1,5 @@
-+++
-date = '2026-09-17T20:00:00+08:00'
+﻿+++
+date = '2026-09-04T09:00:00+08:00'
 draft = false
 slug = 'from-runnable-to-verifiable'
 title = '从能跑到可验证：一个 Agent 系统的三次返工'
