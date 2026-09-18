@@ -1,6 +1,8 @@
 +++
 date = '2025-09-25T12:34:13+08:00'
 draft = false
+slug = 'generative-models-fit-distributions'
+aliases = ["/posts/生成模型都在拟合分布？MLE≈KL散度，以及VAE、Diffusion、GAN的数学本质/"]
 title = '生成模型都在拟合分布？MLE≈KL散度，以及VAE、Diffusion、GAN的数学本质'
 tags = ["generative-model"]
 +++

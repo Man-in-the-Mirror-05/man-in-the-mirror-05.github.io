@@ -1,6 +1,8 @@
 +++
 date = '2025-05-05T11:26:53+08:00'
 draft = false
+slug = 'stanley-wwi-films'
+aliases = ["/posts/【Stanley】一战、《西线无战事》《1917》《光荣之路》：当银幕与屏幕间的堑壕崩塌时/"]
 title = '【Stanley】一战、《西线无战事》《1917》《光荣之路》：当银幕与屏幕间的堑壕崩塌时'
 tags = ["film"]
 +++
