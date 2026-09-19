@@ -1,4 +1,4 @@
-{{- /* Footer custom content area start */ -}}
+﻿{{- /* Footer custom content area start */ -}}
 {{- /* 显示必应图片名称 */ -}}
 <div class="bing-image-name" id="bing-image-name">Loading...</div>
 
@@ -164,4 +164,35 @@
     }
 })();
 </script>
+{{- /* Mermaid 图表支持 */ -}}
+<style>
+  .mermaid { text-align: center; margin: 1.5rem 0; background: transparent; }
+  .mermaid svg { max-width: 100%; height: auto; }
+</style>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+function renderMermaid() {
+  const nodes = document.querySelectorAll('code.language-mermaid');
+  if (!nodes.length) return;
+  nodes.forEach((el) => {
+    const holder = el.closest('.highlight') || el.closest('pre') || el;
+    const box = document.createElement('div');
+    box.className = 'mermaid';
+    box.textContent = el.textContent;
+    holder.replaceWith(box);
+  });
+  const dark = document.body.classList.contains('dark');
+  mermaid.initialize({ startOnLoad: false, theme: dark ? 'dark' : 'default' });
+  mermaid.run({ nodes: Array.from(document.querySelectorAll('.mermaid')) })
+    .catch(function (err) { console.error('mermaid:', err); });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderMermaid);
+} else {
+  renderMermaid();
+}
+</script>
+
 {{- /* Footer custom content area end */ -}}
