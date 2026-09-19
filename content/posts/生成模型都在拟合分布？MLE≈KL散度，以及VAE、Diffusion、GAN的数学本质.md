@@ -1,4 +1,4 @@
-+++
+﻿+++
 date = '2025-09-25T12:34:13+08:00'
 draft = false
 slug = 'generative-models-fit-distributions'
@@ -104,7 +104,8 @@ VAE的核心思想是：不再将每张图片映射为隐空间中的一个点�
 ### VAE的模型结构
 
 VAE的模型结构如图所示
-![[vae.webp]]
+![VAE 模型结构示意图](/img/vae.webp)
+
 1.  **编码器（Encoder）**：接收输入$x$，通过神经网络输出两个向量：均值$\mu$和方差的对数$\log \sigma^2$，因为指数运算$\exp(\log \sigma^2)$可以确保方差为正，且便于计算。
 
 2.  **重参数化（Reparameterization Trick）**：如果我们直接从分布 $N(\mu, \sigma^2)$ 中采样 $z$，采样操作是随机的、不可微的，梯度无法通过它反向传播，编码器就无法被训练。为了解决这个问题，我们引入一个外部噪声 $\epsilon$，它来自标准正态分布 $\epsilon \sim N(0, I)$。然后通过一个可微的确定性变换来得到 $z$：$$
