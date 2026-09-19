@@ -1,5 +1,5 @@
-+++
-date = '2026-09-19T14:00:00+08:00'
+﻿+++
+date = '2024-08-17T12:00:00+08:00'
 draft = false
 slug = 'cs231n-2017-course-notes'
 title = 'CS231n 2017 全课笔记'
@@ -242,7 +242,7 @@ In common use:
 | **Feature handling** | Keeps all features | Automatic feature selection |
 | **Noise robustness** | Stronger | Weaker |
 
-#### Softmax Classifier (Multinominal Logistic Regression) (Cross-Entropy)
+#### Softmax Classifier (Multinomial Logistic Regression) (Cross-Entropy)
 
 Softmax function (generalizes logistic regression to more than 2 classes):
 
