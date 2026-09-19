@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CS231n on Man in the Mirror</title>
+    <link>https://man-in-the-mirror-05.github.io/tags/cs231n/</link>
+    <description>Recent content in CS231n on Man in the Mirror</description>
+    <image>
+      <title>Man in the Mirror</title>
+      <url>https://i.postimg.cc/7hwBy7VS/calcr.png</url>
+      <link>https://i.postimg.cc/7hwBy7VS/calcr.png</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 17 Aug 2024 12:00:00 +0800</lastBuildDate>
+    <atom:link href="https://man-in-the-mirror-05.github.io/tags/cs231n/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CS231n 2017 全课笔记</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/cs231n-2017-course-notes/</link>
+      <pubDate>Sat, 17 Aug 2024 12:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/cs231n-2017-course-notes/</guid>
+      <description>斯坦福 CS231n 2017 版全课笔记，按 16 讲顺序覆盖图像分类、损失函数与反向传播、卷积与经典架构、训练实务、序列与检测分割、生成模型与对抗样本、高效推理与硬件协同设计。英文正文，含 50 张课件配图。</description>
+    </item>
+  </channel>
+</rss>

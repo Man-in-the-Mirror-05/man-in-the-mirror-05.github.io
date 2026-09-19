@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Clip on Man in the Mirror</title>
+    <link>https://man-in-the-mirror-05.github.io/tags/clip/</link>
+    <description>Recent content in Clip on Man in the Mirror</description>
+    <image>
+      <title>Man in the Mirror</title>
+      <url>https://i.postimg.cc/7hwBy7VS/calcr.png</url>
+      <link>https://i.postimg.cc/7hwBy7VS/calcr.png</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 19 Sep 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://man-in-the-mirror-05.github.io/tags/clip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>生成模型与多模态：目标、路径、条件、主干与谱系</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/multimodal-generative-models/</link>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/multimodal-generative-models/</guid>
+      <description>从极大似然与 KL 散度出发，推到 VAE、GAN、扩散模型、Flow Matching 与离散 token 路径，再接上视觉表示、跨模态对齐、条件注入与引导，最后落到主干架构、采样代价、谱系选型与一次真实的排查案例。</description>
+    </item>
+  </channel>
+</rss>

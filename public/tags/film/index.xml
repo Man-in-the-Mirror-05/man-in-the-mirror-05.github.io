@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Film on Man in the Mirror</title>
-    <link>http://localhost:1313/tags/film/</link>
+    <link>https://man-in-the-mirror-05.github.io/tags/film/</link>
     <description>Recent content in Film on Man in the Mirror</description>
     <image>
       <title>Man in the Mirror</title>
@@ -11,13 +11,21 @@
     </image>
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 05 May 2025 11:26:53 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/film/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Apr 2026 09:00:00 +0800</lastBuildDate>
+    <atom:link href="https://man-in-the-mirror-05.github.io/tags/film/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>【Stanley】一战、《西线无战事》《1917》《光荣之路》：当银幕与屏幕间的堑壕崩塌时</title>
-      <link>http://localhost:1313/posts/stanley%E4%B8%80%E6%88%98%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B1917%E5%85%89%E8%8D%A3%E4%B9%8B%E8%B7%AF%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/</link>
+      <title>《乱世佳人》、南北战争、佐治亚、民权运动</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/gone-with-the-wind-civil-war-georgia/</link>
+      <pubDate>Sat, 18 Apr 2026 09:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/gone-with-the-wind-civil-war-georgia/</guid>
+      <description>&lt;p&gt;看《乱世佳人》看到斯嘉丽穿越封锁线去监狱找瑞德，我按了几次暂停。银幕上是佐治亚州的红色粘土，和监狱的铁栏。&lt;/p&gt;
+&lt;p&gt;佐治亚在电影里出现得太频繁。亚特兰大、塔拉庄园、十二橡树，都在这个州。我对那里的地理和政治完全不知道，唯一认得的是 Otis Redding，道森出生，在梅肯的教堂唱诗班里练出嗓子，后来唱《(Sittin&amp;rsquo; On) The Dock of the Bay》。一个唱歌的黑人，和一部讲南方种植园的电影，中间隔着什么，我一开始说不清。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>一战、《西线无战事》《1917》《光荣之路》：当银幕与屏幕间的堑壕崩塌时</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/stanley-wwi-films/</link>
       <pubDate>Mon, 05 May 2025 11:26:53 +0800</pubDate>
-      <guid>http://localhost:1313/posts/stanley%E4%B8%80%E6%88%98%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B1917%E5%85%89%E8%8D%A3%E4%B9%8B%E8%B7%AF%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/stanley-wwi-films/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;They went to sea in a Sieve, they did,
 In a Sieve they went to sea:

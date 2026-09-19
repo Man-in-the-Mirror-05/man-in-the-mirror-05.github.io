@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Man in the Mirror</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://man-in-the-mirror-05.github.io/posts/</link>
     <description>Recent content in Posts on Man in the Mirror</description>
     <image>
       <title>Man in the Mirror</title>
@@ -11,50 +11,70 @@
     </image>
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 22 Apr 2026 19:45:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Sep 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://man-in-the-mirror-05.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>生成模型与多模态：目标、路径、条件、主干与谱系</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/multimodal-generative-models/</link>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/multimodal-generative-models/</guid>
+      <description>从极大似然与 KL 散度出发，推到 VAE、GAN、扩散模型、Flow Matching 与离散 token 路径，再接上视觉表示、跨模态对齐、条件注入与引导，最后落到主干架构、采样代价、谱系选型与一次真实的排查案例。</description>
+    </item>
+    <item>
+      <title>从能跑到可验证：一个 Agent 系统的三次返工</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/from-runnable-to-verifiable/</link>
+      <pubDate>Fri, 04 Sep 2026 09:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/from-runnable-to-verifiable/</guid>
+      <description>面向轨道交通技术文档的 RAG 系统，一年内被推翻重做三次：先优化检索，再重构为自验证闭环，最后补上评估闭环并迁移到视频标注。含 15 条查询的逐题实测、真机数据接入结果，以及没做成的那部分。</description>
+    </item>
     <item>
       <title>【播客】高校机器——文凭、权力与逃离路线</title>
-      <link>http://localhost:1313/posts/%E6%92%AD%E5%AE%A2-%E9%AB%98%E6%A0%A1%E6%9C%BA%E5%99%A8/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/podcast-university-machine/</link>
       <pubDate>Wed, 22 Apr 2026 19:45:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E6%92%AD%E5%AE%A2-%E9%AB%98%E6%A0%A1%E6%9C%BA%E5%99%A8/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/podcast-university-machine/</guid>
       <description>一期播客对话文稿：关于985高校内部的权力结构、资源流向，以及一个二十一岁学生如何在其中找到生存路线。</description>
     </item>
     <item>
       <title>【播客】十块钱的牛奶与四十块的猪排——健身人餐桌上的资本主义课</title>
-      <link>http://localhost:1313/posts/%E6%92%AD%E5%AE%A2-%E9%A3%9F%E7%89%A9%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/podcast-food-capitalism/</link>
       <pubDate>Wed, 22 Apr 2026 18:36:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E6%92%AD%E5%AE%A2-%E9%A3%9F%E7%89%A9%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/podcast-food-capitalism/</guid>
       <description>从健身人的日常饮食选择出发，聊资本主义、消费主义、鲍曼与布迪厄。</description>
     </item>
     <item>
-      <title>谢赛宁访谈</title>
-      <link>http://localhost:1313/posts/%E8%B0%A2%E8%B5%9B%E5%AE%81%E8%AE%BF%E8%B0%88/</link>
+      <title>《乱世佳人》、南北战争、佐治亚、民权运动</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/gone-with-the-wind-civil-war-georgia/</link>
+      <pubDate>Sat, 18 Apr 2026 09:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/gone-with-the-wind-civil-war-georgia/</guid>
+      <description>&lt;p&gt;看《乱世佳人》看到斯嘉丽穿越封锁线去监狱找瑞德，我按了几次暂停。银幕上是佐治亚州的红色粘土，和监狱的铁栏。&lt;/p&gt;
+&lt;p&gt;佐治亚在电影里出现得太频繁。亚特兰大、塔拉庄园、十二橡树，都在这个州。我对那里的地理和政治完全不知道，唯一认得的是 Otis Redding，道森出生，在梅肯的教堂唱诗班里练出嗓子，后来唱《(Sittin&amp;rsquo; On) The Dock of the Bay》。一个唱歌的黑人，和一部讲南方种植园的电影，中间隔着什么，我一开始说不清。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>命运的梯度下降：谢赛宁与反向OpenAI的七小时</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/interview-saining-xie/</link>
       <pubDate>Sun, 05 Apr 2026 21:59:19 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E8%B0%A2%E8%B5%9B%E5%AE%81%E8%AE%BF%E8%B0%88/</guid>
-      <description>&lt;h2 id=&#34;命运的梯度下降谢赛宁与反向openai的七小时&#34;&gt;命运的梯度下降：谢赛宁与反向OpenAI的七小时&lt;/h2&gt;
-&lt;p&gt;纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。&lt;/p&gt;</description>
+      <guid>https://man-in-the-mirror-05.github.io/posts/interview-saining-xie/</guid>
+      <description>&lt;p&gt;纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>破解Transformer：视频总结</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/cracking-transformer-video-notes/</link>
+      <pubDate>Mon, 01 Dec 2025 12:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/cracking-transformer-video-notes/</guid>
+      <description>B 站视频《破解Transformer》的观看总结：从规则系统与统计语言学到 RNN、CTC、Encoder-Decoder、注意力与自注意力、位置编码、归一化与残差，再到解码器的交叉注意力与因果注意力，共 12 节。视频来源：https://space.bilibili.com/287989852</description>
     </item>
     <item>
       <title>PPT 演示入口</title>
-      <link>http://localhost:1313/posts/ppt%E5%85%A5%E5%8F%A3/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/ppt-demo/</link>
       <pubDate>Wed, 19 Nov 2025 17:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/ppt%E5%85%A5%E5%8F%A3/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/ppt-demo/</guid>
       <description>直达 Vue PPT 演示页</description>
     </item>
     <item>
-      <title>生成模型都在拟合分布？MLE≈KL散度，以及VAE、Diffusion、GAN的数学本质</title>
-      <link>http://localhost:1313/posts/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E9%83%BD%E5%9C%A8%E6%8B%9F%E5%90%88%E5%88%86%E5%B8%83mlekl%E6%95%A3%E5%BA%A6%E4%BB%A5%E5%8F%8Avaediffusiongan%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8/</link>
-      <pubDate>Thu, 25 Sep 2025 12:34:13 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E9%83%BD%E5%9C%A8%E6%8B%9F%E5%90%88%E5%88%86%E5%B8%83mlekl%E6%95%A3%E5%BA%A6%E4%BB%A5%E5%8F%8Avaediffusiongan%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8/</guid>
-      <description>&lt;h2 id=&#34;最大化mle等价于最小化kl散度&#34;&gt;最大化MLE等价于最小化KL散度&lt;/h2&gt;
-&lt;p&gt;假设我们有一个图像训练集，包含 $M$ 张图片 $\{x_1, x_2, \dots, x_M\}$。这些图片来自于一个未知的真实数据分布 $P_{\text{data}}(x)$。我们的目标是训练一个参数化模型 $P_{\theta}(x)$，使其能够生成与训练集相似的新图像。通常，我们通过输入一个随机噪声向量（例如，从正态分布中采样）来生成图像。&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>搜索技巧</title>
-      <link>http://localhost:1313/posts/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/search-tips/</link>
       <pubDate>Fri, 08 Aug 2025 17:17:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/search-tips/</guid>
       <description>&lt;h2 id=&#34;直接看表格&#34;&gt;直接看表格&lt;/h2&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -142,10 +162,10 @@
 &lt;/table&gt;</description>
     </item>
     <item>
-      <title>【Stanley】一战、《西线无战事》《1917》《光荣之路》：当银幕与屏幕间的堑壕崩塌时</title>
-      <link>http://localhost:1313/posts/stanley%E4%B8%80%E6%88%98%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B1917%E5%85%89%E8%8D%A3%E4%B9%8B%E8%B7%AF%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/</link>
+      <title>一战、《西线无战事》《1917》《光荣之路》：当银幕与屏幕间的堑壕崩塌时</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/stanley-wwi-films/</link>
       <pubDate>Mon, 05 May 2025 11:26:53 +0800</pubDate>
-      <guid>http://localhost:1313/posts/stanley%E4%B8%80%E6%88%98%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B1917%E5%85%89%E8%8D%A3%E4%B9%8B%E8%B7%AF%E5%BD%93%E9%93%B6%E5%B9%95%E4%B8%8E%E5%B1%8F%E5%B9%95%E9%97%B4%E7%9A%84%E5%A0%91%E5%A3%95%E5%B4%A9%E5%A1%8C%E6%97%B6/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/stanley-wwi-films/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;They went to sea in a Sieve, they did,
 In a Sieve they went to sea:
@@ -158,20 +178,20 @@ Their heads are green, and their hands are blue,
 And they went to sea in a Sieve.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>【鲸鱼随笔】梯度消失的年三十</title>
-      <link>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/</link>
+      <title>梯度消失的年三十</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/vanishing-gradient-new-year/</link>
       <pubDate>Tue, 04 Feb 2025 09:00:18 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E7%9A%84%E5%B9%B4%E4%B8%89%E5%8D%81/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/vanishing-gradient-new-year/</guid>
       <description>&lt;p&gt;过年了，不要再讨论什么transformer&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;、SOTA&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;、pretrain&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;之类的了。你背着贴满各大厂logo的破双肩包&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;回到家，发现跑了一年的实验数据根本换不来丈母娘一个正眼，老同学们晒着年终奖在酒桌上谈笑风生，你躲在厨房用手机SSH&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;连上实验室的3090集群&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;继续调prompt&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;。亲戚围炉时问起你的学术成就，你掏手机展示arxiv&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;最新预印本，说在cifar-10&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;上把准确率卷到了99.114514%&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;，亲戚们举着筷子的手僵在半空，你还在脑内循环播放LeetCode hard&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;的滑动窗口解法。&lt;/p&gt;
 &lt;p&gt;你暗笑他们不懂attention机制&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;的精妙，不明白你凌晨三点调learning rate schedule&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;的禅意，更看不懂你GitHub仓库里那串寒碜的几个star&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;。当大姑炫耀儿子在滨江&lt;sup id=&#34;fnref:15&#34;&gt;&lt;a href=&#34;#fn:15&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;15&lt;/a&gt;&lt;/sup&gt;买了89平学区房，小叔吹嘘女儿特斯拉又蹭了保险时，你父母低头扒饭，嘟囔着&amp;quot;我崽的MacBook键盘包了浆，空调房还戴毛线帽，说是什么对抗梯度消失&lt;sup id=&#34;fnref:16&#34;&gt;&lt;a href=&#34;#fn:16&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;16&lt;/a&gt;&lt;/sup&gt;&amp;quot;。&lt;/p&gt;
 &lt;p&gt;你凌晨三点蹲在老家路由器旁边抢算力配额&lt;sup id=&#34;fnref:17&#34;&gt;&lt;a href=&#34;#fn:17&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;17&lt;/a&gt;&lt;/sup&gt;，发现HuggingFace&lt;sup id=&#34;fnref:18&#34;&gt;&lt;a href=&#34;#fn:18&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;18&lt;/a&gt;&lt;/sup&gt;的API调用费比老家彩礼还贵。家族群里红包雨下得正欢，你反手甩出刚中的ACL workshop&lt;sup id=&#34;fnref:19&#34;&gt;&lt;a href=&#34;#fn:19&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;19&lt;/a&gt;&lt;/sup&gt;链接，配文&amp;quot;大模型幻觉问题&lt;sup id=&#34;fnref:20&#34;&gt;&lt;a href=&#34;#fn:20&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;20&lt;/a&gt;&lt;/sup&gt;新SOTA&amp;quot;。表哥表姐们晒着三亚度假照，你在评论区用Markdown格式&lt;sup id=&#34;fnref:21&#34;&gt;&lt;a href=&#34;#fn:21&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;21&lt;/a&gt;&lt;/sup&gt;分析海滩游客密度与Transformer位置编码的相似性，最后补了句&amp;quot;求NeurIPS&lt;sup id=&#34;fnref:22&#34;&gt;&lt;a href=&#34;#fn:22&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;22&lt;/a&gt;&lt;/sup&gt;在投论文互审&amp;quot;。&lt;/p&gt;
 &lt;p&gt;年三十的鞭炮声里，窗外的烟花在你布满血丝的瞳孔里炸开，恍惚间竟像是预训练时loss曲线&lt;sup id=&#34;fnref:23&#34;&gt;&lt;a href=&#34;#fn:23&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;23&lt;/a&gt;&lt;/sup&gt;最后的震荡。深夜改完第一百零八版实验数据，你默默把滚烫的电脑从大腿挪开，屏幕蓝光映着漫天绚烂的火火，那些未收敛的残差&lt;sup id=&#34;fnref:24&#34;&gt;&lt;a href=&#34;#fn:24&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;24&lt;/a&gt;&lt;/sup&gt;在视网膜上拖出彗星般的轨迹。父母卧室传来叹息：&amp;ldquo;这孩子天天说自己在搞什么大语言模型，可连份正经实习都捞不着&amp;hellip;&amp;quot;。尾音混着远处炸响的二踢脚，在过拟合&lt;sup id=&#34;fnref:25&#34;&gt;&lt;a href=&#34;#fn:25&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;25&lt;/a&gt;&lt;/sup&gt;的耳鸣中碎成梯度消失&lt;sup id=&#34;fnref:26&#34;&gt;&lt;a href=&#34;#fn:26&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;26&lt;/a&gt;&lt;/sup&gt;的残响。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>【鲸鱼随笔】Deepseek诗词文章</title>
-      <link>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</link>
+      <title>Deepseek诗词文章</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/deepseek-poems/</link>
       <pubDate>Sun, 02 Feb 2025 18:51:31 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E9%B2%B8%E9%B1%BC%E9%9A%8F%E7%AC%94deepseek%E8%AF%97%E8%AF%8D%E6%96%87%E7%AB%A0/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/deepseek-poems/</guid>
       <description>&lt;p&gt;2025年春节期间，Deekseek刚刚爆火，我发现它文笔不错，故让其创作了以下诗词和文章。&lt;/p&gt;
 &lt;h2 id=&#34;春晚&#34;&gt;春晚&lt;/h2&gt;
 &lt;h3 id=&#34;浣溪沙寄onerepublic春晚之约&#34;&gt;浣溪沙·寄OneRepublic春晚之约&lt;/h3&gt;
@@ -180,24 +200,24 @@ And they went to sea in a Sieve.&lt;/p&gt;</description>
     </item>
     <item>
       <title>评2023年度E军群面题目脱下长衫</title>
-      <link>http://localhost:1313/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/on-taking-off-the-gown/</link>
       <pubDate>Sat, 01 Feb 2025 16:01:13 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E8%AF%842023%E5%B9%B4%E5%BA%A6e%E5%86%9B%E7%BE%A4%E9%9D%A2%E9%A2%98%E7%9B%AE%E8%84%B1%E4%B8%8B%E9%95%BF%E8%A1%AB/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/on-taking-off-the-gown/</guid>
       <description>&lt;p&gt;题目是谈谈对于“脱下长衫”的看法。E军是电院团委下面的学生组织，决定了面试不能批判性思维、不能畅所欲言。正确的立意是：要脱下长衫、要奋斗。当某个组员说“够努力，就不需要思考要不要脱下长衫”，我直接放弃面试，光看戏。很有意思，一帮没找过工作的大谈特谈解决就业问题。&lt;/p&gt;</description>
     </item>
     <item>
       <title>改掉高考后遗症</title>
-      <link>http://localhost:1313/posts/%E6%94%B9%E6%8E%89%E9%AB%98%E8%80%83%E5%90%8E%E9%81%97%E7%97%87/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/getting-over-gaokao/</link>
       <pubDate>Fri, 31 Jan 2025 22:08:09 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E6%94%B9%E6%8E%89%E9%AB%98%E8%80%83%E5%90%8E%E9%81%97%E7%97%87/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/getting-over-gaokao/</guid>
       <description>&lt;p&gt;过年回家，亲戚会让我“教教孩子”。我不知道说什么，我也是这个体制的帮凶。&lt;/p&gt;
 &lt;p&gt;网上誓师大会的视频很出名，我在这些学生身上看到很多人，包括现在周围的人，包括以前的我自己。把读书变成战争，把人生压成一次考试，用自我感动当燃料往前推。这是一种精神鸦片。&lt;/p&gt;</description>
     </item>
     <item>
       <title>通识课和红课的经验分享</title>
-      <link>http://localhost:1313/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/general-education-courses/</link>
       <pubDate>Fri, 24 Jan 2025 14:55:32 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E9%80%9A%E8%AF%86%E8%AF%BE%E5%92%8C%E7%BA%A2%E8%AF%BE%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/general-education-courses/</guid>
       <description>&lt;p&gt;本人通识课3门90+，其中一门97；红课五门全部85+，其中一门90一门95。给一些经验&lt;/p&gt;
 &lt;h3 id=&#34;选课&#34;&gt;选课&lt;/h3&gt;
 &lt;p&gt;看选课社区，选择大于努力&lt;/p&gt;
@@ -211,10 +231,17 @@ And they went to sea in a Sieve.&lt;/p&gt;</description>
 切忌自己/AI从0创作。知网校内免费下载相关论文，AI缝合，人工微调。&lt;/p&gt;</description>
     </item>
     <item>
+      <title>CS231n 2017 全课笔记</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/cs231n-2017-course-notes/</link>
+      <pubDate>Sat, 17 Aug 2024 12:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/cs231n-2017-course-notes/</guid>
+      <description>斯坦福 CS231n 2017 版全课笔记，按 16 讲顺序覆盖图像分类、损失函数与反向传播、卷积与经典架构、训练实务、序列与检测分割、生成模型与对抗样本、高效推理与硬件协同设计。英文正文，含 50 张课件配图。</description>
+    </item>
+    <item>
       <title>从戏剧讲到审美</title>
-      <link>http://localhost:1313/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/on-drama-and-aesthetics/</link>
       <pubDate>Sat, 27 Apr 2024 09:33:20 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E4%BB%8E%E6%88%8F%E5%89%A7%E8%AE%B2%E5%88%B0%E5%AE%A1%E7%BE%8E/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/on-drama-and-aesthetics/</guid>
       <description>&lt;p&gt;这个月交大邀请上戏的教授讲戏剧。关于戏剧的魅力​​，可以从多重维度理解。对观众而言，其吸引力在于跌宕的情节、生动的表演、深刻的思想表达与震撼的舞台呈现；而编导演则通过戏剧体验他人精神世界、创造全新舞台形象，在演出成功的诱惑与未知成败的忐忑中收获独特价值。从​​戏剧的呈现方式​​看，它是一种可自由观看的表演——观众自主选择焦点，与演员实时互动，每场演出因观众反应、演员状态等变量产生不可复制的感染力。若探究​​戏剧的本质目的​​，优秀作品始终聚焦人物如何解决问题：哈姆雷特的悲怆复仇与《雷雨》中破碎的家庭宿命，无不揭示世界的复杂性与内心困境。戏剧并非生活教科书，而是通过展现民族文化基因与人性光谱，让观众在精神洗礼中获得期待与共鸣。我看过的《扬名立万》和《十二怒汉》，场景集中、台词密集，恰是戏剧张力在银幕的延伸。&lt;/p&gt;</description>
     </item>
   </channel>

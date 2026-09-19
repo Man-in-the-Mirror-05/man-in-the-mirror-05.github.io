@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>RAG on Man in the Mirror</title>
+    <link>https://man-in-the-mirror-05.github.io/tags/rag/</link>
+    <description>Recent content in RAG on Man in the Mirror</description>
+    <image>
+      <title>Man in the Mirror</title>
+      <url>https://i.postimg.cc/7hwBy7VS/calcr.png</url>
+      <link>https://i.postimg.cc/7hwBy7VS/calcr.png</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 04 Sep 2026 09:00:00 +0800</lastBuildDate>
+    <atom:link href="https://man-in-the-mirror-05.github.io/tags/rag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从能跑到可验证：一个 Agent 系统的三次返工</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/from-runnable-to-verifiable/</link>
+      <pubDate>Fri, 04 Sep 2026 09:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/from-runnable-to-verifiable/</guid>
+      <description>面向轨道交通技术文档的 RAG 系统，一年内被推翻重做三次：先优化检索，再重构为自验证闭环，最后补上评估闭环并迁移到视频标注。含 15 条查询的逐题实测、真机数据接入结果，以及没做成的那部分。</description>
+    </item>
+  </channel>
+</rss>

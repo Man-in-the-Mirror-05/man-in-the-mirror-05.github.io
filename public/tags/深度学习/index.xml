@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>深度学习 on Man in the Mirror</title>
+    <link>https://man-in-the-mirror-05.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 深度学习 on Man in the Mirror</description>
+    <image>
+      <title>Man in the Mirror</title>
+      <url>https://i.postimg.cc/7hwBy7VS/calcr.png</url>
+      <link>https://i.postimg.cc/7hwBy7VS/calcr.png</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 01 Dec 2025 12:00:00 +0800</lastBuildDate>
+    <atom:link href="https://man-in-the-mirror-05.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>破解Transformer：视频总结</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/cracking-transformer-video-notes/</link>
+      <pubDate>Mon, 01 Dec 2025 12:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/cracking-transformer-video-notes/</guid>
+      <description>B 站视频《破解Transformer》的观看总结：从规则系统与统计语言学到 RNN、CTC、Encoder-Decoder、注意力与自注意力、位置编码、归一化与残差，再到解码器的交叉注意力与因果注意力，共 12 节。视频来源：https://space.bilibili.com/287989852</description>
+    </item>
+    <item>
+      <title>CS231n 2017 全课笔记</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/cs231n-2017-course-notes/</link>
+      <pubDate>Sat, 17 Aug 2024 12:00:00 +0800</pubDate>
+      <guid>https://man-in-the-mirror-05.github.io/posts/cs231n-2017-course-notes/</guid>
+      <description>斯坦福 CS231n 2017 版全课笔记，按 16 讲顺序覆盖图像分类、损失函数与反向传播、卷积与经典架构、训练实务、序列与检测分割、生成模型与对抗样本、高效推理与硬件协同设计。英文正文，含 50 张课件配图。</description>
+    </item>
+  </channel>
+</rss>

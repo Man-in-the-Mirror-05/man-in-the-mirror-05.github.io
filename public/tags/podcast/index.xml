@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Podcast on Man in the Mirror</title>
-    <link>http://localhost:1313/tags/podcast/</link>
+    <link>https://man-in-the-mirror-05.github.io/tags/podcast/</link>
     <description>Recent content in Podcast on Man in the Mirror</description>
     <image>
       <title>Man in the Mirror</title>
@@ -12,28 +12,27 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 22 Apr 2026 19:45:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://man-in-the-mirror-05.github.io/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【播客】高校机器——文凭、权力与逃离路线</title>
-      <link>http://localhost:1313/posts/%E6%92%AD%E5%AE%A2-%E9%AB%98%E6%A0%A1%E6%9C%BA%E5%99%A8/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/podcast-university-machine/</link>
       <pubDate>Wed, 22 Apr 2026 19:45:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E6%92%AD%E5%AE%A2-%E9%AB%98%E6%A0%A1%E6%9C%BA%E5%99%A8/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/podcast-university-machine/</guid>
       <description>一期播客对话文稿：关于985高校内部的权力结构、资源流向，以及一个二十一岁学生如何在其中找到生存路线。</description>
     </item>
     <item>
       <title>【播客】十块钱的牛奶与四十块的猪排——健身人餐桌上的资本主义课</title>
-      <link>http://localhost:1313/posts/%E6%92%AD%E5%AE%A2-%E9%A3%9F%E7%89%A9%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/</link>
+      <link>https://man-in-the-mirror-05.github.io/posts/podcast-food-capitalism/</link>
       <pubDate>Wed, 22 Apr 2026 18:36:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E6%92%AD%E5%AE%A2-%E9%A3%9F%E7%89%A9%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/</guid>
+      <guid>https://man-in-the-mirror-05.github.io/posts/podcast-food-capitalism/</guid>
       <description>从健身人的日常饮食选择出发，聊资本主义、消费主义、鲍曼与布迪厄。</description>
     </item>
     <item>
-      <title>谢赛宁访谈</title>
-      <link>http://localhost:1313/posts/%E8%B0%A2%E8%B5%9B%E5%AE%81%E8%AE%BF%E8%B0%88/</link>
+      <title>命运的梯度下降：谢赛宁与反向OpenAI的七小时</title>
+      <link>https://man-in-the-mirror-05.github.io/posts/interview-saining-xie/</link>
       <pubDate>Sun, 05 Apr 2026 21:59:19 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E8%B0%A2%E8%B5%9B%E5%AE%81%E8%AE%BF%E8%B0%88/</guid>
-      <description>&lt;h2 id=&#34;命运的梯度下降谢赛宁与反向openai的七小时&#34;&gt;命运的梯度下降：谢赛宁与反向OpenAI的七小时&lt;/h2&gt;
-&lt;p&gt;纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。&lt;/p&gt;</description>
+      <guid>https://man-in-the-mirror-05.github.io/posts/interview-saining-xie/</guid>
+      <description>&lt;p&gt;纽约的冬天正经历近年来最冷的一季。积雪未化的布鲁克林街头，谢赛宁坐在我对面，刚刚过完中国春节。这位与图灵奖得主杨立昆（Yann LeCun）共同创立AMI Labs的华人科学家，刚刚完成了一笔创纪录的融资——估值30亿美元，初始团队25人，总部设在巴黎而非硅谷。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
