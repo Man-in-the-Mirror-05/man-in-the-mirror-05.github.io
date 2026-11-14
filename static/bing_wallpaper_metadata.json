@@ -1,13 +1,5 @@
 [
   {
-    "enddate": "20251123",
-    "urlBase": "/th?id=OHR.MadgascarAmmonite_ZH-CN6497276091",
-    "filename": "MadgascarAmmonite",
-    "headline": "Nature's secret code",
-    "copyright": "Ammonite fossil from Madagascar (© ThomasLENNE/Shutterstock)",
-    "download_time": "2025-11-23T22:39:14.328163"
-  },
-  {
     "enddate": "20251124",
     "urlBase": "/th?id=OHR.GwailorFort_ZH-CN6731607002",
     "filename": "GwailorFort",
@@ -238,5 +230,13 @@
     "headline": "唯有向上发展",
     "copyright": "中国香港维多利亚港 (© Juan Romero/Cavan Images)",
     "download_time": "2026-11-14T00:00:05.786236"
+  },
+  {
+    "enddate": "20261115",
+    "urlBase": "/th?id=OHR.FirstFrost_ZH-CN2219029557",
+    "filename": "FirstFrost",
+    "headline": "霜染枝叶",
+    "copyright": "覆霜的红叶杜鹃 (© avoferten/Shutterstock)",
+    "download_time": "2026-11-15T00:00:06.625806"
   }
 ]
