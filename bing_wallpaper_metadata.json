@@ -1,13 +1,5 @@
 [
   {
-    "enddate": "20251124",
-    "urlBase": "/th?id=OHR.GwailorFort_ZH-CN6731607002",
-    "filename": "GwailorFort",
-    "headline": "岩石中的秘密",
-    "copyright": "瓜廖尔堡, ‌中央邦, 印度 (© ImagesofIndia/Shutterstock)",
-    "download_time": "2025-11-24T00:38:05.256103"
-  },
-  {
     "enddate": "20251125",
     "urlBase": "/th?id=OHR.TreviFountain_ZH-CN6892299520",
     "filename": "TreviFountain",
@@ -238,5 +230,13 @@
     "headline": "霜染枝叶",
     "copyright": "覆霜的红叶杜鹃 (© avoferten/Shutterstock)",
     "download_time": "2026-11-15T00:00:06.625806"
+  },
+  {
+    "enddate": "20261116",
+    "urlBase": "/th?id=OHR.GilaCliff_ZH-CN2393001519",
+    "filename": "GilaCliff",
+    "headline": "历经岁月，屹立不倒",
+    "copyright": "美国新墨西哥州吉拉悬崖民居国家纪念地 (© Chiara Salvadori/Getty Images)",
+    "download_time": "2026-11-16T00:00:07.103187"
   }
 ]
