@@ -1,13 +1,5 @@
 [
   {
-    "enddate": "20251127",
-    "urlBase": "/th?id=OHR.PierOfEastbourne2025_ZH-CN7178301269",
-    "filename": "PierOfEastbourne2025",
-    "headline": "潮起潮落的坚守",
-    "copyright": "伊斯特本码头, 东萨塞克斯郡, 英格兰 (© Tolga_TEZCAN/Getty Images)",
-    "download_time": "2025-11-27T22:26:55.651522"
-  },
-  {
     "enddate": "20251128",
     "urlBase": "/th?id=OHR.InvernoItalia_ZH-CN1329490862",
     "filename": "InvernoItalia",
@@ -238,5 +230,13 @@
     "headline": "从黄昏狩猎到黎明",
     "copyright": "一对仓鸮 (© Zahoor Salmi/Getty Images)",
     "download_time": "2026-11-18T00:00:06.230905"
+  },
+  {
+    "enddate": "20261119",
+    "urlBase": "/th?id=OHR.KnowledgeSculpture_ZH-CN3168800853",
+    "filename": "KnowledgeSculpture",
+    "headline": "思想在此成形",
+    "copyright": "雕塑《知识之躯》，由豪梅·普兰萨创作，位于德国法兰克福的法兰克福歌德大学 (© Todamo/Shutterstock)",
+    "download_time": "2026-11-19T00:00:06.523555"
   }
 ]
