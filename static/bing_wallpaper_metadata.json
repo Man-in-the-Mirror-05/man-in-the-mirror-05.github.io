@@ -1,13 +1,5 @@
 [
   {
-    "enddate": "20251128",
-    "urlBase": "/th?id=OHR.InvernoItalia_ZH-CN1329490862",
-    "filename": "InvernoItalia",
-    "headline": "白色回响",
-    "copyright": "瓦尔·布兰德特, 布雷西亚, 伦巴第大区, 意大利 (© ClickAlps/Alamy)",
-    "download_time": "2025-11-28T08:41:54.435603"
-  },
-  {
     "enddate": "20251203",
     "urlBase": "/th?id=OHR.BosqueCranes_ZH-CN1838488224",
     "filename": "BosqueCranes",
@@ -238,5 +230,13 @@
     "headline": "思想在此成形",
     "copyright": "雕塑《知识之躯》，由豪梅·普兰萨创作，位于德国法兰克福的法兰克福歌德大学 (© Todamo/Shutterstock)",
     "download_time": "2026-11-19T00:00:06.523555"
+  },
+  {
+    "enddate": "20261120",
+    "urlBase": "/th?id=OHR.Megaptera_ZH-CN3361807823",
+    "filename": "Megaptera",
+    "headline": "在峡湾中大快朵颐",
+    "copyright": "正在潜水的座头鲸，挪威北部特罗姆斯的克瓦尔岛 (© Espen Bergersen/Minden Pictures)",
+    "download_time": "2026-11-20T00:00:06.631766"
   }
 ]
