@@ -1,13 +1,5 @@
 [
   {
-    "enddate": "20251204",
-    "urlBase": "/th?id=OHR.CheetahMound_ZH-CN1970221812",
-    "filename": "CheetahMound",
-    "headline": "为生存而疾驰",
-    "copyright": "马赛马拉国家保护区的猎豹, 纳罗克, 肯尼亚 (© Andy Rouse/naturepl.com)",
-    "download_time": "2025-12-04T00:01:18.318716"
-  },
-  {
     "enddate": "20251209",
     "urlBase": "/th?id=OHR.LlamaDay_ZH-CN2646855786",
     "filename": "LlamaDay",
@@ -238,5 +230,13 @@
     "headline": "陶瓦屋顶下的梦",
     "copyright": "法国普罗旺斯-阿尔卑斯-蔚蓝海岸大区尼斯 (© Siripong Kaewla-iad/Getty Images)",
     "download_time": "2026-11-21T00:00:06.407987"
+  },
+  {
+    "enddate": "20261123",
+    "urlBase": "/th?id=OHR.FibonacciFern_ZH-CN3882237848",
+    "filename": "FibonacciFern",
+    "headline": "自然中的几何之美",
+    "copyright": "蕨类植物的卷曲嫩叶 (© Reza Saputra/Getty Images)",
+    "download_time": "2026-11-23T00:00:06.106474"
   }
 ]
