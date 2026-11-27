@@ -1,13 +1,5 @@
 [
   {
-    "enddate": "20251217",
-    "urlBase": "/th?id=OHR.FrostySquirrel_ZH-CN4613360783",
-    "filename": "FrostySquirrel",
-    "headline": "皮毛、霜冻和盛宴",
-    "copyright": "在诺森伯兰郡的欧亚红松鼠, 英格兰 (© Michael_Conrad/Getty Images)",
-    "download_time": "2025-12-17T15:27:43.499994"
-  },
-  {
     "enddate": "20251219",
     "urlBase": "/th?id=OHR.BormioItaly_ZH-CN5397313772",
     "filename": "BormioItaly",
@@ -238,5 +230,13 @@
     "headline": "灰金交织的峡谷",
     "copyright": "夕阳下的孤峰，鲍威尔湖脸峡谷，犹他州，美国 (© Jeff Foott/Minden)",
     "download_time": "2026-11-27T00:00:08.722474"
+  },
+  {
+    "enddate": "20261128",
+    "urlBase": "/th?id=OHR.VltavaPrague_ZH-CN9898139716",
+    "filename": "VltavaPrague",
+    "headline": "跨越时光的桥梁",
+    "copyright": "捷克布拉格老城区与伏尔塔瓦河 (© Lara_Uhryn/Getty Images)",
+    "download_time": "2026-11-28T00:00:06.471571"
   }
 ]
